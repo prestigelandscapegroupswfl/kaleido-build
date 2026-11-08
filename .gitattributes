@@ -4,3 +4,4 @@ repository.kaleido-*.zip -filter -diff -merge -text
 madnox-nova-deps-pack.zip -filter -diff -merge -text
 madnox-nova-deps-pack.zip -filter -diff -merge -text
 skin.madnoxnova-*.zip -filter -diff -merge -text
+skin.madnoxnova-*-INSTALL.zip -filter -diff -merge -text
