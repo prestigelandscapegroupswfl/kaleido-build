@@ -1,3 +1,4 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
 repo/** -filter -diff -merge -text
 repository.kaleido-*.zip -filter -diff -merge -text
+madnox-nova-deps-pack.zip -filter -diff -merge -text
