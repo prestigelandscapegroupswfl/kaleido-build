@@ -653,4 +653,1355 @@ v21.02.01
     <platform>all</platform>
   </extension>
 </addon>
+<addon id="script.module.pil"
+       name="Python Image Library"
+       version="5.1.0"
+       provider-name="PythonWare">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.six" name="six" version="1.16.0+matrix.1" provider-name="Benjamin Peterson">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Python 2 and 3 compatibility utilities</summary>
+    <description lang="en_GB">Python 2 and 3 compatibility utilities</description>
+    <license>MIT</license>
+    <platform>all</platform>
+    <website>https://github.com/benjaminp/six</website>
+    <source>https://github.com/benjaminp/six</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.certifi" name="certifi" version="2023.5.7" provider-name="Certifi">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Certifi: Python SSL Certificates</summary>
+    <description lang="en_GB">Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. It has been extracted from the Requests project.</description>
+    <license>MPL-2.0</license>
+    <website>https://github.com/certifi/python-certifi</website>
+    <source>https://github.com/certifi/python-certifi</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.chardet" name="chardet" version="5.1.0" provider-name="Character Encoding Detector">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">The Universal Character Encoding Detector</summary>
+    <description lang="en_GB">The Universal Character Encoding Detector</description>
+    <license>LGPL-2.1</license>
+    <platform>all</platform>
+    <website>https://chardet.readthedocs.io/</website>
+    <source>https://github.com/chardet/chardet</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.idna" name="idna" version="3.10.0" provider-name="Kim Davies">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Internationalized Domain Names for Python</summary>
+    <description lang="en_GB">Internationalized Domain Names for Python</description>
+    <license>BSD-3-Clause</license>
+    <platform>all</platform>
+    <website>https://github.com/kjd/idna</website>
+    <source>https://github.com/kjd/idna</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.urllib3" name="urllib3" version="2.2.3" provider-name="urllib3">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0" />
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python</summary>
+    <description lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries</description>
+    <license>MIT</license>
+    <platform>all</platform>
+    <website>https://urllib3.readthedocs.io/</website>
+    <source>https://github.com/urllib3/urllib3</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.requests" name="requests" version="2.31.0" provider-name="Python Software Foundation">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.certifi" version="2023.5.7"/>
+    <import addon="script.module.chardet" version="5.1.0"/>
+    <import addon="script.module.idna" version="3.4.0"/>
+    <import addon="script.module.urllib3" version="1.26.16+matrix.1"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</summary>
+    <description lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</description>
+    <license>Apache-2.0</license>
+    <platform>all</platform>
+    <website>https://requests.readthedocs.io/</website>
+    <source>https://github.com/psf/requests</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.addon.signals"
+    name="Addon Signals"
+    version="0.0.6+matrix.1"
+    provider-name="Rick Phillips (ruuk)">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Inter-addon signalling</summary>
+        <description lang="en_GB">Provides signal/slot mechanism for inter-addon communication</description>
+        <platform>all</platform>
+        <license>LGPL-2.1-only</license>
+        <source>https://github.com/ruuk/script.module.addon.signals</source>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
+<addon id="script.module.infotagger" name="InfoTagger" provider-name="jurialmunkey" version="0.0.8">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+  </requires>
+  <extension point="xbmc.python.module" library="resources/modules" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en_GB">Python wrapper for setInfo on Nexus InfoTags</summary>
+    <description lang="en_GB">Python wrapper for setInfo on Nexus InfoTags</description>
+    <license>GPL-3.0-or-later</license>
+    <website>https://github.com/jurialmunkey/script.module.infotagger</website>
+    <source>https://github.com/jurialmunkey/script.module.infotagger</source>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+
+</addon>
+<addon id="script.module.qrcode"
+       name="qrcode"
+       version="6.1.0+matrix.3"
+       provider-name="Lincoln Loop">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.six" version="1.14.0+matrix.1"/>
+    <import addon="script.module.pil" version="1.1.7"/> <!-- Python Image Library required to create QR images -->
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">QR Code image generator</summary>
+    <description lang="en_GB">This module uses image libraries, Python Imaging Library (PIL) by default, to generate QR Codes.</description>
+    <license>BSD-3-Clause</license>
+    <website>https://pypi.org/project/qrcode/</website>
+    <source>https://github.com/lincolnloop/python-qrcode</source>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.unidecode" name="unidecode" version="1.1.1+matrix.2" provider-name="Tomaz Solc (Tomaz.solc@tablix.org)">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en_GB">ASCII transliterations of Unicode text by Sean M. Burke and Tomaz Solc</summary>
+		<description lang="en_GB">ASCII transliterations of Unicode text by Sean M. Burke and Tomaz Solc</description>
+		<disclaimer lang="en_GB">Code taken from https://pypi.org/project/Unidecode</disclaimer>
+		<license>GPL-2.0-or-later</license>
+		<website>https://pypi.org/project/Unidecode</website>
+		<source>https://pypi.org/project/Unidecode</source>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
+</addon>
+<addon id="script.module.simpleeval" name="Simple Eval" version="0.9.13" provider-name="Daniel Fairhead">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Simple Eval</summary>
+        <description lang="en_GB">A library for easily adding evaluatable expressions into python projects</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <source>https://github.com/mikesilvo164/script.module.simpleeval</source>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
+<addon id="script.module.jurialmunkey" name="jurialmunkey common" provider-name="jurialmunkey" version="0.2.35">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+    <import addon="script.module.requests" version="2.9.1"/>
+    <import addon="script.module.infotagger" version="0.0.5" />
+  </requires>
+  <extension point="xbmc.python.module" library="resources/modules" />
+  <extension point="xbmc.addon.metadata">
+    <description lang="en_GB">Common code required by TMDbHelper and other related jurialmunkey add-ons</description>
+    <description lang="zh_CN">TMDb 助手及其他相关 jurialmunkey 插件所需的通用代码</description>
+    <license>GPL-3.0-or-later</license>
+    <website>https://github.com/jurialmunkey/script.module.jurialmunkey</website>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.skin.madnox"
+       name="Madnox Scripts Skin Helper"
+       version="1.0.6"
+       provider-name="Kittmaster">
+
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py" />
+    <extension point="xbmc.addon.metadata">
+
+        <!-- English (Primary) -->
+        <summary lang="en_gb">Helper script for the Madnox skin providing extended logic and features.</summary>
+        <description lang="en_gb">Provides background logic, script routing, and enhanced functionality required by the Madnox skin.</description>
+
+        <!-- English (US) -->
+        <summary lang="en_us">Helper script for the Madnox skin providing extended logic and features.</summary>
+        <description lang="en_us">Provides background logic, script routing, and enhanced functionality required by the Madnox skin.</description>
+
+        <!-- Arabic -->
+        <summary lang="ar_sa">برنامج مساعد لواجهة Madnox يوفر وظائف إضافية للجلد.</summary>
+        <description lang="ar_sa">يوفر منطقًا ووظائف خلفية ضرورية لعمل واجهة Madnox بشكل كامل.</description>
+
+        <!-- German -->
+        <summary lang="de_de">Hilfsskript für den Madnox‑Skin, das zusätzliche Logik und Funktionen bereitstellt.</summary>
+        <description lang="de_de">Stellt Hintergrundlogik, Skriptrouting und erweiterte Funktionen für den Madnox‑Skin bereit.</description>
+
+        <!-- Spanish -->
+        <summary lang="es_es">Script auxiliar para el skin Madnox que ofrece funciones y lógica adicionales.</summary>
+        <description lang="es_es">Proporciona lógica interna, enrutamiento de scripts y funciones avanzadas necesarias para el skin Madnox.</description>
+
+        <!-- French -->
+        <summary lang="fr_fr">Script d’assistance pour le skin Madnox, ajoutant des fonctions et une logique étendue.</summary>
+        <description lang="fr_fr">Fournit la logique interne, le routage des scripts et les fonctionnalités avancées nécessaires au skin Madnox.</description>
+
+        <!-- Norwegian -->
+        <summary lang="no_no">Hjelpeskript for Madnox‑skallet som gir ekstra funksjoner og logikk.</summary>
+        <description lang="no_no">Gir bakgrunnslogikk, skriptruting og utvidede funksjoner som Madnox‑skallet krever.</description>
+
+        <!-- Portuguese (Brazil) -->
+        <summary lang="pt_br">Script auxiliar para o tema Madnox, oferecendo lógica e recursos adicionais.</summary>
+        <description lang="pt_br">Fornece lógica interna, roteamento de scripts e funcionalidades avançadas necessárias para o tema Madnox.</description>
+
+        <!-- Swedish -->
+        <summary lang="sv_se">Hjälpskript för Madnox‑skalet som tillhandahåller extra funktioner och logik.</summary>
+        <description lang="sv_se">Ger bakgrundslogik, skriptrouting och avancerade funktioner som behövs för Madnox‑skalet.</description>
+
+        <!-- Ukrainian -->
+        <summary lang="uk_ua">Допоміжний скрипт для оформлення Madnox, що забезпечує додаткову логіку та функції.</summary>
+        <description lang="uk_ua">Надає внутрішню логіку, маршрутизацію скриптів та розширені можливості, необхідні для оформлення Madnox.</description>
+
+        <!-- Metadata -->
+        <license>GPL-2.0-or-later</license>
+        <source>https://github.com/kittmaster/KittmasterRepo/madnox-helper</source>
+        <website>https://github.com/kittmaster/KittmasterRepo</website>
+
+        <platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+		</assets>
+    </extension>
+</addon>
+<addon id="resource.images.skin.madnox" version="1.0.2" name="Madnox Skin Image Resources" provider-name="Kittmaster">
+    <requires>
+        <!-- This is the core Kodi requirement for resource addons -->
+        <import addon="kodi.resource" version="1.0.0"/>
+    </requires>
+    
+    <extension point="kodi.resource.images" compile="false" />
+    
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_gb">Image resources and extras for the Madnox skin</summary>
+        <description lang="en_gb">This addon contains the extra backgrounds, cdart, icons, and genres required by the Madnox skin. It has been separated to optimize the main skin installation size.</description>
+        <platform>all</platform>
+        <license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+        <forum>https://forum.kodi.tv/forumdisplay.php?fid=314</forum>
+        <source>https://github.com/kittmaster/KittmasterRepo</source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+<addon id="script.skinshortcuts" name="Skin Shortcuts" version="2.0.3" provider-name="BigNoid, marcelveldt, SiLVO, anxdpanic">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.unidecode" version="1.1.1+matrix.2"/>
+        <import addon="script.module.simpleeval" version="0.9.10"/>
+    </requires>
+    <extension point="xbmc.python.library" library="resources/lib/entry_point.py"/>
+    <extension point="xbmc.addon.metadata">
+        <news>
+[fix] translations in PVR |contrib: Dis90|
+[fix] titles missing in some dialogs
+[fix] handle missing profiles.xml gracefully (fixes Apple TV)
+[lang] update translations from Weblate
+        </news>
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <forum>https://forum.kodi.tv/showthread.php?tid=178294</forum>
+        <source>https://github.com/mikesilvo164/script.skinshortcuts</source>
+        <assets>
+            <icon>resources/media/icon.png</icon>
+            <fanart>resources/media/fanart.jpg</fanart>
+        </assets>
+        <description lang="ar_SA">إضافة مخصصه للمظهر لتوفير إدارة بسيطة للودجيت &quot;الأقسام&quot; و الاختصارات على الشاشة (تتطلب دعم المظهر لها)</description>
+        <description lang="cs_CZ">Doplněk pro vzhledy poskytující jednoduchý management a seznamy uživatelských zkratek (vyžaduje podporu vzhledu)</description>
+        <description lang="da_DK">Add-on til skins der giver enkel styring og lister over brugergenveje (kræver skin-understøttelse)</description>
+        <description lang="de_DE">Addon für Skins zum einfachen Bearbeiten und Auflisten von benutzerdefinierten Verknüpfungen (erfordert Skinunterstützung)</description>
+        <description lang="el_GR">Πρόσθετο για κελύφη, το οποίο παρέχει έναν απλό τρόπο διαχείρισης και κατηγοριοποίησης των συντομεύσεων του χρήστη (πρέπει να υποστηρίζεται από το κέλυφος)</description>
+        <description lang="en_GB">Add-on for skins to provide simple managing and listing of user shortcuts (requires skin support)</description>
+        <description lang="en_NZ">Add-on for skins to provide simple managing and listing of user shortcuts (requires skin support)</description>
+        <description lang="en_US">Add-on for skins to provide simple managing and listing of user shortcuts (requires skin support)</description>
+        <description lang="es_ES">Complemento para las pieles para proporcionar una gestión sencilla y lista de atajos de usuario (requiere que la piel lo soporte)</description>
+        <description lang="fi_FI">Lisäosa, joka mahdollistaa ulkoasujen valikkokohteiden ja omien pikavalintojen lisäyksen ja niiden muokkauksen (vaatii tuen ulkoasulta)</description>
+        <description lang="fr_CA">Addiciel pour habillages qui fournit une gestion simple et un listage des raccourcis utilisateurs (exige la prise en charge de l&apos;habillage)</description>
+        <description lang="fr_FR">Module complémentaire pour les skins pour fournir une gestion et une liste simples de raccourcis utilisateur (nécessite la prise en charge des skins)</description>
+        <description lang="gl_ES">Complemento que fornece aos temas dunha xestión sinxela dos atallos dos usuarios (require soporte do tema)</description>
+        <description lang="hr_HR">Dodatak za presvlake koji omogućuje jednostavno upravljanje i prikaz prečaca korisnika (zahtijeva podršku presvlake)</description>
+        <description lang="hu_HU">Felszín kiegészítő amely könnyen kezelhetővé és listázhatóvá teszi a felhasználói parancsikonokat (Felszín támogatás szükséges)</description>
+        <description lang="is_IS">Viðbót fyrir viðmót til að halda utan um flýtivísa og fá yfirlit yfir þá (þarfnast stuðnings frá viðmóti)</description>
+        <description lang="it_IT">Add-on per gli skin per consentire un facile gestione ed elenco delle scorciatoie utente (richiede che lo skin lo supporti)</description>
+        <description lang="ko_KR">사용자 단축키의 간단한 관리 및 목록을 제공하는 스킨용 애드온(스킨 지원 필요)</description>
+        <description lang="lt_LT">Priedas teminėms išvaizdoms, kad jos turėtų galimybę paprastai tvarkyti ir atvaizduoti vartotojo sukurtas nuorodas (reikalingas teminės išvaizdos palaikymas)</description>
+        <description lang="nb_NO">Tillegg for enkel administrering og opplisting av bruker-snarveier i tema (krever støtte i tema)</description>
+        <description lang="nl_NL">Add-on voor skins om te voorzien in het eenvoudig beheren en sorteren van gebruikers snelkoppelingen (vereist skin ondersteuning)</description>
+        <description lang="pl_PL">Wtyczka dla skór, która zapewnia proste zarządzanie i tworzenie list skrótów użytkownika (wymaga wsparcia skóry)</description>
+        <description lang="pt_BR">Add-on para que as skins possam prover gerenciamento de lista de atalhos para o menu principal (requer suporte da skin)</description>
+        <description lang="pt_PT">Um add-on que permite que os temas tenham recursos simples para gerir e listar atalhos de utilizadores (é necessário suporte do tema)</description>
+        <description lang="ru_RU">Дополнение для обложек, предоставляющее простой способ управления пользовательскими ярлыками (требуется поддержка обложкой)</description>
+        <description lang="sk_SK">Doplnok poskytujúci jednoduchý manažment zoznamu užívateľských odkazov (vyžaduje podporu v doplnku pre vzhľad)</description>
+        <description lang="sv_SE">Skinntillägg som tillhandahåller enkel hantering och översikt av användargenvägar (om skinnet stöder det)</description>
+        <description lang="zh_CN">皮肤加载项，提供简单的用户快捷方式管理和列表（需要皮肤支持）</description>
+        <description lang="zh_TW">插件为皮肤提供了简单的管理和用户连接方式列表 (需要皮肤支持)</description>
+    </extension>
+</addon>
+<addon id="script.image.resource.select" name="Image Resource Select Addon" version="3.0.2" provider-name="ronie">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+	</requires>
+	<extension point="xbmc.python.library" library="default.py"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Image resource selection addon</summary>
+		<description lang="en_GB">Script for skinners to let users select an image resource addon.</description>
+		<platform>all</platform>
+		<license>GPL-2.0-only</license>
+		<forum>https://forum.kodi.tv/showthread.php?tid=239558</forum>
+		<source>https://gitlab.com/ronie/script.image.resource.select</source>
+		<assets>
+			<icon>resources/icon.png</icon>
+		</assets>
+		<news>- code refactor</news>
+	</extension>
+</addon>
+<addon id="script.favourites" name="Favourites script" version="8.1.2" provider-name="ronie, `Black">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+	</requires>
+	<extension point="xbmc.python.library" library="default.py"/>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="bg_BG">Скрипт "Любими"</summary>
+		<summary lang="ca_ES">Script Preferit</summary>
+		<summary lang="cs_CZ">Script pro Oblíbené</summary>
+		<summary lang="da_DK">Favoritscript</summary>
+		<summary lang="de_DE">Favoriten-Skript</summary>
+		<summary lang="el_GR">Script Αγαπημένων</summary>
+		<summary lang="en_GB">Favourites script</summary>
+		<summary lang="en_NZ">Favourites script</summary>
+		<summary lang="en_US">Favorites script</summary>
+		<summary lang="es_ES">Script de Favoritos</summary>
+		<summary lang="es_AR">Favoritos</summary>
+		<summary lang="fi_FI">Suosikit skripti</summary>
+		<summary lang="fr_FR">Script Favoris</summary>
+		<summary lang="fr_CA">Le script des favoris</summary>
+		<summary lang="gl_ES">Script de Favoritos</summary>
+		<summary lang="he_IL">סקריפט מועדפים</summary>
+		<summary lang="hr_HR">Omiljene skripte</summary>
+		<summary lang="hu_HU">Kedvencek script</summary>
+		<summary lang="id_ID">Script favorit</summary>
+		<summary lang="it_IT">Script preferiti</summary>
+		<summary lang="ko_KR">즐겨찾기 스크립트</summary>
+		<summary lang="lt_LT">Mėgstamiausių skriptas</summary>
+		<summary lang="nl_NL">Favourietenscript</summary>
+		<summary lang="nb_NO">Favorittskript</summary>
+		<summary lang="pl_PL">Skrypt ulubionych</summary>
+		<summary lang="pt_PT">Script de Favoritos</summary>
+		<summary lang="pt_BR">Script Favoritos</summary>
+		<summary lang="ro_RO">Script Favorite</summary>
+		<summary lang="ru_RU">Скрипт "Избранное"</summary>
+		<summary lang="sv_SE">Favoritskript</summary>
+		<summary lang="tr_TR">Sık kullanılanlar betiği</summary>
+		<summary lang="zh_CN">收藏夹脚本</summary>
+		<description lang="bg_BG">Извлича информация от вашето меню "Любими" и показва допълнителни бутони в главното меню и подменюто.</description>
+		<description lang="ca_ES">Obtenir els temes Preferits dels seus Kodi per omplir el menú Inici / submenú amb botons personalitzats.</description>
+		<description lang="cs_CZ">Přenese položky z Oblíbených do Home menu/submenu pod vlastní tlačítka. </description>
+		<description lang="da_DK">Henter elementer fra din Kodi-favoritter til at fylde Hjemmemenu/undermenu med brugerbestemte knapper.</description>
+		<description lang="de_DE">Stellt die Einträge aus der Kodi-Favoriten-Liste für benutzerdefinierte Verknüpfungen auf dem Startbildschirm zur Verfügung.</description>
+		<description lang="el_GR">Χρησιμοποιεί αντικείμενα από τα αγαπημένα σας του Kodi για να συμπληρώσει τα προσαρμοσμένα πλήκτρα μενού/υπομενού της Αρχικής Οθόνης</description>
+		<description lang="en_GB">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
+		<description lang="en_NZ">Fetches item from your Kodi favourites to populate Home menu/submenu with custom buttons.</description>
+		<description lang="en_US">Fetches item from your Kodi favorites to populate Home menu/submenu with custom buttons.</description>
+		<description lang="es_ES">Usar ítems de tus favoritos de Kodi para crear menús y submenús personalizados</description>
+		<description lang="es_AR">Obtiene medios de sus favoritos en Kodi para enriquecer su menu inicio y sub carpetas con botones personalizados</description>
+		<description lang="fi_FI">Hakee Kodin suosikeista kohteita ja populoi sillä Koti-valikon / alivalikon muokatuilla napeilla.</description>
+		<description lang="fr_FR">Récupère l'élément depuis les favoris Kodi pour remplir le menu/sous-menu de la page d'accueil avec des boutons personnalisés.</description>
+		<description lang="fr_CA">Récupère l'élément de vos favoris Kodi pour remplir le menu d'accueil/le sous-menu avec des boutons personnalisés.</description>
+		<description lang="gl_ES">Obtén o elemento dos favoritos para estabelecer botóns personalizados no Menú Principal/Submenú</description>
+		<description lang="he_IL">מייבא פריט מהמועדפים שלך לאכלוס תפריט/תת תפריט עם לחצנים מותאמים אישית במסך הבית.</description>
+		<description lang="hr_HR">Dohvaća stavke iz vašeg Kodi 'Omiljeno' izbornika i popunjava Početni izbornik/podizbornik s prilagođenim tipkama.</description>
+		<description lang="hu_HU">Összegyűjti az elemeket az Kodi kedvencek közül és a központi menü almenüjébe helyezi egyedi gombokkal.</description>
+		<description lang="id_ID">Ambil item dari favorit Kodi Anda untuk mengisi menu/submenu Beranda dengan tombol suka-suka.</description>
+		<description lang="it_IT">Preleva elementi dai tuoi preferiti per popolare il menù principale ed i sottomenù con bottoni personalizzato.</description>
+		<description lang="ko_KR">Kodi 즐겨찾기에서 항목을 가져와 사용자 설정 버튼으로 홈 메뉴/서브메뉴에 표시합니다.</description>
+		<description lang="lt_LT">Paima elementus iš Kodi mėgstamiausiųjų, kad užpildytų pagrindinio meniu/submeniu individualiais mygtukais.</description>
+		<description lang="nl_NL">Haalt item van je Kodi favorieten op om in het Home menu/submenu te plaatsen via losse buttons.</description>
+		<description lang="nb_NO">Henter oppføringer fra favorittene dine i Kodi for å befolke hovedmenyen og undermenyen med egendefinerte knapper.</description>
+		<description lang="pl_PL">Pobiera pozycje z twoich ulubionych w celu zapełnienia menu/podmenu niestandardowymi przyciskami.</description>
+		<description lang="pt_PT">Obtém itens dos seus favoritos do Kodi para povoar o Menu Principal/submenu com botões personalizados.</description>
+		<description lang="pt_BR">Compila itens dos seus favoritos do Kodi para ocupar menus e submenus da tela inicial com botões personalizados.</description>
+		<description lang="ru_RU">Извлекает информацию из Вашего меню "Избранное" и отображает дополнительные кнопки в главном меню и подменю.</description>
+		<description lang="sv_SE">Hämtar objekt från dina Kodi-favoriter för att fylla ut hem-menyn med egna knappar.</description>
+		<description lang="zh_CN">将 Kodi 收藏夹项目用于主界面菜单/子菜单的自定义按钮。</description>
+		<disclaimer lang="be_BY">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="bg_BG">Необходима е поддръжка от страна на облика за коректно функциониране</disclaimer>
+		<disclaimer lang="ca_ES">Necessita Suport de la pell perquè sigui utilitzat correctament</disclaimer>
+		<disclaimer lang="cs_CZ">Pro správné použití je potřeba podpora skinu.</disclaimer>
+		<disclaimer lang="da_DK">Behøver skinsupport for at blive brugt ordentligt</disclaimer>
+		<disclaimer lang="de_DE">Benötigt Skin-Support um korrekt genutzt zu werden</disclaimer>
+		<disclaimer lang="el_GR">Απαιτείται υποστήριξη από το κέλυφος για να χρησιμοποιηθεί σωστά</disclaimer>
+		<disclaimer lang="en_GB">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="en_NZ">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="en_US">Needs skin support for it to be used properly</disclaimer>
+		<disclaimer lang="es_ES">Necesita ser soportado por el skin para poder funcionar correctamente</disclaimer>
+		<disclaimer lang="es_AR">Necesita soporte de mascara para ser usada correctamente</disclaimer>
+		<disclaimer lang="fi_FI">Toimiakseen kunnolla, skinin tulee tukea tätä</disclaimer>
+		<disclaimer lang="fr_FR">Nécessite le support du thème pour qu'il soit utilisé correctement</disclaimer>
+		<disclaimer lang="fr_CA">Le prise en charge de l'habillage est nécessaire pour qu'il soit utilisé correctement</disclaimer>
+		<disclaimer lang="gl_ES">Precisa da axuda da pel para que sexa utilizado correctamente</disclaimer>
+		<disclaimer lang="he_IL">להפעלה כראוי נדרשת תמיכה במעטפת</disclaimer>
+		<disclaimer lang="hr_HR">Zahtijeva podršku presvlake za ispravno korištenje</disclaimer>
+		<disclaimer lang="hu_HU">Felszín támogatás szükséges a helyes működéshez</disclaimer>
+		<disclaimer lang="id_ID">Memerlukan dukungan kulit untuk dapat digunakan dengan baik</disclaimer>
+		<disclaimer lang="it_IT">E' necessario che lo skin supporti lo script per funzionare correttamente</disclaimer>
+		<disclaimer lang="ko_KR">스킨에서 지원해야 합니다</disclaimer>
+		<disclaimer lang="lt_LT">Reikalingas teminės išvaizdos palaikymas tinkamam naudojimui</disclaimer>
+		<disclaimer lang="nl_NL">Heeft skinondersteuning nodig om correct te werken</disclaimer>
+		<disclaimer lang="nb_NO">Krever skallstøtte for å fungere riktig</disclaimer>
+		<disclaimer lang="pl_PL">Wymagane wsparcie skórki w celu poprawnego działania</disclaimer>
+		<disclaimer lang="pt_PT">Necessita de um tema compatível para funcionar correctamente.</disclaimer>
+		<disclaimer lang="pt_BR">Necessita de suporte da skin para ser usado adequadamente</disclaimer>
+		<disclaimer lang="ro_RO">Necesită suport din partea costumului pentru a fi folosit cum trebuie</disclaimer>
+		<disclaimer lang="ru_RU">Необходима поддержка скинов для корректного отображения</disclaimer>
+		<disclaimer lang="sl_SI">Potrebuje podporo preobleke, da bo uporabljeno pravilno.</disclaimer>
+		<disclaimer lang="sv_SE">Behöver skalsupport för att kunna användas riktigt</disclaimer>
+		<disclaimer lang="tr_TR">Düzgün kullanılabilmesi için dış görünüm desteğine ihtiyacınız var</disclaimer>
+		<disclaimer lang="zh_CN">正常使用需要皮肤支持</disclaimer>
+		<platform>all</platform>
+		<license>GPL-2.0-only</license>
+		<forum>https://forum.kodi.tv/showthread.php?tid=114671</forum>
+		<source>https://gitlab.com/ronie/script.favourites</source>
+		<assets>
+			<icon>resources/icon.png</icon>
+		</assets>
+		<news>- get favourites using json-rpc instead of parsing the favourites.xml file
+- fix crash when no favourites exist</news>
+	</extension>
+</addon>
+<addon id="script.skinvariables"
+version="2.1.14"
+name="Skin Variables"
+provider-name="jurialmunkey">
+<requires>
+  <import addon="xbmc.python" version="3.0.0" />
+  <import addon="script.module.jurialmunkey" version="0.1.17" />
+  <import addon="script.module.infotagger" version="0.0.5" />
+</requires>
+<extension point="xbmc.python.script" library="script.py" />
+<extension point="xbmc.python.pluginsource" library="plugin.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.addon.metadata">
+  <summary lang="en_GB">Skin Variables helps skinners to construct variables and expressions for multiple containers and listitems using a template</summary>
+  <summary lang="fr_FR">Skin Variables aide les skinners à créer des variables et des expressions pour plusieurs conteneurs et listes à l'aide d'un modèle</summary>
+  <description lang="en_GB">Skin Variables helps skinners to construct variables and expressions for multiple containers and listitems using a template</description>
+  <description lang="fr_FR">Skin Variables aide les skinners à créer des variables et des expressions pour plusieurs conteneurs et listes à l'aide d'un modèle</description>
+  <disclaimer lang="en_GB">For skinners</disclaimer>
+  <disclaimer lang="fr_FR">Pour les skinners</disclaimer>
+  <license>GPL-3.0-or-later</license>
+  <assets>
+    <icon>icon.png</icon>
+    <fanart>fanart.jpg</fanart>
+  </assets>
+</extension>
+</addon>
+<addon id="plugin.video.themoviedb.helper"
+version="6.11.5"
+name="TMDb Helper"
+provider-name="jurialmunkey">
+<requires>
+  <import addon="xbmc.python" version="3.0.1"/>
+  <import addon="script.module.requests" version="2.9.1"/>
+  <import addon="script.module.pil" version="1.1.7"/>
+  <import addon="script.module.addon.signals" version="0.0.6" />
+  <import addon="script.module.jurialmunkey" version="0.2.29" />
+  <import addon="script.module.infotagger" version="0.0.5" />
+  <import addon="script.module.qrcode" version="6.1.0" />
+</requires>
+<extension point="xbmc.python.pluginsource" library="resources/plugin.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.python.script" library="resources/script.py" />
+<extension point="xbmc.service" library="resources/service.py" />
+<extension point="xbmc.python.module" library="resources/modules"/>
+<extension point="xbmc.addon.metadata">
+  <reuselanguageinvoker>false</reuselanguageinvoker>
+  <summary lang="de_DE">TMDb Helfer</summary>
+  <summary lang="en_GB">TMDb Helper</summary>
+  <summary lang="zh_CN">TMDb 助手</summary>
+  <description lang="de_DE">TMDb Helper liefert Details über Filme, Fernsehsendungen und Schauspieler aus TMDb. Benutzer können auf eine Vielzahl von Listen aus TMDb TVDb MDbList und Trakt zugreifen.</description>
+  <description lang="en_GB">TMDb Helper provides details about movies, tvshows and actors from TMDb. Users can access a variety of lists from TMDb TVDb MDbList and Trakt.</description>
+  <description lang="sv_SE">TMDb Helper tillhandahåller information om filmer, tv-serier och skådespelare från TMDb. Användare kan få tillgång till en mängd olika listor från TMDb, TVDb, MDbList och Trakt.</description>
+  <description lang="zh_CN">TMDb 助手从 TMDb（影视数据库） 获取电影、电视剧及演员的详细信息。用户可访问来自 TMDb、TVDb、MDbList 和 Trakt 的各类影视列表。</description>
+  <disclaimer lang="de_DE">Daten bereitgestellt von TMDb TVDb MDbList OMDb FanartTV und Trakt. Einige der Informationen werden von TheTVDB.com bereitgestellt. Bitte erwäge sie zu unterstützen. https://thetvdb.com/subscribe</disclaimer>
+  <disclaimer lang="en_GB">Data provided by TMDb TVDb MDbList OMDb FanartTV and Trakt. Some of the information is provided by TheTVDB.com. Please consider supporting them. https://thetvdb.com/subscribe</disclaimer>
+  <disclaimer lang="sv_SE">Data tillhandahållen av TMDb TVDb MDbList OMDb FanartTV och Trakt. En del av informationen tillhandahålls av TheTVDB.com. Stöd dem gärna. https://thetvdb.com/subscribe</disclaimer>
+  <disclaimer lang="zh_CN">数据由 TMDb、TVDb、MDbList、OMDb、FanartTV 和 Trakt 提供。部分信息由 TheTVDB.com 提供，建议您支持他们。订阅链接：https://thetvdb.com/subscribe</disclaimer>
+  <license>GPL-3.0-or-later</license>
+  <website>https://github.com/jurialmunkey/plugin.video.themoviedb.helper</website>
+  <forum>https://forum.kodi.tv/showthread.php?tid=345847</forum>
+  <assets>
+    <icon>icon.png</icon>
+    <fanart>fanart.jpg</fanart>
+    <screenshot>resources/screenshot-01.jpg</screenshot>
+    <screenshot>resources/screenshot-02.jpg</screenshot>
+  </assets>
+</extension>
+</addon>
+<addon id="script.artwork.beef" name="Artwork Beef" version="0.28.9" provider-name="rmrector">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+		<import addon="xbmc.json" version="6.20.0" />
+		<import addon="script.module.simplejson" version="3.3.0" />
+		<import addon="script.module.requests" version="2.9.1" />
+		<import addon="script.common.plugin.cache" version="2.5.8" />
+	</requires>
+	<extension point="xbmc.python.script" library="default.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="kodi.context.item">
+		<menu id="kodi.core.main">
+			<menu id="kodi.core.manage">
+				<item library="context.py">
+					<label>AB: $ADDON[script.artwork.beef 32410]</label>
+					<visible>!Skin.HasSetting(disablecontext:script.artwork.beef) + [StringCompare(ListItem.DBTYPE, movie) | StringCompare(ListItem.DBTYPE, set) | StringCompare(ListItem.DBTYPE, tvshow) | StringCompare(ListItem.DBTYPE, episode) | StringCompare(ListItem.DBTYPE, musicvideo) | String.IsEqual(ListItem.DBTYPE, movie) | String.IsEqual(ListItem.DBTYPE, set) | String.IsEqual(ListItem.DBTYPE, tvshow) | String.IsEqual(ListItem.DBTYPE, episode) | String.IsEqual(ListItem.DBTYPE, musicvideo)]</visible>
+				</item>
+				<item library="context_gui.py">
+					<label>AB: $ADDON[script.artwork.beef 32411]</label>
+					<visible>!Skin.HasSetting(disablecontext:script.artwork.beef) + [StringCompare(ListItem.DBTYPE, movie) | StringCompare(ListItem.DBTYPE, set) | StringCompare(ListItem.DBTYPE, tvshow) | StringCompare(ListItem.DBTYPE, episode) | StringCompare(ListItem.DBTYPE, musicvideo) | String.IsEqual(ListItem.DBTYPE, movie) | String.IsEqual(ListItem.DBTYPE, set) | String.IsEqual(ListItem.DBTYPE, tvshow) | String.IsEqual(ListItem.DBTYPE, episode) | String.IsEqual(ListItem.DBTYPE, musicvideo)]</visible>
+				</item>
+				<item library="context_debug_remove.py">
+					<label>AB: $ADDON[script.artwork.beef 32427]</label>
+					<visible>Skin.HasSetting(enablecontext:script.artwork.beef.debug) + [StringCompare(ListItem.DBTYPE, movie) | StringCompare(ListItem.DBTYPE, set) | StringCompare(ListItem.DBTYPE, tvshow) | StringCompare(ListItem.DBTYPE, episode) | StringCompare(ListItem.DBTYPE, musicvideo) | StringCompare(ListItem.DBTYPE, season) | String.IsEqual(ListItem.DBTYPE, movie) | String.IsEqual(ListItem.DBTYPE, set) | String.IsEqual(ListItem.DBTYPE, tvshow) | String.IsEqual(ListItem.DBTYPE, episode) | String.IsEqual(ListItem.DBTYPE, musicvideo) | StringCompare(ListItem.DBTYPE, season)]</visible>
+				</item>
+				<item library="context_debug_logitem.py">
+					<label>AB: $ADDON[script.artwork.beef 32430]</label>
+					<visible>Skin.HasSetting(enablecontext:script.artwork.beef.debug) + [StringCompare(ListItem.DBTYPE, movie) | StringCompare(ListItem.DBTYPE, set) | StringCompare(ListItem.DBTYPE, tvshow) | StringCompare(ListItem.DBTYPE, episode) | StringCompare(ListItem.DBTYPE, musicvideo) | String.IsEqual(ListItem.DBTYPE, movie) | String.IsEqual(ListItem.DBTYPE, set) | String.IsEqual(ListItem.DBTYPE, tvshow) | String.IsEqual(ListItem.DBTYPE, episode) | String.IsEqual(ListItem.DBTYPE, musicvideo)]</visible>
+				</item>
+			</menu>
+			<item library="context.py">
+				<label>AB: $ADDON[script.artwork.beef 32410]</label>
+				<visible>!Skin.HasSetting(disablecontext:script.artwork.beef) + [String.IsEqual(ListItem.DBTYPE, artist) | String.IsEqual(ListItem.DBTYPE, album) | String.IsEqual(ListItem.DBTYPE, song)]</visible>
+			</item>
+			<item library="context_gui.py">
+				<label>AB: $ADDON[script.artwork.beef 32411]</label>
+				<visible>!Skin.HasSetting(disablecontext:script.artwork.beef) + [String.IsEqual(ListItem.DBTYPE, artist) | String.IsEqual(ListItem.DBTYPE, album) | String.IsEqual(ListItem.DBTYPE, song)]</visible>
+			</item>
+			<item library="context_debug_remove.py">
+				<label>AB: $ADDON[script.artwork.beef 32427]</label>
+				<visible>Skin.HasSetting(enablecontext:script.artwork.beef.debug) + [String.IsEqual(ListItem.DBTYPE, artist) | String.IsEqual(ListItem.DBTYPE, album) | String.IsEqual(ListItem.DBTYPE, song)]</visible>
+			</item>
+			<item library="context_debug_logitem.py">
+				<label>AB: $ADDON[script.artwork.beef 32430]</label>
+				<visible>Skin.HasSetting(enablecontext:script.artwork.beef.debug) + [String.IsEqual(ListItem.DBTYPE, artist) | String.IsEqual(ListItem.DBTYPE, album) | String.IsEqual(ListItem.DBTYPE, song)]</visible>
+			</item>
+		</menu>
+	</extension>
+	<extension point="xbmc.service" start="login" library="service.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Automatically adds extra artwork for your media.</summary>
+		<description lang="en">Artwork Beef automatically adds extra artwork for TV shows and movies into your library. It grabs them from wonderful web services and the file system.</description>
+		<disclaimer lang="en">Artwork sources: fanart.tv, TheTVDB.com, The Movie Database, TheAudioDB, KyraDB</disclaimer>
+		<summary lang="es">Agrega automáticamente ilustraciones adicionales para sus medios.</summary>
+		<description lang="es">Artwork Beef agrega automáticamente ilustraciones adicionales para Series TV y Películas a su biblioteca. Las ilustraciones son agregadas desde Servicios web y el Sistema de archivos local.</description>
+		<disclaimer lang="es">Fuente para ilustraciones: fanart.tv, TheTVDB.com, The Movie Database, TheAudioDB, KyraDB</disclaimer>
+		<news>v0.28.5 (2020-11-26)
+- fix: really really treat 403 as 404 and replace it
+
+v0.28.4 (2020-11-21)
+- fix: 403 change causing errors with other web service issues
+
+v0.28.1 - v0.28.3
+- fix: treat 403 as 404 and replace it
+- fix: don't throw an error when a movie set is lost
+- Fix: avoid adding duplicate fanart from TVDB
+- Fix: log full URL when download fails
+- Fix: remove KyraDB
+
+v0.28.0 (2020-02-08)
+- Feature: Add "Path exclusion" settings to skip processing media items by path
+		</news>
+		<source>https://github.com/rmrector/script.artwork.beef</source>
+		<forum>https://forum.kodi.tv/showthread.php?tid=258886</forum>
+		<website>https://rmrector.github.io/script.artwork.beef/</website>
+		<license>The MIT License</license>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
+</addon>
+<addon id="script.artwork.helper" name="Artwork Helper" version="0.9.2" provider-name="rrector">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+		<import addon="xbmc.json" version="6.20.0" />
+		<import addon="xbmc.addon" version="17.0.0" />
+	</requires>
+	<extension point="xbmc.python.library" library="python/default.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Artwork Helper provides a couple of tools to skins and other add-ons for working with artwork.</summary>
+		<description lang="en">Artwork Helper provides a couple of tools to skins and other add-ons for working with artwork. See README.md for detailed usage.</description>
+		<disclaimer lang="en">Artwork Helper does not directly add functionality on its own and must be supported by skins or other add-ons.</disclaimer>
+		<source>https://github.com/rmrector/script.artwork.helper</source>
+		<forum>https://forum.kodi.tv/showthread.php?tid=236649</forum>
+		<news>
+v0.9.2 (2020-11-24)
+- Fix: Changed python version to 3.0.0
+v0.9.1 (2019-06-15)
+- Fix: add an image mime type so Kodi identifies image URLs without extensions
+- Fix: Kodi v19 Pyton 3 compatibility
+
+v0.9.0 (2018-03-25)
+- Feature: add a path to grab artwork from the currently playing item
+- Feature: add path option to grab artwork from multiple artists
+
+v0.8.0 (2017-11-08)
+- Update for Leia compatibility, Krypton is now lowest supported
+- remove `shuffle`
+		</news>
+		<license>The MIT License</license>
+		<platform>all</platform>
+		<language />
+		<website />
+		<email />
+		<assets />
+	</extension>
+</addon>
+﻿<addon id="script.grab.fanart"
+    name="Grab Fanart" version="0.16.01" provider-name="robweber">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.future" version="0.16.0.4"/>
+  </requires>
+  <extension point="xbmc.python.library" library="default.py" />
+  <extension point="xbmc.service" library="launcher.py"  />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Exposes fanart as skin properties for slideshows, etc</summary>
+    <description lang="en_GB">Uses the Kodi database to grab all fanart from media items and put it into a skin property for use by skins/slideshows.</description>
+    <forum>https://forum.kodi.tv/showthread.php?tid=166572</forum>
+    <source>https://github.com/robweber/script.grab.fanart</source>
+	<website>https://github.com/robweber/script.grab.fanart</website>
+    <license>MIT</license>
+    <platform>all</platform>
+    <language>en</language>
+    <news>Version 0.16.01
+[B]ADDITION[/B]
+• I added the ability to display the Artist logo.
+    </news>
+    <assets>
+    	<icon>resources/media/icon.png</icon>
+    </assets>
+  </extension>
+</addon>
+<addon id="script.module.metadatautils"
+       name="Metadata and Artwork module"
+       version="1.30.0"
+       provider-name="marcelveldt and others">
+    <requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests" version="2.9.1"/>
+        <import addon="script.module.beautifulsoup4" version="4.9.3" />
+        <import addon="script.module.thetvdb" version="1.0.34" />
+        <import addon="script.module.musicbrainz" version="0.7.0"/>
+        <import addon="script.module.simplecache" version="2.0.2"/>
+        <import addon="script.module.arrow" version="0.15.5"/>
+        <import addon="script.module.infotagger" version="0.0.1" />
+    </requires>
+    <extension point="xbmc.python.module" library="lib" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Metadata and artwork from common sources like TMDB, IMDB, TADB, OMDB and fanart.tv </summary>
+		<summary lang="es">Metadatos e ilustraciones de fuentes comunes como TMDB, IMDB, TADB, OMDB y fanart.tv </summary>
+        <description lang="en">The metadata and artwork module for Kodi provides rich metadata, including artwork for various metatypes by scraping (and caching) this information from sites like TMDB, musicbrainz and fanart.tv. This product uses the TMDb API but is not endorsed or certified by TMDb.</description>
+		<description lang="es">El módulo de metadatos e ilustraciones para Kodi proporciona metadatos enriquecidos, que incluyen ilustraciones paravarios metatipos al raspar (y almacenar en caché) esta información se extrae de sitios como TMDB, musicbrainz and fanart.tv.[CR][CR]Este producto utiliza la API de TMDb pero no está avalado ni certificado por TMDb</description>
+        <news>
+v1.30.0
+* Nexus version
+
+        </news>
+        <license>Apache 2.0</license>
+        <forum>https://forum.kodi.tv/showthread.php?tid=350315</forum>
+        <source>https://github.com/kodi-community-addons/script.module.metadatautils</source>
+        <platform>all</platform>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+			<screenshot>resources/screenshot-01.jpg</screenshot>
+			<screenshot>resources/screenshot-02.jpg</screenshot>
+			<screenshot>resources/screenshot-03.jpg</screenshot>
+			<screenshot>resources/screenshot-04.jpg</screenshot>
+			<screenshot>resources/screenshot-05.jpg</screenshot>
+		</assets>
+    </extension>
+</addon>
+<addon id="script.skin.helper.colorpicker" name="Skin Helper Service ColorPicker" version="2.0.3" provider-name="marcelveldt,sualfred and others">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+		<import addon="script.module.pil" version="1.1.7"/>
+	</requires>
+	<extension point="xbmc.python.library" library="default.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Colorpicker for Kodi Skins. Part of Skin Helper Suite</summary>
+		<description lang="en_GB">Colorpicker for Kodi Skins. Part of Skin Helper Suite</description>
+		<platform>all</platform>
+		<license>GPL-2.0</license>
+		<forum>https://forum.kodi.tv/showthread.php?tid=235676</forum>
+		<source>https://github.com/kodi-community-addons/script.skin.helper.colorpicker</source>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+	</extension>
+</addon>
+﻿<addon id="script.skin.helper.service" name="Skin Helper Service" version="1.30.0" provider-name="marcelveldt and others">
+    <requires>
+		<import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.addon" version="12.0.0"/>
+        <import addon="script.module.simplejson" version="3.3.0"/>
+        <import addon="script.module.simplecache" version="2.0.2"/>
+        <import addon="script.module.metadatautils" version="1.30.0"/>
+    </requires>
+
+    <extension point="kodi.context.item">
+        <menu id="kodi.core.main">
+            <item library="resources\lib\context_animatedart.py">
+              <label>32024</label>
+              <visible>!String.IsEmpty(Window(Home).Property(SkinHelper.EnableAnimatedPosters)) + Container.Content(movies)</visible>
+            </item>
+            <item library="resources\lib\context_pvr.py">
+                <label>32023</label>
+                <description>PVR artwork Configuration</description>
+                <visible>
+                    !String.IsEmpty(Window(Home).Property(SkinHelper.EnablePvrThumbs)) + 
+                    [Window.IsActive(MyPVRChannels.xml) | 
+                    Window.IsActive(MyPVRGuide.xml) | Window.IsActive(MyPVRRecordings.xml) | 
+                    Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRSearch.xml)]
+                </visible>
+            </item>
+            <item library="resources\lib\context_music.py">
+                <label>32023</label>
+                <description>Music artwork Configuration</description>
+                <visible>
+                    !String.IsEmpty(Window(Home).Property(SkinHelper.EnableMusicArt)) + 
+                    [Container.Content(albums) | Container.Content(artists) | Container.Content(songs)]
+                </visible>
+            </item>
+        </menu>
+    </extension>
+
+    <extension point="xbmc.python.library" library="default.py" />
+    <extension point="xbmc.python.pluginsource" library="plugin.py" />
+    <extension library="service.py" point="xbmc.service" start="login" />
+
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Helper service for Kodi skins</summary>
+        <description>Helper service for Kodi skins</description>
+        <news>
+v1.30.0
+* Nexus version
+        </news>
+		<assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <language></language>
+        <platform>all</platform>
+        <license>GPL v2.0</license>
+        <forum>http://forum.kodi.tv/showthread.php?tid=235676</forum>
+        <website></website>
+        <source>https://github.com/kodi-community-addons/script.skin.helper.service</source>
+    </extension>
+</addon>
+<addon id="script.embuary.helper" name="Embuary Helper" version="2.0.8" provider-name="sualfred">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.pil" version="1.1.7"/>
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.python.pluginsource" library="plugin.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Embuary Helper Script</summary>
+        <description lang="en_GB">Helper script to provide features and functions to the Embuary skin. A full documentation can be found on GitHub: https://github.com/sualfred/script.embuary.helper/wiki</description>
+        <platform>all</platform>
+        <license>GPL-2.0-only</license>
+        <forum>https://forum.kodi.tv/showthread.php?tid=345318</forum>
+        <source>https://github.com/sualfred/script.embuary.helper</source>
+        <assets>
+            <icon>resources/icon.png</icon>
+            <fanart>resources/fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+<addon id="skin.madnoxnova" version="21.11.8" name="Madnox Nova" provider-name="Kittmaster">
+	<requires>
+		<import addon="xbmc.gui" version="5.17.0" />
+		<import addon="script.skin.madnox" version="1.0.6" />
+		<import addon="resource.images.skin.madnox" version="1.0.2" />
+		<import addon="script.skinshortcuts" version="1.0.17" />
+		<import addon="plugin.video.themoviedb.helper" version="6.11.5" />
+		<import addon="script.image.resource.select" version="2.0.4" />
+		<import addon="script.skinvariables" version="2.1.14" />
+		<import addon="script.favourites" version="8.1.2" />
+		<!-- NOVA-ENGINE: Latts/MQ9 engine layer dependencies (versions from latts-stack/MANIFEST.md, staged Nov 8, 2026) -->
+		<import addon="script.artwork.helper" version="0.9.2" />
+		<import addon="script.skin.helper.service" version="1.30.0" />
+		<import addon="script.module.metadatautils" version="1.30.0" />
+		<import addon="script.embuary.helper" version="2.0.8" />
+		<import addon="script.embuary.info" version="2.0.8" />
+		<import addon="script.grab.fanart" version="0.16.01" />
+		<!-- NOVA-BARS: colorpicker drives the Fonts & Bars color settings (SkinSettings, Colors page), same declaration as Latts MQ9 Mod -->
+		<import addon="script.skin.helper.colorpicker" version="2.0.3" />
+		<import addon="madnoxnova.artpack" version="1.0.0" />
+		<!-- NOVA-ENGINE: Artwork Beef is a user-run artwork tool (per gap audit: mirror the zip, do not hard-depend) - optional import only -->
+		<import addon="script.artwork.beef" version="0.28.9" optional="true" />
+	</requires>
+	<extension point="xbmc.gui.skin" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="16x9" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="af_za">'n Kenmerkryke en volledig aanpasbare vel</summary>
+		<summary lang="am_et">ባህሪያት የበለጸге እና ሙሉ በሙሉ ሊበጅ የሚችል ገጽታ</summary>
+		<summary lang="ar_sa">مظهر غني بالميزات وقابل للتخصيص بالكامل</summary>
+		<summary lang="ast_es">Un aspeutu ricu en carauterístiques y totalmente personalizable</summary>
+		<summary lang="az_az">Zəngin funksiyalı və tam fərdiləşdirilə bilən örtük</summary>
+		<summary lang="be_by">Багатая функцыямі вокладка з магчымасцю поўнай персаналізацыі</summary>
+		<summary lang="bg_bg">Богата на функции и напълно персонализираща се обливка</summary>
+		<summary lang="bs_ba">Bogata funkcijama i potpuno prilagodljiva maska</summary>
+		<summary lang="ca_es">Una aparença rica en funcions i totalment personalitzable</summary>
+		<summary lang="cs_cz">Funkcemi nabitý a plně přizpůsobitelný vzhled</summary>
+		<summary lang="cy_gb">Gwedd gyfoethog o ran nodweddion y gellir ei haddasu'n llawn</summary>
+		<summary lang="da_dk">Et funktionsrigt og fuldt tilpasseligt skin</summary>
+		<summary lang="de_de">Ein funktionsreicher und vollständig anpassbarer Skin</summary>
+		<summary lang="el_gr">Μια πλούσια σε δυνατότητες και πλήρως παραμετροποιήσιμη εμφάνιση</summary>
+		<summary lang="en_au">A feature-rich and fully customizable skin</summary>
+		<summary lang="en_gb">A feature-rich and fully customizable skin</summary>
+		<summary lang="en_nz">A feature-rich and fully customizable skin</summary>
+		<summary lang="en_us">A feature-rich and fully customizable skin</summary>
+		<summary lang="eo">Trajtoriĉa kaj plene agordebla aspekto</summary>
+		<summary lang="es_ar">Una apariencia rica en funciones y totalmente personalizable</summary>
+		<summary lang="es_es">Una apariencia rica en funciones y totalmente personalizable</summary>
+		<summary lang="es_mx">Una apariencia rica en funciones y totalmente personalizable</summary>
+		<summary lang="et_ee">Funktsioonirikas ja täielikult kohandatav kest</summary>
+		<summary lang="eu_es">Ezaugarri ugari dituen eta guztiz pertsonalizagarria den itxura</summary>
+		<summary lang="fa_af">یک پوسته غنی از ویژگی‌ها و کاملاً قابل شخصی‌سازی</summary>
+		<summary lang="fa_ir">یک پوسته غنی از ویژگی‌ها و کاملاً قابل شخصی‌سازی</summary>
+		<summary lang="fil">Isang mayaman sa tampok at ganap na nako-customize na skin</summary>
+		<summary lang="fi_fi">Monipuolinen ja täysin mukautettava ulkoasu</summary>
+		<summary lang="fo_fo">Eitt funktiónsríkt og fullkomiliga tillagandi útlit</summary>
+		<summary lang="fr_ca">Un habillage riche en fonctionnalités et entièrement personnalisable</summary>
+		<summary lang="fr_fr">Un habillage riche en fonctionnalités et entièrement personnalisable</summary>
+		<summary lang="gl_es">Unha aparencia rica en funcións e totalmente personalizable</summary>
+		<summary lang="he_il">מעטפת עשيرة בתכונות וניתנת להתאמה אישית מלאה</summary>
+		<summary lang="hi_in">सुविधाओं से भरपूर और पूरी तरह से अनुकूलन योग्य स्किन</summary>
+		<summary lang="hr_hr">Značajkama bogata i potpuno prilagodljiva maska</summary>
+		<summary lang="hu_hu">Funkciógazdag és teljesen testre szabható felület</summary>
+		<summary lang="hy_am">Ֆունկցիաներով հարուստ և լիովին հարմարեցվող տեսք</summary>
+		<summary lang="id_id">Skin yang kaya fitur dan dapat disesuaikan sepenuhnya</summary>
+		<summary lang="is_is">Eiginleikaríkt og fullkomlega sérsniðið útlit</summary>
+		<summary lang="it_it">Una skin ricca di funzionalità e completamente personalizzabile</summary>
+		<summary lang="ja_jp">機能が豊富で、完全にカスタマイズ可能なスキン</summary>
+		<summary lang="kn_in">ವೈಶಿಷ್ಟ್ಯ ಭರಿತ ಮತ್ತು ಸಂಪೂರ್ಣವಾಗಿ ಗ್ರಾಹಕೀಯಗೊಳಿಸಬಹುದಾದ ಸ್ಕಿನ್</summary>
+		<summary lang="ko_kr">다양한 기능과 완전히 맞춤 설정 가능한 스킨</summary>
+		<summary lang="lt_lt">Daug funkcijų turintis ir visiškai pritaikomas apvalkalas</summary>
+		<summary lang="lv_lv">Funkcijām bagāts un pilnībā pielāgojams apvalks</summary>
+		<summary lang="mi">He kiri whai āhuatanga maha, ka taea te whakarerekē katoa</summary>
+		<summary lang="mk_mk">Богата со функции и целосно прилагодлива маска</summary>
+		<summary lang="ml_in">ധാരാളം സവിശേഷതകളുള്ളതും പൂർണ്ണമായും ഇഷ്ടാനുസൃതമാക്കാവുന്നതുമായ സ്കിൻ</summary>
+		<summary lang="mn_mn">Олон боломж бүхий, бүрэн өөрчлөх боломжтой загвар</summary>
+		<summary lang="ms_my">Skin yang kaya dengan ciri dan boleh disesuaikan sepenuhnya</summary>
+		<summary lang="mt_mt">Skin rikka fil-karatteristiċi u kompletament personalizzabbli</summary>
+		<summary lang="my_mm">လုပ်ဆောင်ချက်များစွာပါဝင်ပြီး အပြည့်အဝ စိတ်ကြိုက်ပြင်ဆင်နိုင်သော စကင်</summary>
+		<summary lang="nb_no">Et funksjonsrikt og fullstendig tilpassbart utseende</summary>
+		<summary lang="nl_nl">Een functierijke en volledig aanpasbare skin</summary>
+		<summary lang="no_no">Et funksjonsrikt og fullstendig tilpassbart utseende</summary>
+		<summary lang="pl_pl">Bogata w funkcje i w pełni konfigurowalna skórka</summary>
+		<summary lang="pt_br">Uma skin rica em recursos e totalmente personalizável</summary>
+		<summary lang="pt_pt">Uma skin rica em funcionalidades e totalmente personalizável</summary>
+		<summary lang="ro_ro">Un skin bogat în funcții și complet personalizabil</summary>
+		<summary lang="ru_ru">Богатая функциями и полностью настраиваемая обложка</summary>
+		<summary lang="si_lk">විශේෂාංග රාශියකින් යුත් සහ සම්පූර්ණයෙන්ම රිසිකරණය කළ හැකි පෙනුමක්</summary>
+		<summary lang="sk_sk">Funkciami nabitý a plne prispôsobiteľný vzhľad</summary>
+		<summary lang="sl_si">S funkcijami bogata in popolnoma prilagodljiva preobleka</summary>
+		<summary lang="sq_al">Një pamje e pasur me karakteristika dhe plotësisht e personalizueshme</summary>
+		<summary lang="sr_rs">Богата функцијама и потпуно прилагодљива маска</summary>
+		<summary lang="sr_rs@latin">Bogata funkcijama i potpuno prilagodljiva maska</summary>
+		<summary lang="sv_se">Ett funktionsrikt och helt anpassningsbart skal</summary>
+		<summary lang="szl">Bogatŏ w funkcyje i w połni kōnfigurowalno skōra</summary>
+		<summary lang="ta_in">அம்சங்கள் நிறைந்த மற்றும் முழுமையாக தனிப்பயனாக்கக்கூடிய ஸ்கின்</summary>
+		<summary lang="te_in">ఫీచర్లు సమృద్ధిగా ఉన్న మరియు పూర్తిగా అనుకూలీకరించదగిన స్కిన్</summary>
+		<summary lang="tg_tj">Рӯйпӯши дорои хусусиятҳои бой ва пурра танзимшаванда</summary>
+		<summary lang="th_th">สกินที่มีฟีเจอร์หลากหลายและปรับแต่งได้อย่างเต็มที่</summary>
+		<summary lang="tr_tr">Zengin özelliklere sahip ve tamamen özelleştirilebilir bir kaplama</summary>
+		<summary lang="uk_ua">Багата функціями та повністю настроювана обкладинка</summary>
+		<summary lang="uz_uz">Xususiyatlarga boy va toʻliq moslashtiriladigan qobiq</summary>
+		<summary lang="vi_vn">Giao diện giàu tính năng và có thể tùy chỉnh hoàn toàn</summary>
+		<summary lang="zh_cn">功能丰富且完全可定制的皮肤</summary>
+		<summary lang="zh_hk">功能豐富且完全可自訂的面板</summary>
+		<summary lang="zh_tw">功能豐富且完全可自訂的面板</summary>
+		<description lang="af_za">Madnox staan vir streling vir die oog en verpersoonliking. Daar is baie verskillende aansigte en opsies om jou media aan te bied op die manier wat jy wil hê. Alle aansigte is volledig aanpasbaar. Jy kan die voorkoms verander met verskillende style, temas en opsies.</description>
+		<description lang="am_et">ማድኖክስ (Madnox) ማራኪ እይታን እና ማበጀትን ይወክላል። ሚዲያዎን በሚፈልጉት መንገድ ለማቅረብ ብዙ የተለያዩ እይታዎች እና አማраጮች አሉ። ሁሉም እይታዎች ሙሉ በሙሉ ሊበጁ የሚችሉ ናቸው። በተለያዩ ቅጦች፣ ገጽታዎች እና አማраጮች መልክውን መለወጥ ይችላሉ።</description>
+		<description lang="ar_sa">يرمز Madnox إلى المظهر الجذاب والتخصيص. هناك العديد من طرق العرض والخيارات المختلفة لتقديم الوسائط الخاصة بك بالطريقة التي تريدها. جميع طرق العرض قابلة للتخصيص بالكامل. يمكنك تغيير المظهر باستخدام أنماط وسمات وخيارات مختلفة.</description>
+		<description lang="ast_es">Madnox significa prestar visualmente y personalización. Hai munchos vistes y opciones diferentes pa presentar los tos archivos multimedia de la manera que quieras. Toles vistes son dafechu personalizables. Puedes camudar l'aspeutu con diferentes estilos, temes y opciones.</description>
+		<description lang="az_az">Madnox göz oxşayan vizuallıq və fərdiləşdirmə deməkdir. Medianızı istədiyiniz şəkildə təqdim etmək üçün bir çox fərqli görünüş və seçim var. Bütün görünüşlər tamamilə fərdiləşdirilə bilər. Görünüşü fərqli üslublar, mövzular və seçimlərlə dəyişə bilərsiniz.</description>
+		<description lang="be_by">Madnox азначае прывабны выгляд і персаналізацыю. Існуе мноства розных рэжымаў прагляду і опцый для прадстаўлення вашых медыяфайлаў так, як вы хочаце. Усе рэжымы прагляду цалкам наладжвальныя. Вы можаце змяніць выгляд з дапамогай розных стыляў, тэм і опцый.</description>
+		<description lang="bg_bg">Madnox е синоним на приятен външен вид и персонализация. Има много различни изгледи и опции за представяне на Вашите мултимедийни файлове по желания от Вас начин. Всички изгледи са напълно персонализируеми. Можете да промените облика с различни стилове, теми и опции.</description>
+		<description lang="bs_ba">Madnox se zalaže za atraktivan izgled i prilagođavanje. Postoji mnogo različitih prikaza i opcija za predstavljanje vaših medija na način na koji to želite. Svi prikazi su potpuno prilagodljivi. Možete promijeniti izgled s različitim stilovima, temama i opcijama.</description>
+		<description lang="ca_es">Madnox destaca pel seu atractiu visual i la seva personalització. Hi ha moltes vistes i opcions diferents per presentar els vostres continguts multimèdia de la manera que vulgueu. Totes les vistes es poden personalitzar completament. Podeu canviar l'aspecte amb diferents estils, temes i opcions.</description>
+		<description lang="cs_cz">Madnox představuje pastvu pro oči a přizpůsobení. K dispozici je mnoho různých zobrazení a možností, jak prezentovat vaše média přesně tak, jak chcete. Všechna zobrazení jsou plně přizpůsobitelná. Vzhled můžete změnit pomocí různých stylů, motivů a možností.</description>
+		<description lang="cy_gb">Mae Madnox yn sefyll am apêl weledol a phersonoli. Mae yna lawer o wahanol weddau ac opsiynau i gyflwyno eich cyfryngau fel y dymunwch. Mae'r holl weddau yn gwbl addasadwy. Gallwch newid yr edrychiad gyda gwahanol arddulliau, themâu ac opsiynau.</description>
+		<description lang="da_dk">Madnox står for flot udseende og tilpasning. Der er mange forskellige visninger og muligheder for at præsentere dine medier på den måde, du ønsker det. Alle visninger kan tilpasses fuldt ud. Du kan ændre udseendet med forskellige stilarter, temaer og muligheder.</description>
+		<description lang="de_de">Madnox steht für visuelle Ästhetik und Anpassbarkeit. Es gibt viele verschiedene Ansichten und Optionen, um Ihre Medien so zu präsentieren, wie Sie es möchten. Alle Ansichten sind vollständig anpassbar. Sie können das Aussehen mit verschiedenen Stilen, Designs und Optionen ändern.</description>
+		<description lang="el_gr">Το Madnox ξεχωρίζει за την ελκυστική του εμφάνιση και την προσαρμοστικότητα. Υπάρχουν πολλές διαφορετικές προβολές και επιλογές για να παρουσιάσετε τα πολυμέσα σας με τον τρόπο που θέλετε. Όλες οι προβολές είναι πλήρως προσαρμόσιμες. Μπορείτε να αλλάξετε την εμφάνιση με διαφορετικά στυλ, θέματα και επιλογές.</description>
+		<description lang="en_au">Madnox stands for eye candy and customization. There are many different views and options to present your media in the way you want it. All views are fully customizable. You can change the look with different styles, themes and options.</description>
+		<description lang="en_gb">KALEIDO is a fork of Madnox.Redux (Madnox lineage) that adds animated-poster, animated-fanart and movie character-art support. Madnox stands for eye candy and customization. There are many different views and options to present your media in the way you want it. All views are fully customizable. You can change the look with different styles, themes and options.</description>
+		<description lang="en_nz">Madnox stands for eye candy and customization. There are many different views and options to present your media in the way you want it. All views are fully customizable. You can change the look with different styles, themes and options.</description>
+		<description lang="en_us">KALEIDO is a fork of Madnox.Redux (Madnox lineage) that adds animated-poster, animated-fanart and movie character-art support. Madnox stands for eye candy and customization. There are many different views and options to present your media in the way you want it. All views are fully customizable. You can change the look with different styles, themes and options.</description>
+		<description lang="eo">Madnox reprezentas vidan logecon kaj personigon. Ekzistas multaj diversaj vidoj kaj opcioj por prezenti viajn amaskomunikilojn laŭ via deziro. Ĉiuj vidoj estas tute personigeblaj. Vi povas ŝanĝi la aspekton per diversaj stiloj, etosoj kaj opcioj.</description>
+		<description lang="es_ar">Madnox se destaca por su atractivo visual y personalización. Hay muchas vistas y opciones diferentes para presentar tus archivos multimedia de la manera que quieras. Todas las vistas son completamente personalizables. Podés cambiar el aspecto con diferentes estilos, temas y opciones.</description>
+		<description lang="es_es">Madnox destaca por su atractivo visual y personalización. Hay muchas vistas y opciones diferentes para presentar tus archivos multimedia de la manera que quieras. Todas las vistas son completamente personalizables. Puedes cambiar el aspecto con diferentes estilos, temas y opciones.</description>
+		<description lang="es_mx">Madnox se destaca por su atractivo visual y personalización. Hay muchas vistas y opciones diferentes para presentar tus archivos multimedia de la manera que quieras. Todas las vistas son completamente personalizables. Puedes cambiar el aspecto con diferentes estilos, temas y opciones.</description>
+		<description lang="et_ee">Madnox tähistab silmarõõmu ja kohandatavust. Meedia esitamiseks soovitud viisil on palju erinevaid vaateid ja valikuid. Kõik vaated on täielikult kohandatavad. Saate muuta välimust erinevate stiilide, kujunduste ja valikutega.</description>
+		<description lang="eu_es">Madnoxek erakargarritasun bisuala eta pertsonalizazioa eskaintzen ditu. Ikuspegi eta aukera ugari daude zure multimedia nahi duzun moduan aurkezteko. Ikuspegi guztiak guztiz pertsonalizagarriak dira. Itxura alda dezakezu estilo, gai eta aukera ezberdinekin.</description>
+		<description lang="fa_af">برنامه Madnox مظهر زیبایی بصری و شخصی‌سازی است. نماها و گزینه‌های بسیار متفاوتی برای ارائه رسانه‌های شما به روش دلخواه‌تان وجود دارد. همه نماها کاملاً قابل شخصی‌سازی هستند. شما می‌توانید ظاهر را با سبک‌ها، تم‌ها و گزینه‌های مختلف تغییر دهید.</description>
+		<description lang="fa_ir">برنامه Madnox مظهر زیبایی بصری و شخصی‌سازی است. نماها و گزینه‌های بسیار متفاوتی برای ارائه رسانه‌های شما به روش دلخواه‌تان وجود دارد. همه نماها کاملاً قابل شخصی‌سازی هستند. شما می‌توانید ظاهر را با سبک‌ها، تم‌ها و گزینه‌های مختلف تغییر دهید.</description>
+		<description lang="fil">Ang Madnox ay nangangahulugang kagandahan sa paningin at pag-customize. Maraming iba't ibang view at opsyon para maipakita ang iyong media sa paraang gusto mo. Ang lahat ng view ay ganap na mako-customize. Maaari mong baguhin ang hitsura gamit ang iba't ibang estilo, tema, at opsyon.</description>
+		<description lang="fi_fi">Madnox edustaa silmänruokaa ja mukautettavuutta. Tarjolla on monia erilaisia näkymiä ja vaihtoehtoja median esittämiseen haluamallasi tavalla. Kaikki näkymät ovat täysin mukautettavissa. Voit muuttaa ulkoasua erilaisilla tyyleillä, teemoilla ja asetuksilla.</description>
+		<description lang="fo_fo">Madnox stendur fyri sjónligum snildi og tillaging. Nógvar ymiskar vísingar og møguleikar eru at vísa títt burturav evni á tann hátt, sum tú ynskir. Allar vísingar kunnu tillagast fullkomiliga. Tú kanst broyta útsjóndina við ymiskum stílum, temum og valmøguleikum.</description>
+		<description lang="fr_ca">Madnox est synonyme d'esthétique et de personnalisation. Il existe de nombreux affichages et options pour présenter vos médias de la manière dont vous le souhaitez. Tous les affichages sont entièrement personnalisables. Vous pouvez modifier l'apparence avec différents styles, thèmes et options.</description>
+		<description lang="fr_fr">Madnox est synonyme d'esthétique et de personnalisation. Il existe de nombreux affichages et options pour présenter vos médias de la manière dont vous le souhaitez. Tous les affichages sont entièrement personnalisables. Vous pouvez modifier l'apparence avec différents styles, thèmes et options.</description>
+		<description lang="gl_es">Madnox destaca polo seu atractivo visual e personalización. Hai moitas vistas e opcións diferentes para presentar os teus arquivos multimedia do xeito que queiras. Todas as vistas son totalmente personalizables. Podes cambiar o aspecto con diferentes estilos, temas e opcións.</description>
+		<description lang="he_il">Madnox מייצג יופי ויזואלי והתאמה אישית. ישנם תצוגות ואפשروיות רבות ושונות להצגת המדיה שלך בדיוק כפי שאתה רוצה. כל התצוגות ניתנות להתאמה אישית מלאה. אתה יכול לשנות את המראה עם סגנונות, ערכות נושא ואפשרויות שונות.</description>
+		<description lang="hi_in">Madnox आकर्षक दृश्यता (आई कैंडी) और अनुकूलन (कस्टमाइजेशन) का प्रतीक है। आपके मीडिया को आपकी पसंद के अनुसार प्रस्तुत करने के लिए कई अलग-अलग व्यू और विकल्प उपलब्ध हैं। सभी व्यू पूरी तरह से कस्टमाइज़ करने योग्य हैं। आप विभिन्न शैलियों, थीमों और विकल्पों के साथ इसके लुक को बदल सकते हैं।</description>
+		<description lang="hr_hr">Madnox se odlikuje privlačnim izgledom i prilagodbom. Postoji mnogo različitih prikaza i opcija za predstavljanje vaših medija na način na koji to želite. Svi su prikazi potpuno prilagodljivi. Izgled možete promijeniti različitim stilovima, temama i opcijama.</description>
+		<description lang="hu_hu">A Madnox a lenyűgöző látványt és a testreszabhatóságot jelenti. Számos különböző nézet és opció áll rendelkezésre, hogy a médiatartalmakat a kívánt módon jelenítsd meg. Minden nézet teljesen testreszabható. A megjelenést különböző stílusokkal, témákkal és opciókkal változtathatod meg.</description>
+		<description lang="hy_am">Madnox-ը նշանակում է գրավիչ տեսք և հարմարեցում: Կան բազմաթիվ տարբեր դիտման եղանակներ և տարբերակներ՝ ձեր մեդիան ձեր ուզած ձևով ներկայացնելու համար: Բոլոր դիտումները լիովին հարմարեցվող են: Դուք կարող եք փոխել տեսքը տարբեր ոճերով, թեմաներով և տարբերակներով:</description>
+		<description lang="id_id">Madnox mengutamakan tampilan visual yang memikat dan penyesuaian. Tersedia berbagai tampilan dan opsi untuk menyajikan media Anda sesuai keinginan. Semua tampilan dapat disesuaikan sepenuhnya. Anda dapat mengubah tampilan dengan berbagai gaya, tema, dan opsi.</description>
+		<description lang="is_is">Madnox stendur fyrir sjónrænt útlit og sérsnið. Það eru mörg mismunandi útlit og valkostir til að sýna miðla þína á þann hátt sem þú vilt. Öll útlit eru fyllilega sérsniðanleg. Þú getur breytt útlitinu með mismunandi stílum, þemum og valkostum.</description>
+		<description lang="it_it">Madnox è sinonimo di estetica e personalizzazione. Sono disponibili molte visualizzazioni e opzioni diverse per presentare i tuoi contenuti multimediali nel modo desiderato. Tutte le visualizzazioni sono completamente personalizzabili. Puoi cambiare l'aspetto con stili, temi e opzioni differenti.</description>
+		<description lang="ja_jp">Madnoxは、洗練されたビジュアルとカスタマイズ性を追求しています。メディアを好みの方法で表示するための、多彩なビューとオプションが用意されています。すべてのビューは完全にカスタマイズ可能です。さまざまなスタイル、テーマ、オプションを使用して、外観を変更できます。</description>
+		<description lang="kn_in">ಮ್ಯಾಡ್‌ನಾಕ್ಸ್ (Madnox) ಆಕರ್ಷక ನೋಟ ಮತ್ತು ಕಸ್ಟಮೈಸೇಶನ್‌ಗೆ ಹೆಸರುವಾಸಿಯಾಗಿದೆ. ನಿಮ್ಮ ಮಾಧ್ಯಮವನ್ನು ನೀವು ಬಯಸುವ ರೀತಿಯಲ್ಲಿ ಪ್ರಸ್ತುತಪಡಿಸಲು ಹಲವು ವಿಭಿನ್ನ ವೀಕ್ಷಣೆಗಳು ಮತ್ತು ಆಯ್ಕೆಗಳಿವೆ. ಎಲ್ಲಾ ವೀಕ್ಷಣೆಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಕಸ್ಟಮೈಸ್ ಮಾಡಬಹುದು. ವಿಭಿನ್ನ ಶೈಲಿಗಳು, ಥೀಮ್‌ಗಳು ಮತ್ತು ಆಯ್ಕೆಗಳೊಂದಿಗೆ ನೀವು ನೋಟವನ್ನು ಬದಲಾಯಿಸಬಹುದು.</description>
+		<description lang="ko_kr">Madnox는 시각적 아름다움และ 맞춤 설정을 지향합니다. 미디어를 원하는 방식으로 표현할 수 있는 다양하고 차별화된 보기와 옵션이 제공됩니다. 모든 보기는 완전히 맞춤 설정할 수 있으며, 다양한 스타일, 테마 및 옵션을 사용하여 디자인을 변경할 수 있습니다.</description>
+		<description lang="lt_lt">„Madnox“ pasižymi patrauklia išvaizda ir pritaikomumu. Yra daug skirtingų rodinių ir parinkčių, leidžiančių pateikti jūsų mediją taip, kaip norite. Visi rodiniai yra visiškai pritaikomi. Galite pakeisti išvaizdą naudodami skirtingus stilius, temas ir parinktis.</description>
+		<description lang="lv_lv">Madnox apvieno vizuālu pievilcību un pielāgojamību. Ir pieejami daudzi dažādi skati un opcijas, lai prezentētu savus medijus tieši tā, kā vēlaties. Visi skati ir pilnībā pielāgojami. Varat mainīt izskatu, izmantojot dažādus stilus, tēmas un opcijas.</description>
+		<description lang="mi">Ko Madnox te tohu o te āhua huatau me te whakaritenga. He maha ngā tirohanga me ngā kōwhiringa rerekē hei whakaatu i o pāpāho ki tāu e hiahia ai. Ka taea te whakarerekē katoa i ngā tirohanga. Ka taea e koe te huri i te āhua ki ngā momo momo, kaupapa me ngā kōwhiringa rerekē.</description>
+		<description lang="mk_mk">Madnox се залага за визуелна атрактивност и прилагодување. Постојат многу различни прегледи и опции за да ги претставите вашите медиуми на начинот на кој сакате. Сите прегледи се целосно прилагодливи. Можете да го промените изгледот со различни стилови, теми и опции.</description>
+		<description lang="ml_in">മാഡ്‌നോക്സ് (Madnox) മികച്ച ദൃശ്യഭംഗിക്കും കസ്റ്റമൈസേഷനും പ്രാധാന്യം നൽകുന്നു. നിങ്ങളുടെ മീഡിയ നിങ്ങൾ ആഗ്രഹിക്കുന്ന രീതിയിൽ അവതരിപ്പിക്കുന്നതിനായി നിരവധി വ്യത്യസ്ത കാഴ്‌ചകളും ഓപ്ഷനുകളും ലഭ്യമാണ്. എല്ലാ കാഴ്‌ചകളും പൂർണ്ണമായും കസ്റ്റമൈസ് ചെയ്യാവുന്നതാണ്. വ്യത്യസ്ത ശൈലികൾ, തീമുകൾ, ഓപ്ഷനുകൾ എന്നിവ ഉപയോഗിച്ച് നിങ്ങൾക്ക് ഇതിൻ്റെ രൂപഭാവം മാറ്റാനാകും.</description>
+		<description lang="mn_mn">Madnox нь үзэмжтэй дизайн болон өөрчлөн тохируулах боломжийг санал болгодог. Та өөрийн медиаг хүссэнээрээ харуулах олон янзын харагдац, сонголтууд байдаг. Бүх харагдацыг бүрэн өөрчлөх боломжтой. Та өөр өөр загвар, сэдэв, сонголтоор харагдацыг өөрчлөх боломжтой.</description>
+		<description lang="ms_my">Madnox mengutamakan kecantikan visual dan penyesuaian. Terdapat banyak paparan dan pilihan yang berbeza untuk mempersembahkan media anda mengikut cara yang anda mahukan. Semua paparan boleh disesuaikan sepenuhnya. Anda boleh mengubah penampilan dengan gaya, tema dan pilihan yang berbeza.</description>
+		<description lang="mt_mt">Madnox ifisser dehra attraenti u personalizzazzjoni. Hemm ħafna veduti u għażliet differenti biex tippreżenta l-midja tiegħek kif tixtieq int. Il-veduti kollha huma kompletament personalizzabbli. Tista' tibdel id-dehra bi stili, temi u għażliet differenti.</description>
+		<description lang="my_mm">Madnox သည် ဆွဲဆောင်မှုရှိသော အမြင်အာရုံနှင့် စိတ်ကြိုက်ပြင်ဆင်နိုင်မှုကို ကိုယ်စားပြုသည်။ သင့်မီဒီယာကို သင်အလိုရှိသည့်အတိုင်း တင်ပြရန် မတူညီသော မြင်ကွင်းများနှင့် ရွေးချယ်စရာများစွာ ရှိသည်။ မြင်ကွင်းအားလုံးကို စိတ်ကြိုက် အပြည့်အဝပြင်ဆင်နိုင်သည်။ မတူညီသော စတိုင်များ၊ အပြင်အဆင်များနှင့် ရွေးချယ်စရာများဖြင့် အသွင်အပြင်ကို ပြောင်းလဲနိုင်သည်။</description>
+		<description lang="nb_no">Madnox står for visuell estetikk og tilpasning. Det er mange forskjellige visninger og valgmuligheter for å presentere mediene dine på den måten du ønsker. Alle visninger kan tilpasses fullt ut. Du kan endre utseendet med forskjellige stilarter, temaer og alternativer.</description>
+		<description lang="nl_nl">Madnox staat voor visuele aantrekkingskracht en personalisatie. Er zijn veel verschillende weergaven en opties om je media te presenteren zoals jij dat wilt. Alle weergaven zijn volledig aanpasbaar. Je kunt het uiterlijk veranderen met verschillende stijlen, thema's en opties.</description>
+		<description lang="no_no">Madnox står for visuell estetikk og tilpasning. Det er mange forskjellige visninger og valgmuligheter for å presentere mediene dine på den måten du ønsker. Alle visninger kan tilpasses fullt ut. Du kan endre utseendet med forskjellige stilarter, temaer og alternativer.</description>
+		<description lang="pl_pl">Madnox to synonim atrakcyjnego wyglądu i personalizacji. Dostępnych jest wiele różnych widoków i opcji, które pozwalają prezentować multimedia w pożądany sposób. Wszystkie widoki są w pełni konfigurowalne. Możesz zmieniać wygląd za pomocą różnych stylów, motywów i opcji.</description>
+		<description lang="pt_br">Madnox é sinônimo de visual atraente e personalização. Existem muitas visualizações e opções diferentes para apresentar suas mídias do jeito que você deseja. Todas as visualizações são totalmente personalizáveis. Você pode alterar o visual com diferentes estilos, temas e opções.</description>
+		<description lang="pt_pt">Madnox é sinónimo de visual atraente e personalização. Existem muitas vistas e opções diferentes para apresentar os seus conteúdos multimédia da forma que deseja. Todas as vistas são totalmente personalizáveis. Pode alterar o visual com diferentes estilos, temas e opções.</description>
+		<description lang="ro_ro">Madnox este sinonim cu aspectul atractiv și personalizarea. Există multe vizualizări și opțiuni diferite pentru a vă prezenta fișierele media în modul în care doriți. Toate vizualizările sunt complet personalizabile. Puteți schimba aspectul cu diferite stiluri, teme și opțiuni.</description>
+		<description lang="ru_ru">Madnox — это привлекательный внешний вид и индивидуальная настройка. Доступно множество различных вариантов отображения и опций для представления вашей медиатеки в нужном виде. Все виды полностью настраиваемы. Вы можете изменять оформление с помощью различных стилей, тем и параметров.</description>
+		<description lang="si_lk">Madnox යනු ආකර්ශනීය පෙනුම සහ අභිරුචිකරණය සඳහා වන සංකේතයකි. ඔබ කැමති ආකාරයට ඔබේ මාධ්‍ය ඉදිරිපත් කිරීමට විවිධ දර්ශන සහ විකල්ප රාශියක් ඇත. සියලුම දර්ශන සම්පූර්ණයෙන්ම අභිරුචිකරණය කළ හැකිය. විවිධ මෝස්තර, තේමා සහ විකල්ප සමඟ ඔබට මෙහි පෙනුම වෙනස් කළ හැකිය.</description>
+		<description lang="sk_sk">Madnox predstavuje pastvu pre oči a prispôsobenie. K dispozícii je mnoho rôznych zobrazení a možností, ako prezentovať vaše médiá presne tak, ako chcete. Všetky zobrazenia sú plne prispôsobiteľné. Vzhľad môžete zmeniť pomocou rôznych štýlov, motívov a možností.</description>
+		<description lang="sl_si">Madnox se zavzema za privlačen videz in prilagoditev. Na voljo je veliko različnih pogledov in možnosti za predstavitev vaših medijev na način, kot si želite. Vsi pogledi so popolnoma prilagodljivi. Videz lahko spremenite z različnimi slogi, temami in možnostmi.</description>
+		<description lang="sq_al">Madnox përfaqëson tërheqjen vizuale dhe personalizimin. Ka shumë pamje dhe opsione të ndryshme për të paraqitur mediat tuaja në mënyrën që dëshironi. Të gjitha pamjet janë plotësisht të personalizueshme. Mund të ndryshoni pamjen me stile, tema dhe opsione të ndryshme.</description>
+		<description lang="sr_rs">Маднокс се залаже за атрактиван изглед и прилагођавање. Постоји много различитих приказа и опција за представљање ваших медија на начин на који то желите. Сви прикази су потпуно прилагодљиви. Изглед можете променити различитим стиловима, темама и опцијама.</description>
+		<description lang="sr_rs@latin">Madnox se zalaže za atraktivan izgled i prilagođavanje. Postoji mnogo različitih prikaza i opcija za predstavljanje vaših medija na način na koji to želite. Svi prikazi su potpuno prilagodljivi. Izgled možete promeniti različitim stilovima, temama i opcijama.</description>
+		<description lang="sv_se">Madnox står for visuell estetik och anpassning. Det finns många olika vyer och alternativ för att presentera din media på det sätt du vill ha det. Alla vyer är fullt anpassningsbara. Du kan ändra utseendet med olika stilar, teman och alternativ.</description>
+		<description lang="szl">Madnox to je synōnim lońskigo wyglōndu i personalizacyje. Je sam mocka roztōmaitych wejrzeń i opcyji, coby pokazać swojã medyjotekã tak, jak sam chcesz. Wszystke wejrzenia idzie blank dopasować. Możesz tyn wyglōnd mienić bez roztōmaite style, tymaty i opcyje.</description>
+		<description lang="ta_in">மேட்னாக்ஸ் (Madnox) என்பது கவர்ச்சிகரமான தோற்றம் மற்றும் தனிப்பயனாக்கத்தைக் குறிக்கிறது. உங்கள் ஊடகங்களை நீங்கள் விரும்பும் வழியில் வழங்குவதற்கு பல்வேறு காட்சிகளும் விருப்பങ്ങളും உள்ளன. அனைத்து காட்சிகளும் முழுமையாக தனிப்பயனாக்கக்கூடியவை. வெவ்வேறு பாணிகள், தீம்கள் மற்றும் விருப்பங்களைக் கொண்டு நீங்கள் இதன் தோற்றத்தை மாற்றலாம்.</description>
+		<description lang="te_in">మ్యాడ్‌నాక్స్ (Madnox) ఆకర్షణీయమైన రూపం మరియు అనుకూలీకరణకు చిహ్నం. మీ మీడియాను మీకు కావలసిన విధంగా ప్రదర్శించడానికి అనేక రకాల వీక్షణలు మరియు ఎంపికలు ఉన్నాయి. అన్ని వీక్షణలు పూర్తిగా అనుకూలీకరించదగినవి. విభిన్న శైలులు, థీమ్‌లు మరియు ఎంపికలతో మీరు రూపాన్ని మార్చవచ్చు.</description>
+		<description lang="tg_tj">Madnox намуди зоҳирии ҷолиб ва фардикунониро ифода мекунад. Барои пешниҳоди медиаи шумо бо тарзи дилхоҳатон намудҳо ва имконоти гуногун мавҷуданд. Ҳама намудҳо комилан танзимшаванда мебошанд. Шумо метавонед намуди зоҳириро бо услубҳо, мавзӯъҳо ва имконоти гуногун тағир диҳед.</description>
+		<description lang="th_th">Madnox หมายถึงความสวยงามสะดุดตาและการปรับแต่ง มีมุมมองและตัวเลือกที่หลากหลายเพื่อแสดงสื่อของคุณในแบบที่คุณต้องการ ทุกมุมมองสามารถปรับแต่งได้อย่างเต็มที่ คุณสามารถเปลี่ยนรูปลักษณ์ด้วยสไตล์ ธีม และตัวเลือกต่างๆ</description>
+		<description lang="tr_tr">Madnox, göz alıcı görsellik ve özelleştirme anlamına gelir. Medyanızı istediğiniz gibi sunmanız için birçok farklı görünüm ve seçenek mevcuttur. Tüm görünümler tamamen özelleştirilebilir. Farklı stiller, temalar ve seçeneklerle görünümü değiştirebilirsiniz.</description>
+		<description lang="uk_ua">Madnox — це привабливий зовнішній вигляд та індивідуальне налаштування. Доступно безліч різних варіантів відображення та опцій для представлення вашої медіатеки в потрібному вигляді. Усі види повністю налаштовуються. Ви можете змінювати оформлення за допомогою різних стилів, тем і параметрів.</description>
+		<description lang="uz_uz">Madnox jozibali ko'rinish va xususiylashtirishni anglatadi. Medialaringizni o'zingiz xohlagan tarzda taqdim etish uchun ko'plab turli ko'rinishlar va variantlar mavjud. Barcha ko'rinishlar to'liq xususiylashtirilishi mumkin. Tashqi ko'rinishni turli uslublar, mavzular va variantlar yordamida o'zgartirishingiz mumkin.</description>
+		<description lang="vi_vn">Madnox mang đến giao diện bắt mắt và khả năng tùy biến cao. Có nhiều chế độ hiển thị và tùy chọn khác nhau để trình bày phương tiện theo cách bạn muốn. Tất cả các chế độ xem đều có thể tùy chỉnh hoàn toàn. Bạn có thể thay đổi giao diện với các phong cách, chủ đề và tùy chọn khác nhau.</description>
+		<description lang="zh_cn">Madnox 致力于提供华丽的视觉效果和自定义功能。这里有许多不同的视图和选项，能够以您喜欢的方式呈现媒体内容。所有视图均支持完全自定义。您可以通过不同的样式、主题和选项来改变外观。</description>
+		<description lang="zh_hk">Madnox 致力於提供華麗的視覺效果和自訂功能。這裏有多種不同的檢視和選項，可以按您喜好的方式呈現媒體內容。所有檢視均支援完全自訂。您可以透過不同的樣式、主題和選項來變更外觀。</description>
+		<description lang="zh_tw">Madnox 致力於提供華麗的視覺效果和自訂功能。這裡有多種不同的檢視和選項，可以按您喜好的方式呈現媒體內容。所有檢視均支援完全自訂。您可以透過不同的樣式、主題和選項來變更外觀。</description>
+		<disclaimer lang="af_za">Madnox is die opvolger van Aeon Madnox deur Mike_Doc, schimi2k en MeowMoo. Dit is 'n skin (vel) gebaseer op die ontwerp van Aeon deur djh_ en Aeon Nox 4 deur BigNoid en phil65. Spesiale dank aan Mnr. V. Alle eer aan die makers van hierdie skins en mods.</disclaimer>
+		<disclaimer lang="am_et">ማድኖክስ (Madnox) በማይክ_ዶክ (Mike_Doc)፣ በሺሚ2ኬ (schimi2k) እና በሚያውሙ (MeowMoo) የተሰራው የኢዮን ማድኖክስ (Aeon Madnox) ተተኪ ነው። እሱ በ디ጄኤች_ (djh_) በተሰራው የኢዮን (Aeon) እና በቢግኖይด (BigNoid) እና ፊል65 (phil65) በተሰራው የኢዮን ኖክስ 4 (Aeon Nox 4) ንድፍ ላይ የተመሰረተ ስኪን (skin) ነው። ለምስተር ቪ (Mr. V) ልዩ ምስጋና ይግባው። ለእነዚህ ስኪኖች እና ሞዶች ፈጣሪዎች በሙሉ ምስጋና ይድረስ።</disclaimer>
+		<disclaimer lang="ar_sa">إن Madnox هو الخلف لـ Aeon Madnox من قبل Mike_Doc و schimi2k و MeowMoo. إنها واجهة (skin) مبنية على تصميم Aeon بواسطة djh_ و Aeon Nox 4 بواسطة BigNoid و phil65. شكر خاص لـ Mr. V. كل التقدير لصانعي هذه الواجهات والتعديلات.</disclaimer>
+		<disclaimer lang="ast_es">Madnox ye'l socesor d'Aeon Madnox de Mike_Doc, schimi2k y MeowMoo. Ye un tema basáu nel diseño d'Aeon de djh_ y Aeon Nox 4 de BigNoid y phil65. Gracies especiales a Mr. V. Tol crediu pa los creadores d'estos temes y cambeos.</disclaimer>
+		<disclaimer lang="az_az">Madnox, Mike_Doc, schimi2k və MeowMoo tərəfindən hazırlanmış Aeon Madnox-un davamçısıdır. Bu, djh_ tərəfindən Aeon və BigNoid və phil65 tərəfindən Aeon Nox 4 dizaynına əsaslanan bir örtükdür (skin). Mr. V-ə xüsusi təşəkkürlər. Bu örtüklərin və modların yaradıcılarına dərin minnətdarlığımızı bildiririk.</disclaimer>
+		<disclaimer lang="be_by">Madnox — пераемнік Aeon Madnox ад Mike_Doc, schimi2k і MeowMoo. Гэта вокладка (skin), заснаваная на дызайне Aeon ад djh_ і Aeon Nox 4 ад BigNoid і phil65. Асаблівая падзяка Mr. V. Уся ўдзячнасць стваральнікам гэтых вокладак і мадыфікацый.</disclaimer>
+		<disclaimer lang="bg_bg">Madnox е наследникът на Aeon Madnox от Mike_Doc, schimi2k и MeowMoo. Това е облик (skin), базиран на дизайна на Aeon от djh_ и Aeon Nox 4 от BigNoid и phil65. Специални благодарности на Mr. V. Всички кредити са за създателите на тези облици и модификации.</disclaimer>
+		<disclaimer lang="bs_ba">Madnox je nasljednik Aeon Madnox-a od autora Mike_Doc, schimi2k i MeowMoo. To je skin baziran na dizajnu Aeon-a od djh_ i Aeon Nox 4 od BigNoid-a i phil65. Posebna zahvalnost Mr. V. Sve zasluge idu tvorcima ovih skinova i modova.</disclaimer>
+		<disclaimer lang="ca_es">Madnox és el successor d'Aeon Madnox de Mike_Doc, schimi2k i MeowMoo. És una aparença basada en el disseny d'Aeon de djh_ i Aeon Nox 4 de BigNoid i phil65. Agraïment especial a Mr. V. Tot el crèdit als creadors d'aquestes aparences i modificacions.</disclaimer>
+		<disclaimer lang="cs_cz">Madnox je nástupcem vzhledu Aeon Madnox od autorů Mike_Doc, schimi2k a MeowMoo. Je to vzhled založený na designu Aeon od djh_ a Aeon Nox 4 od BigNoid a phil65. Zvláštní poděkování patří Mr. V. Veškeré uznání patří tvůrcům těchto vzhledů a modifikací.</disclaimer>
+		<disclaimer lang="cy_gb">Madnox yw olynydd Aeon Madnox gan Mike_Doc, schimi2k a MeowMoo. Mae'n grib (skin) sy'n seiliedig ar ddyluniad Aeon gan djh_ ac Aeon Nox 4 gan BigNoid a phil65. Diolch arbennig i Mr. V. Pob clod i grewyr y crwyn a'r modiau hyn.</disclaimer>
+		<disclaimer lang="da_dk">Madnox er efterfølgeren til Aeon Madnox af Mike_Doc, schimi2k og MeowMoo. Det er et skin baseret på designet af Aeon af djh_ og Aeon Nox 4 af BigNoid og phil65. Særlig tak til Mr. V. Al kredit går til skaberne af disse skins og mods.</disclaimer>
+		<disclaimer lang="de_de">Madnox ist der Nachfolger von Aeon Madnox von Mike_Doc, schimi2k und MeowMoo. Es ist ein Skin, der auf dem Design von Aeon von djh_ und Aeon Nox 4 von BigNoid und phil65 basiert. Besonderer Dank geht an Mr. V. Alle Anerkennung gebührt den Erstellern dieser Skins und Mods.</disclaimer>
+		<disclaimer lang="el_gr">Το Madnox είναι ο διάδοχος του Aeon Madnox από τους Mike_Doc, schimi2k και MeowMoo. Είναι ένα skin βασισμένο στη σχεδίαση του Aeon από τον djh_ και του Aeon Nox 4 από τους BigNoid και phil65. Ιδιαίτερες ευχαριστίες στον Mr. V. Όλα τα εύσημα ανήκουν στους δημιουργούς αυτών των skins και mods.</disclaimer>
+		<disclaimer lang="en_au">Madnox is the successor to Aeon Madnox by Mike_Doc, schimi2k and MeowMoo. It is a skin based on the design of Aeon by djh_ and Aeon Nox 4 by BigNoid and phil65. Special thanks to Mr. V. All credits to the makers of these skins and mods.</disclaimer>
+		<disclaimer lang="en_gb">KALEIDO is a fork of Madnox.Redux by Kittmaster. Madnox is the successor to Aeon Madnox by Mike_Doc, schimi2k and MeowMoo. It is a skin based on the design of Aeon by djh_ and Aeon Nox 4 by BigNoid and phil65. Special thanks to Mr. V. All credits to the makers of these skins and mods.</disclaimer>
+		<disclaimer lang="en_nz">Madnox is the successor to Aeon Madnox by Mike_Doc, schimi2k and MeowMoo. It is a skin based on the design of Aeon by djh_ and Aeon Nox 4 by BigNoid and phil65. Special thanks to Mr. V. All credits to the makers of these skins and mods.</disclaimer>
+		<disclaimer lang="en_us">KALEIDO is a fork of Madnox.Redux by Kittmaster. Madnox is the successor to Aeon Madnox by Mike_Doc, schimi2k and MeowMoo. It is a skin based on the design of Aeon by djh_ and Aeon Nox 4 by BigNoid and phil65. Special thanks to Mr. V. All credits to the makers of these skins and mods.</disclaimer>
+		<disclaimer lang="eo">Madnox estas la posteulo de Aeon Madnox de Mike_Doc, schimi2k kaj MeowMoo. Ĝi estas fasado (skin) bazita sur la dezajno de Aeon de djh_ kaj Aeon Nox 4 de BigNoid kaj phil65. Specialan dankon al Mr. V. Ĉiu danko al la kreintoj de ĉi tiuj fasadoj kaj modifoj.</disclaimer>
+		<disclaimer lang="es_ar">Madnox es el sucesor de Aeon Madnox por Mike_Doc, schimi2k y MeowMoo. Es una apariencia (skin) basada en el diseño de Aeon por djh_ y Aeon Nox 4 por BigNoid y phil65. Agradecimiento especial a Mr. V. Todo el crédito a los creadores de estas apariencias y modificaciones.</disclaimer>
+		<disclaimer lang="es_es">Madnox es el sucesor de Aeon Madnox por Mike_Doc, schimi2k y MeowMoo. Es un tema (skin) basado en el diseño de Aeon por djh_ y Aeon Nox 4 por BigNoid y phil65. Agradecimientos especiales a Mr. V. Todo el crédito para los creadores de estos temas y modificaciones.</disclaimer>
+		<disclaimer lang="es_mx">Madnox es el sucesor de Aeon Madnox por Mike_Doc, schimi2k y MeowMoo. Es un tema (skin) basado en el diseño de Aeon por djh_ y Aeon Nox 4 por BigNoid y phil65. Agradecimientos especiales a Mr. V. Todo el crédito a los creadores de estos temas y modificaciones.</disclaimer>
+		<disclaimer lang="et_ee">Madnox on järglane Aeon Madnoxile, mille autoriteks on Mike_Doc, schimi2k ja MeowMoo. See on kujundus (skin), mis põhineb djh_ Aeonil ja BigNoidi ning phil65 Aeon Nox 4-l. Eriline tänu kuulub Mr. V-le. Kogu tunnustus kuulub nende kujunduste ja modifikatsioonide loojatele.</disclaimer>
+		<disclaimer lang="eu_es">Madnox Mike_Doc, schimi2k eta MeowMook sortutako Aeon Madnoxen ondorengoa da. djh_-(re)n Aeon eta BigNoid eta phil65-(re)n Aeon Nox 4 diseinuetan oinarritutako azala (skin) da. Esker bereziak Mr. V-(r)i. Kreditu guztiak azal eta modifikazio hauen sortzaileentzat.</disclaimer>
+		<disclaimer lang="fa_af">مدناکس (Madnox) جانشین ایون مدناکس (Aeon Madnox) ساخته مایک داک (Mike_Doc)، شمی۲کی (schimi2k) و میومیو (MeowMoo) است. این پوسته (skin) بر اساس طرح ایون (Aeon) از djh_ و ایون ناکس ۴ (Aeon Nox 4) از BigNoid و phil65 ساخته شده است. تشکر ویژه از آقای وی (Mr. V). تمام اعتبار متعلق به سازندگان این پوسته‌ها و مادها می‌باشد.</disclaimer>
+		<disclaimer lang="fa_ir">مدناکس (Madnox) جانشین ایون مدناکس (Aeon Madnox) ساخته Mike_Doc، schimi2k و MeowMoo است. این پوسته (skin) بر اساس طراحی ایون (Aeon) اثر djh_ و ایون ناکس ۴ (Aeon Nox 4) اثر BigNoid و phil65 ساخته شده است. تشکر ویژه از Mr. V. تمام اعتبار متعلق به سازندگان این پوسته‌ها و مادها می‌باشد.</disclaimer>
+		<disclaimer lang="fil">Ang Madnox ay ang kahalili ng Aeon Madnox nina Mike_Doc, schimi2k at MeowMoo. Ito ay isang skin na nakabase sa disenyo ng Aeon ni djh_ at Aeon Nox 4 nina BigNoid at phil65. Espesyal na pasasalamat kay Mr. V. Ang lahat ng kredito ay para sa mga gumawa ng mga skin at mod na ito.</disclaimer>
+		<disclaimer lang="fi_fi">Madnox on seuraaja Mike_Docin, schimi2k:n ja MeowMoon luomalle Aeon Madnoxille. Se on ulkoasu (skin), joka perustuu djh_:n Aeon- ja BigNoidin sekä phil65:n Aeon Nox 4 -ulkoasuihin. Erityiskiitokset Mr. V:lle. Kaikki kunnia näiden ulkoasujen ja modien tekijöille.</disclaimer>
+		<disclaimer lang="fo_fo">Madnox er eftirfylgjarin til Aeon Madnox hjá Mike_Doc, schimi2k og MeowMoo. Tað er eitt skin rajgjørt eftir sniðinum hjá Aeon hjá djh_ og Aeon Nox 4 hjá BigNoid og phil65. Serlig tøkk til Mr. V. Allur heiður fer til tær, ið hava gjørt hesi skins og mods.</disclaimer>
+		<disclaimer lang="fr_ca">Madnox est le successeur d'Aeon Madnox par Mike_Doc, schimi2k et MeowMoo. C'est un habillage (skin) basé sur le design d'Aeon par djh_ et d'Aeon Nox 4 par BigNoid et phil65. Un merci tout spécial à Mr. V. Tout le mérite revient aux concepteurs de ces habillages et mods.</disclaimer>
+		<disclaimer lang="fr_fr">Madnox est le successeur d'Aeon Madnox par Mike_Doc, schimi2k et MeowMoo. C'est un habillage (skin) basé sur le design d'Aeon par djh_ et d'Aeon Nox 4 par BigNoid et phil65. Remerciements particuliers à Mr. V. Tout le mérite revient aux créateurs de ces habillages et mods.</disclaimer>
+		<disclaimer lang="gl_es">Madnox é o sucesor de Aeon Madnox de Mike_Doc, schimi2k e MeowMoo. É unha aparencia (skin) baseada no deseño de Aeon de djh_ e Aeon Nox 4 de BigNoid e phil65. Grazas especiais a Mr. V. Todo o crédito para os creadores destas aparencias e modificacións.</disclaimer>
+		<disclaimer lang="he_il">Madnox הוא היורש של Aeon Madnox מאת Mike_Doc, schimi2k ו-MeowMoo. זוהי מעטפת (skin) המבוססת על העיצוב של Aeon מאת djh_ ו-Aeon Nox 4 מאת BigNoid ו-phil65. תודה מיוחדת ל-Mr. V. כל הקרדיต ליוצרים של מעטפות והתאמות אלו.</disclaimer>
+		<disclaimer lang="hi_in">मॅडनॉक्स (Madnox), माइक_डॉक (Mike_Doc), शिमी2के (schimi2k) और म्याऊमू (MeowMoo) द्वारा बनाए गए इयोन मॅडनॉक्स (Aeon Madnox) का उत्तराधिकारी है। यह एक स्किन (skin) है जो djh_ द्वारा इयोन (Aeon) और बिगनॉइड (BigNoid) व फिल65 (phil65) द्वारा इयोन नॉक्स 4 (Aeon Nox 4) के डिज़ाईन पर आधारित है। मिस्टर वी (Mr. V) का विशेष धन्यवाद। इन स्किन्स और मॉड्स के निर्माताओं को पूरा श्रेय जाता है।</disclaimer>
+		<disclaimer lang="hr_hr">Madnox je nasljednik Aeon Madnoxa od autora Mike_Doc, schimi2k i MeowMoo. To je skin baziran na dizajnu Aeona od djh_ i Aeona Nox 4 od BigNoida i phil65. Posebno hvala gospodinu V (Mr. V). Sve zasluge idu tvorcima ovih skinova i modova.</disclaimer>
+		<disclaimer lang="hu_hu">A Madnox az Aeon Madnox utódja, melyet Mike_Doc, schimi2k és MeowMoo készített. Ez egy felület (skin), amely a djh_ által tervezett Aeon, valamint a BigNoid és phil65 által készített Aeon Nox 4 dizájnján alapul. Külön köszönet Mr. V-nek. Minden elismerés ezen felületek és módosítások készítőit illeti.</disclaimer>
+		<disclaimer lang="hy_am">Madnox-ը հանդիսանում է Mike_Doc-ի, schimi2k-ի և MeowMoo-ի կողմից ստեղծված Aeon Madnox-ի հաջորդողը: Այն թեմա (skin) է՝ հիմնված djh_-ի Aeon-ի և BigNoid-ի ու phil65-ի Aeon Nox 4-ի դիզայնի վրա: Հատուկ շնորհակալություն Mr. V-ին: Ողջ երախտագիտությունը այս թեմաների և ձևափոխումների (mods) հեղինակներին:</disclaimer>
+		<disclaimer lang="id_id">Madnox adalah penerus Aeon Madnox oleh Mike_Doc, schimi2k, dan MeowMoo. Ini adalah skin yang dibuat berdasarkan desain Aeon oleh djh_ dan Aeon Nox 4 oleh BigNoid dan phil65. Terima kasih khusus kepada Mr. V. Semua kredit diberikan kepada para pembuat skin dan mod ini.</disclaimer>
+		<disclaimer lang="is_is">Madnox er arftaki Aeon Madnox eftir Mike_Doc, schimi2k og MeowMoo. Þetta er útlit (skin) byggt á hönnun Aeon eftir djh_ og Aeon Nox 4 eftir BigNoid og phil65. Sérstakar þakkir til Mr. V. Allur heiður fer til höfunda þessara útlista og breytinga (mods).</disclaimer>
+		<disclaimer lang="it_it">Madnox è il successore di Aeon Madnox di Mike_Doc, schimi2k e MeowMoo. È una skin basata sul design di Aeon di djh_ e Aeon Nox 4 di BigNoid e phil65. Un ringraziamento speciale a Mr. V. Tutti i crediti vanno ai creatori di queste skin e mod.</disclaimer>
+		<disclaimer lang="ja_jp">Madnoxは、Mike_Doc、schimi2k、MeowMooによるAeon Madnoxの後継スキンです。djh_によるAeon、およびBigNoidとphil65によるAeon Nox 4のデザインに基づいています。Mr. Vに特別に感謝いたします。これらのスキンとモッドの制作者にすべてのクレジットを捧げます。</disclaimer>
+		<disclaimer lang="kn_in">ಮ್ಯಾಡ್‌ನಾಕ್ಸ್ (Madnox), ಮೈಕ್_ಡಾಕ್ (Mike_Doc), ಶಿಮಿ2ಕೆ (schimi2k) ಮತ್ತು ಮಿಯಾವ್‌ಮೂ (MeowMoo) ಅವರ ಏಯಾನ್ ಮ್ಯಾಡ್‌ನಾಕ್ಸ್ (Aeon Madnox) ನ ಉತ್ತರಾಧಿಕಾರಿಯಾಗಿದೆ. ಇದು djh_ ಅವರ ಏಯಾನ್ (Aeon) ಮತ್ತು ಬಿಗ್‌ನಾಯ್ಡ್ (BigNoid) ಹಾಗೂ ಫಿಲ್65 (phil65) ಅವರ ಏಯಾನ್ ನಾಕ್ಸ್ 4 (Aeon Nox 4) ವಿನ್ಯಾಸದ ಆಧಾರಿತ ಸ್ಕಿನ್ (skin) ಆಗಿದೆ. ಮಿಸ್ಟರ್ ವಿ (Mr. V) ಅವರಿಗೆ ವಿಶೇಷ ಧನ್ಯವಾದಗಳು. ಈ ಸ್ಕಿನ್‌ಗಳು ಮತ್ತು ಮಾಡ್ಸ್ ಸೃಷ್ಟಿಕರ್ತರಿಗೆ ಸಂಪೂರ್ಣ ಶ್ರೇಯಸ್ಸು ಸಲ್ಲುತ್ತದೆ.</disclaimer>
+		<disclaimer lang="ko_kr">Madnox는 Mike_Doc, schimi2k, MeowMoo가 제작한 Aeon Madnox의 후속 스킨입니다. djh_의 Aeon 디자인과 BigNoid 및 phil65의 Aeon Nox 4 디자인을 기반으로 제작되었습니다. Mr. V에게 특별한 감사를 전합니다. 이 스킨과 모드 제작자 분들께 모든 감사를 드립니다.</disclaimer>
+		<disclaimer lang="lt_lt">„Madnox“ yra „Aeon Madnox“, kurį sukūrė Mike_Doc, schimi2k ir MeowMoo, įpėdinis. Tai yra skinas (apvalkalas), sukurtas remiantis djh_ „Aeon“ ir BigNoid bei phil65 „Aeon Nox 4“ dizainu. Ypatingas ačiū Mr. V. Visa padėka šių skinų ir modifikacijų kūrėjams.</disclaimer>
+		<disclaimer lang="lv_lv">Madnox ir Aeon Madnox pēctecis, ko radījuši Mike_Doc, schimi2k un MeowMoo. Tā ir saskarne (skin), kas balstīta uz djh_ veidoto Aeon dizainu un BigNoid un phil65 veidoto Aeon Nox 4. Īpašs paldies Mr. V. Visa pateicība šo saskarņu un modifikāciju autoriem.</disclaimer>
+		<disclaimer lang="mi">Ko Madnox te kairiiwhi ki a Aeon Madnox nā Mike_Doc, schimi2k me MeowMoo. He kiri (skin) tenei i hangaia i runga i te hoahoa o Aeon nā djh_, me Aeon Nox 4 nā BigNoid me phil65. He mihi motuhake ki a Mr. V. Ko nga mihi katoa ki nga kaihanga o enei kiri me enei whakarereketanga.</disclaimer>
+		<disclaimer lang="mk_mk">Madnox е наследник на Aeon Madnox од Mike_Doc, schimi2k и MeowMoo. Тоа е изглед (skin) базиран на дизајнот на Aeon од djh_ и Aeon Nox 4 од BigNoid и phil65. Специјална благодарност до Mr. V. Сите заслуги одат кај творците на овие изгледи и модификации.</disclaimer>
+		<disclaimer lang="ml_in">മൈക്ക്_ഡോക് (Mike_Doc), ഷിമി2കെ (schimi2k), മിയാവുമൂ (MeowMoo) എന്നിവർ ചേർന്നൊരുക്കിയ ഇയോൺ മാഡ്നോക്സിന്റെ (Aeon Madnox) പിൻഗാമിയാണ് മാഡ്നോക്സ് (Madnox). djh_ രൂപകൽപ്പന ചെയ്ത ഇയോൺ (Aeon), ബിഗ്നോയിഡ് (BigNoid), ഫിൽ65 (phil65) എന്നിവർ രൂപകൽപ്പന ചെയ്ത ഇയോൺ നോക്സ് 4 (Aeon Nox 4) എന്നിവയുടെ ഡിസൈനിനെ അടിസ്ഥാനമാക്കിയുള്ള ഒരു സ്കിൻ (skin) ആണിത്. മിസ്റ്റർ വി-ക്ക് (Mr. V) പ്രത്യേക നന്ദി. ഈ സ്കിന്നുകളുടെയും മോഡുകളുടെയും നിർമ്മാതാക്കൾക്ക് എല്ലാ ക്രെഡിറ്റും നൽകുന്നു.</disclaimer>
+		<disclaimer lang="mn_mn">Madnox бол Mike_Doc, schimi2k болон MeowMoo нарын бүтээсэн Aeon Madnox-ийн залгамжлагч юм. Энэ нь djh_-ийн Aeon болон BigNoid, phil65 нарын Aeon Nox 4 загвар дээр суурилсан арьс (skin) юм. Mr. V-д тусгайлан талархал илэрхийлье. Эдгээр арьс болон модуудыг бүтээгчдэд бүх талархлыг зориулж байна.</disclaimer>
+		<disclaimer lang="ms_my">Madnox ialah pengganti kepada Aeon Madnox oleh Mike_Doc, schimi2k dan MeowMoo. Ia merupakan skin yang berasaskan reka bentuk Aeon oleh djh_ dan Aeon Nox 4 oleh BigNoid dan phil65. Penghargaan khas kepada Mr. V. Segala kredit diberikan kepada pencipta skin dan mod ini.</disclaimer>
+		<disclaimer lang="mt_mt">Madnox huwa s-suċċessur ta' Aeon Madnox minn Mike_Doc, schimi2k u MeowMoo. Din hija dehra (skin) ibbażata fuq id-disinn ta' Aeon minn djh_ u Aeon Nox 4 minn BigNoid u phil65. Ringrazzjament speċjali lil Mr. V. Il-krediti kollha jmorru għand il-kreatturi ta' dawn id-dehriet u modifikazzjonijiet.</disclaimer>
+		<disclaimer lang="my_mm">Madnox သည် Mike_Doc၊ schimi2k နှင့် MeowMoo တို့ ဖန်တီးခဲ့သော Aeon Madnox ၏ ဆက်ခံသူ ဖြစ်သည်။ ၎င်းသည် djh_ ၏ Aeon ဒီဇိုင်းနှင့် BigNoid နှင့် phil65 တို့၏ Aeon Nox 4 ဒီဇိုင်းပေါ်တွင် အခြေခံထားသော skin တစ်ခု ဖြစ်သည်။ Mr. V အား အထူးကျေးဇူးတင်ရှိပါသည်။ ဤ skin များနှင့် mod များကို ဖန်တီးသူများအားလုံးကို အသိအမှတ်ပြု ဂุဏ်ပြုပါသည်။</disclaimer>
+		<disclaimer lang="nb_no">Madnox er etterfølgeren til Aeon Madnox av Mike_Doc, schimi2k og MeowMoo. Det er et utseende (skin) basert på designet til Aeon av djh_ og Aeon Nox 4 av BigNoid og phil65. En spesiell takk til Mr. V. All ære går til skaperne av disse utseendene og modifikasjonene.</disclaimer>
+		<disclaimer lang="nl_nl">Madnox is de opvolger van Aeon Madnox door Mike_Doc, schimi2k en MeowMoo. Het is een skin gebaseerd op het ontwerp van Aeon door djh_ en Aeon Nox 4 door BigNoid en phil65. Speciale dank aan Mr. V. Alle eer gaat naar de makers van deze skins en mods.</disclaimer>
+		<disclaimer lang="no_no">Madnox er etterfølgeren til Aeon Madnox av Mike_Doc, schimi2k og MeowMoo. Det er et utseende (skin) basert på designet til Aeon av djh_ og Aeon Nox 4 av BigNoid og phil65. En spesiell takk til Mr. V. All ære går til skaperne av disse utseendene og modifikasjonene.</disclaimer>
+		<disclaimer lang="pl_pl">Madnox to następca Aeon Madnox autorstwa Mike_Doc, schimi2k i MeowMoo. Jest to skóra (skin) oparta na projekcie Aeon autorstwa djh_ oraz Aeon Nox 4 autorstwa BigNoid i phil65. Specjalne podziękowania dla Mr. V. Słowa uznania dla twórców tych skór i modyfikacji.</disclaimer>
+		<disclaimer lang="pt_br">Madnox é o sucessor do Aeon Madnox de Mike_Doc, schimi2k e MeowMoo. É uma skin baseada no design do Aeon de djh_ e Aeon Nox 4 de BigNoid e phil65. Agradecimentos especiais a Mr. V. Todos os créditos aos criadores destas skins e mods.</disclaimer>
+		<disclaimer lang="pt_pt">Madnox é o sucessor do Aeon Madnox de Mike_Doc, schimi2k e MeowMoo. É um tema (skin) baseado no design do Aeon de djh_ e Aeon Nox 4 de BigNoid e phil65. Agradecimentos especiais a Mr. V. Todos os créditos aos criadores destes temas e modificações.</disclaimer>
+		<disclaimer lang="ro_ro">Madnox este succesorul lui Aeon Madnox creat de Mike_Doc, schimi2k și MeowMoo. Este o interfață (skin) bazată pe designul Aeon realizat de djh_ și Aeon Nox 4 de BigNoid și phil65. Mulțumiri speciale lui Mr. V. Toate mulțumirile merg către creatorii acestor interfețe și modificări.</disclaimer>
+		<disclaimer lang="ru_ru">Madnox — это преемник Aeon Madnox от Mike_Doc, schimi2k и MeowMoo. Эта обложка (skin) создана на основе дизайна Aeon от djh_ и Aeon Nox 4 от BigNoid и phil65. Особая благодарность Mr. V. Все права и благодарности принадлежат авторам этих обложек и модификаций.</disclaimer>
+		<disclaimer lang="si_lk">Madnox යනු Mike_Doc, schimi2k සහ MeowMoo විසින් නිර්මාණය කරන ලද Aeon Madnox හි අනුප්‍රාප්තිකයා වේ. මෙය djh_ ගේ Aeon සහ BigNoid සහ phil65 ගේ Aeon Nox 4 සැලසුම් මත පදනම් වූ සංදර්ශක මුහුණතකි (skin). Mr. V වෙත විශේෂ ස්තූතිය හිමිවේ. මෙම සංදර්ශක මුහුණත් සහ මෝස්තර (mods) නිර්මාණය කළ සැමට උපහාරය හිමිවේ.</disclaimer>
+		<disclaimer lang="sk_sk">Madnox je nástupcom vzhľadu Aeon Madnox od autorov Mike_Doc, schimi2k a MeowMoo. Je to vzhľad založený na dizajne Aeon od djh_ a Aeon Nox 4 od BigNoid a phil65. Zvláštne poďakovanie patrí Mr. V. Všetky zásluhy patria tvorcom týchto vzhľadov a modifikácií.</disclaimer>
+		<disclaimer lang="sl_si">Madnox je naslednik preobleke Aeon Madnox avtorjev Mike_Doc, schimi2k in MeowMoo. To je preobleka (skin), ki temelji na obliki Aeon avtorja djh_ in Aeon Nox 4 avtorjev BigNoid in phil65. Posebna zahvala Mr. V. Vse zasluge gredo ustvarjalcem teh preoblek in modifikacij.</disclaimer>
+		<disclaimer lang="sq_al">Madnox është pasardhësi i Aeon Madnox nga Mike_Doc, schimi2k dhe MeowMoo. Kjo është një temë (skin) e bazuar në dizajnin e Aeon nga djh_ dhe Aeon Nox 4 nga BigNoid dhe phil65. Falënderim i veçantë për Mr. V. Të gjitha meritat shkojnë për krijuesit e këtyre temave dhe modifikimeve.</disclaimer>
+		<disclaimer lang="sr_rs">Madnox је наследник Aeon Madnox-а од аутора Mike_Doc, schimi2k и MeowMoo. То је маска (skin) заснована на дизајну Aeon-а од djh_ и Aeon Nox 4 од BigNoid-а и phil65. Посебно хвала Mr. V. Све заслуге иду творцима ових маски и модификација.</disclaimer>
+		<disclaimer lang="sr_rs@latin">Madnox je naslednik Aeon Madnox-a od autora Mike_Doc, schimi2k i MeowMoo. To je maska (skin) zasnovana na dizajnu Aeon-a od djh_ i Aeon Nox 4 od BigNoid-a i phil65. Posebno hvala Mr. V. Sve zasluge idu tvorcima ovih maski i modifikacija.</disclaimer>
+		<disclaimer lang="sv_se">Madnox är efterföljaren till Aeon Madnox av Mike_Doc, schimi2k och MeowMoo. Det är ett skal (skin) baserat på designen av Aeon av djh_ och Aeon Nox 4 av BigNoid och phil65. Särskilt tack till Mr. V. All heder till skaparna av dessa skal och moddar.</disclaimer>
+		<disclaimer lang="szl">Madnox to je nastympca Aeon Madnox ôd Mike_Doc, schimi2k i MeowMoo. To je skōra (skin) ôpartŏ na projekcie Aeon ôd djh_ i Aeon Nox 4 ôd BigNoid i phil65. Sebyclne podziynkowanie lo Mr. V. Cołke uznanie lo twōrcōw tych skōr i modyfikacyji.</disclaimer>
+		<disclaimer lang="ta_in">மேட்னாக்ஸ் (Madnox) என்பது மைக்_டாக் (Mike_Doc), ஷிமி2கே (schimi2k) மற்றும் மியாவ்மூ (MeowMoo) ஆகியோரால் உருவாக்கப்பட்ட இயான் மேட்னாக்ஸின் (Aeon Madnox) வாரிசு ஆகும். இது djh_ இன் இயான் (Aeon) மற்றும் பிக்னாய்டு (BigNoid) மற்றும் ஃபில்65 (phil65) இன் இயான் நாக்ஸ் 4 (Aeon Nox 4) வடிவமைப்பை அடிப்படையாகக் கொண்ட ஒரு ஸ்கின் (skin) ஆகும். மிஸ்டர் வி-க்கு (Mr. V) சிறப்பு நன்றிகள். இந்த ஸ்கின்கள் மற்றும் மாட்களை உருவாக்கியவர்களுக்கு அனைத்து பாராட்டுக்களும் சேரும்.</disclaimer>
+		<disclaimer lang="te_in">మ్యాడ్‌నాక్స్ (Madnox) అనేది మైక్_డాక్ (Mike_Doc), షిమి2కె (schimi2k) మరియు మీయావ్‌మూ (MeowMoo) లచే తయారు చేయబడిన ఏయాన్ మ్యాడ్‌నాక్స్ (Aeon Madnox) కు వారసుడు. ఇది djh_ యొక్క ఏయాన్ (Aeon) మరియు బిగ్‌నాయిడ్ (BigNoid) మరియు ఫిల్65 (phil65) ల ఏయాన్ నాక్స్ 4 (Aeon Nox 4) రూపకల్పనపై ఆధారపడిన స్కిన్ (skin). మిస్టర్ వి (Mr. V) కి ప్రత్యేక ధన్యవాదాలు. ఈ స్కిన్స్ మరియు మోడ్స్ సృష్టికర్తలకు పూర్తి గుర్తింపు దక్కుతుంది.</disclaimer>
+		<disclaimer lang="tg_tj">Madnox вориси Aeon Madnox аз ҷониби Mike_Doc, schimi2k ва MeowMoo мебошад. Ин пӯст (skin) дар асоси тарҳи Aeon аз ҷониби djh_ ва Aeon Nox 4 аз ҷониби BigNoid ва phil65 сохта шудааст. Ташаккури махсус ба Mr. V. Тамоми эҳтиром ба созандагони ин пӯстҳо ва модҳо.</disclaimer>
+		<disclaimer lang="th_th">Madnox คือผู้สืบทอดของ Aeon Madnox โดย Mike_Doc, schimi2k และ MeowMoo เป็นสกิน (skin) ที่อิงตามการออกแบบของ Aeon โดย djh_ และ Aeon Nox 4 โดย BigNoid และ phil65 ขอขอบคุณเป็นพิเศษสำหรับ Mr. V เครดิตทั้งหมดขอมอบให้แก่ผู้สร้างสกินและม็อดเหล่านี้</disclaimer>
+		<disclaimer lang="tr_tr">Madnox; Mike_Doc, schimi2k ve MeowMoo tarafından geliştirilen Aeon Madnox'un halefidir. djh_ tasarımı Aeon ve BigNoid ile phil65 tasarımı Aeon Nox 4 tabanlı bir arayüzdür (skin). Mr. V'ye özel teşekkürler. Tüm haklar ve emekler bu arayüzlerin ve modların yapımcılarına aittir.</disclaimer>
+		<disclaimer lang="uk_ua">Madnox — це наступник Aeon Madnox від Mike_Doc, schimi2k та MeowMoo. Це обкладинка (skin), створена на основі дизайну Aeon від djh_ та Aeon Nox 4 від BigNoid та phil65. Особлива подяка Mr. V. Усі права та вдячність належать авторам цих обкладинок та модифікацій.</disclaimer>
+		<disclaimer lang="uz_uz">Madnox – Mike_Doc, schimi2k va MeowMoo tomonidan yaratilgan Aeon Madnox-ning davomchisidir. Bu djh_ tomonidan yaratilgan Aeon va BigNoid hamda phil65 tomonidan yaratilgan Aeon Nox 4 dizayniga asoslangan muqova (skin). Mr. V-ga alohida rahmat. Ushbu muqovalar va modlar yaratuvchilariga minnatdorchilik bildiramiz.</disclaimer>
+		<disclaimer lang="vi_vn">Madnox là phiên bản kế thừa của Aeon Madnox bởi Mike_Doc, schimi2k và MeowMoo. Đây là một giao diện (skin) dựa trên thiết kế của Aeon bởi djh_ và Aeon Nox 4 bởi BigNoid và phil65. Đặc biệt cảm ơn Mr. V. Mọi đóng góp xin dành cho những người tạo ra các giao diện và bản mod này.</disclaimer>
+		<disclaimer lang="zh_cn">Madnox 是由 Mike_Doc、schimi2k 和 MeowMoo 开发的 Aeon Madnox 的继承者。这是一款基于 djh_ 的 Aeon 以及 BigNoid 和 phil65 的 Aeon Nox 4 设计的皮肤。特别鸣谢 Mr. V。所有功劳归于这些皮肤和模组的创作者。</disclaimer>
+		<disclaimer lang="zh_hk">Madnox 是由 Mike_Doc、schimi2k 和 MeowMoo 開發的 Aeon Madnox 的繼承者。這是一款基於 djh_ 的 Aeon 以及 BigNoid 和 phil65 的 Aeon Nox 4 設計的面板（Skin）。特別鳴謝 Mr. V。所有功勞歸於這些面板和模組的創作者。</disclaimer>
+		<disclaimer lang="zh_tw">Madnox 是由 Mike_Doc、schimi2k 和 MeowMoo 開發的 Aeon Madnox 的繼承者。這是一款基於 djh_ 的 Aeon 以及 BigNoid 和 phil65 的 Aeon Nox 4 設計的面板（Skin）。特別鳴謝 Mr. V。所有功勞歸於這些面板和模組的創作者。</disclaimer>
+		<platform>all</platform>
+		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+		<forum>https://forum.kodi.tv/forumdisplay.php?fid=314</forum>
+		<source>https://github.com/kittmaster/KittmasterRepo</source>
+		<website>https://github.com/kittmaster/KittmasterRepo</website>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+		<news>
+v21.11.8
+- Repo edition: the background packs, schimi2k shelf art and lion intro video now ship in the Madnox Nova Art Pack add-on (installed automatically with the skin), so the skin installs in one step straight from the repository.
+v21.10.10
+- Added offset to dialog select so scrollbar appears on the right side for consistency
+- Adjusted all portrait icon views for open case mode to proper size/position in the case
+v21.10.09
+- Cleanup: Multiple includes, code fixes &amp; corrections, report any issues in forum, thanks.
+- Bug: Showcase 2thumb, 4thumb not working for tvshows, repaired old path method to updated version
+- Bug: Replaced entry point control for manage preset dialog as default with no preset locks out navigation
+- Bug: Removed redundant scrollbar from SquareIcon (521) view from refactor (seen in favorites and music)
+- Bug: Color picker selection label clipping repaired, centered labels in guidelines
+- Installation Bug: Fallback fonts for addons added to font.xml. (Fixes Trakt.tv authorize dialog missing text and others)
+- Bug: Fixed grid widget launcher to ensure cast and studio icon shows up due to empty list entry
+- Correction: Incrementally removing all hardcoded colors and moving to skin theme control in admin for all widget info panels
+- Bug: Repaired widget grid panel viewer for non library items blocking recursive views like bio, cast, and other externals
+- Additions: all supported languages now included. Report any syntax issues in the forums.
+- Layout: Grid widget view crawler with right side mouse target zone fixed, you can now properly select all movies in crawler
+- Layout: Grid widget in Home, if all are set to medium, all 6 will be selectable via mouse, previously, scroll was needed to select 6th widget
+- Layout: Weather section; enhanced remote/keyboard navigation, added escapes to menu, fixed panel selection highlighter when selected.
+- Color Picker: Additional color hardcodes removed to follow theming, localize missed strings for compliance
+- Bug: Main menu background shadow in sideblade, pointed to style, repaired to shadow
+- Complete: Custom video codec flag changer is now operational and no longer W.I.P.
+- Dashboard widget panel: Fixed broken system localize value for text string, now shows "System Status"
+- QOL: Changed default control to scrollbar for what's new dialog on entry
+- Layout: Grid widget 1130 layout view scrollbar to hide under 9 items, show with 10 or greater
+- Bug: Fixed moon image(s) display in weather which was not rendering due to addon issue and repair
+v21.10.08
+- New feature: Vertical menu! Trigger via the sideblade or inside Skin settings > Themes > Vertical menu
+- New feature: Save user skin settings, import, export settings (sharing/collaboration)
+- New feature: 6 new view modes; Showcase Hero, Spotlight, Cinematic Shelf, Editorial, Immersive, Stage
+- Expanded feature: Open case. Portrait views animate case opening to display disc if video case is active
+- QOL: Video player has option to show Genre/Category next to clearlogo. Can be turned off in view options
+- QOL: Video player all modes: Buttons now have hover capture to show what they do. Can be all on/off/player transport off
+- New feature: Prefer banners; Replaces clearlogo with banners in views, fallback to clearlogo to fallback to title/tagline
+- Template skin settings updated to reflected added features for 1st run and restore option in admin
+- Now playing reformatted to work with widgets in both horizontal and vertical modes
+- Widgets bottom achored to ensure widget size does not affect positioning of carousel and grid modes
+- BUG: Fixed cover flow portrait fixed list issue (RoboKomodo reported)
+- BUG: Fixed missing cast for seasons, local database for all other views, seasons uses external TMDb helper call (slower) but functional
+- QOL: Weather dialog completely revamped to a more modern layout, same left and options, new presentation
+- Weather supports map animation of local radar and clouds
+- BUG: Removed unwired, non functional visualization button in music mode
+- Fixed 55 low list falling off the bottom of the screen after episode thumb was added for tvshows
+- QOL: Collections view (only) follows last collection view globally. If collections are set to info2, all collections views are set to info2
+- QOL: Reordered all views in sideblade to follow consistent patterns for all views
+- BUG: Multiple views repaired for image framing being drawn out of order
+- QOL: Removed "Enable/Disable" from sideblade and converted to easy on the eye Check/X symbols following admin controls
+v21.10.07
+- Replaced PVR, channel, TV icons for updated icon set
+- BUG: Repaired migrator script causing icons to point to wrong location (Rerun in advanced if you have main menu icons missing)
+- Weather animation rework
+v21.10.06
+- BUG: Reordered conflicting IDs causing remote control navigation jamming
+- Restructured admin entry panel to include skin settings
+- New feature: Created new admin menu item for advanced controls
+- Added option re-run skin shortcuts migrator if conversion was unsuccesful on upgrade
+- Removed multiple broken migrated navigation from refactor
+v21.10.05
+- Fixed remaining rolling trailer shutoffs affecting music section
+- Added missing Jump To Letter offset value to enable from refactoring for music section
+v21.10.04
+- BUG: Fixed issue with migration script check in intro router
+- BUG: Fixed navigation trap in "What's new" dialog
+v21.10.03
+- New feature: Added missing "What's new" to the addon info dialog
+v21.10.02
+- BUG: Repaired unexpected media stopping from new trailer rolling feature. Media/Music will continue uninterrupted
+- BUG: Restored jump list to music section
+- Restored multiple views for music specific sections i.e. missing artwork, covers etc.
+- New feature: Created user selectable display for certain ratings as floating numbers or show as percent
+- Reverted use of .xbt file and unpacked images per Kodi admin suggestion for addon submission
+- BUG: Added missing dialog notification info if there is no biography or plot data
+- BUG: Removed nav trap in 1020 view
+- Consolidated identical plot methods into one singular callout			
+v21.10.01
+** Front end **
+- Display/Hide main context menu options
+- 1st run startup will set all the default skin values if not present, ensures all controls are initialized
+- Widget QOL updates, left navigations updates main page as one would expect
+- Music section completely rebuilt and refactored, better artwork rendering, layout, matches video/movie/tv layouts
+- Refactored infodialogs to be compartmentalized for faster loading, expansion, future growth
+- Added star ratings with color selection to the movie info videoinfo line
+- Revamped Media Flags to cover all the user cases, should be a major improvement
+- Wikipedia user color control to the backing overlay
+- Favorites overhauled with new HUD and active resizing
+- Increased widgets on home screen from 6 to 20
+- Widgets now have two modes, Carousel (original operation) &amp; Grid mode (new)
+- Multiple "mini" system widgets to select from include CPU, GPU, Memory and others.
+- Music: Converted scaling for fanart from scale to keep (User feedback: elve)			
+- Built new fallback process when blur is turned off with adjustable dimming
+- Blur can be fanart driven with gaussian, mixed with color, or custom color picker with alpha selected
+- Complete refactor of Movie/TV show sub dialog pages
+- Added custom accent color control to VideoOSD (User feedback: crazyturk)			 
+- Repaired skin shortcuts for "In- Progress" movies in widgets and ALL views
+- Added "In- Progress" bar overlay to all views when viewed
+- Custom color selection of "In- Progress" bar globally in all views			
+- New native "jump to letter" built into Kodi decoupled from Embuary Helper
+- Added icons to info metadata fields for movie/TV shows rows with disable
+- Added Wikipedia addon feature in detailed views
+- New skin initializer for missing startup settings installer on 1st run
+- Added factory restore feature resetting to 1st run out of the box values
+- Added auto trailer viewer on library hover Automatic trailer video preview with fanart fill selectable			
+- Video codec format type selection for media flags selection as 4K or 2160p (User feedback: lynxstrike)
+- Rebuilt cinema mode and enhanced usability to include user full features (bumpers, ratings, mpaa)
+- Cinema mode diagnostics with verification of path and reconstruction capability to ensure smooth user experience
+- Integrating PreShow Experience for advanced Cinema Mode, allows for simple and advanced cinema experience (WIP)			
+- Reformatted and updated color media flags
+- Synced/Updated/Created default greyscale flags assets to match color media flags
+- Moved startup logo spinner down and off large logo
+- Updated missing filmstrip genre image files for completeness
+- Fixed views with broken 2 and 4 thumbs to use selected fanart, fully repaired
+- Jump to letter: When in "numbers", # is replaced by actual number of movie. Example 300 > 3 is showin in bar instead of #
+- Poster is no longer the domanent image in views, if slider panel is selected like similar, it will display active hovered item until released
+
+** Admin (Back end) **
+- Conversion to TMDb Helper from Embuary helper completed
+- Built missing code for blurring fanart images in all areas via TMDb helper
+- Refactored Skin Shortcuts to remove Embuary Helper to TMDb helper link template constructors
+- Custom Video Codec media flags override selector, removes skin hacking, resettable (WIP)
+- Restructuring of media flags detection (WIP)
+- Startup video intro controls: None, Skin built- in, Custom selectable with preview on hover
+- Fixed media flags admin selector to use colored flags where screen would reset and blank out, fully repaired
+- Fixed shifting color swatches shifting and showing placeholder text when disable is active
+- Created "in- process" control color selection and enable control
+- Controls for metadata in movies and tv shows to enable in- row icons
+- Reset all skin options to default control
+
+** General All **
+- 2/16/2026 Madnox now has its own dedicated skin helper to consolidate all scripts and satisfy Kodi's requirements of free running scripts
+- 2/16/2026 1st run will write all required settings (version controlled) for added dev work without prompting preventing odd behavior until restart &amp; continued use to initialize missing settings
+- Multiple issues resolved (syntax, spelling, missing calls)
+- Removed startup script causing forced icon view overriding all user selection (Dev leftover)
+- Comprehensive removal of as many hardcoded strings into localization and all files fully translated
+- Startup bugs and errors resolved
+- Intro startup videos added on Kodi start.
+
+v21.02.06
+- Added ability to turn off Madnox startup logo inside admin furniture panel
+- Turned off main menu forced icons settings (dev testing left active by mistake in script)
+v21.02.05
+- Fixed widgets on main screen to use custom color picker
+- Subtitle color parameters can now be adjusted within the skin using custom color picker
+- Remove experimental replacement dev flag until next iteration
+- Minor code cleanup and refactoring
+v21.02.04
+- Fixed navigation corrections to TMDb Helper page and Movie/TV Show buttons/panels.
+v21.02.03
+- Removed duplicate language strings
+- Fixed metadata slider and countdown timer inverted logic
+- Add Norwegian language strings
+v21.02.02
+- Added navigation corrections to TMDb Helper page
+- Adjust default icon color include variable to correct for "icon error" where error is not present.
+v21.02.01
+- * Global *
+- Minor version increase to 21.02.01.
+- (WIP) (Long Term) -  Begin migration from Embuary Helper to TMDb Helper. Not a trivial change, maintained as much of the physical workflow as possible, some minor changes have been made and cannot be reverted to old methods, adoption should be easily understood.
+- Restructured Information dialog to support Person/Bio info into same dialog structure.
+- Multiple additions to Meta data fields providing more online and local data media labels.
+- Choice of large or small Madnox logo on startup.
+- Added Left/Right arrows for metadata when value is greater than 8 items for visual cue.
+- User adjustable time interval for Left/Right arrow slide (i.e. how often it switches if greater than 8 items).
+- Added countdown timer to display Left/Right switching duration and switch point (visual cue).
+- Added icons to various dialogs like "effects" for snow/leaves to visually display icon in dialog selection.
+- Added Madnox logo to all dialog popups.
+- Updated multiple strings to add uniqueness and better user experience diverging from cookie cutter phrases.
+- Added Recommendations panel to TMDb display dialog.
+- Added additional icons, feedback, graphical elements based on restructured layout to TMDb Infopage.
+- Fixed aspect ratio for "Videos" and removed limit of 2 in TMDb Infopage.
+- Aspect Ratio and Resolution icons colors can be set globally in the admin panel (10 options).
+- Entirely retooled color picker dialog replacing Kodi's built- in version allowing slider control of RGBA.
+- Local script logging enable/disable, defaults to off to prevent bloating KODI log file for debugging.
+- Automatic download of baseline image collections (weather, studio etc.), can be removed or replaced as needed. Rationale: provide better start point of visuals since most users can be overwhelmed on what they should or should not use based on taste/workflow. Default download and enable will provide a better user experience and will not affect lower tier hardware as it requires minimal space requirements.
+- Removed errant label in system info right side panel
+- Multiple mini scripts to replicate Embuary Helper to maintain core functionality, including play all, color picker, and new feature adds.
+- Added Skin Variables addons to add additional capability to replicate local related type movies and future capability updates and features.
+
+- * Biography *
+- Added death date (if applicable).
+- Updated Infoline with additional icons below main title.
+- Added feedback on rollover of panel data across all buttons.
+- Restructured page for better flow.
+- Shows local discart if movies are in focus and rollover of local movie with artwork is present.			
+
+- * Movies *	
+- Added date to main title in Information view.
+- Added all relevant meta tags in grid based on TMDb Helpers tag structure retrieval.
+- Updated Infoline and icons below main title with several revised icons.
+- Several string updates for uniformity between dialogs
+- Increased icon sizes in Infoline.			
+
+- * TV Shows *
+- Added color control to TV Show returning/air date from grey to color picker selection with persistence.
+- Updated icons for returning, not returning.
+- Added date to main title in Information view.
+- Added all relevant meta tags in grid based on TMDb Helpers tag structure retrieval.
+- Updated Infoline and icons below main title with several revised icons.
+- Increased icon sizes in Infoline.
+
+- * Music *
+- Added year to Now Playing after album (if present).
+- Added Aspect Ratio adjust to Admin panel to control Fanart background.
+- Added switch to Now Playing script view when Play All is activated.
+- (WIP) - Looking at reworking ID tag area.
+</news>
+	</extension>
+</addon>
+<addon id="madnoxnova.artpack" name="Madnox Nova Art Pack" version="1.0.0" provider-name="Madnox Nova">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+	</requires>
+	<extension point="xbmc.python.script" library="default.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_gb">Art pack for the Madnox Nova skin</summary>
+		<description lang="en_gb">Background packs, the schimi2k shelf-art library and the lion intro video for the Madnox Nova skin. Installed automatically as a skin dependency - the skin reads the files straight from this add-on's folder. Nothing to run.</description>
+		<platform>all</platform>
+		<assets>
+			<icon>icon.png</icon>
+		</assets>
+	</extension>
+</addon>
 </addons>
