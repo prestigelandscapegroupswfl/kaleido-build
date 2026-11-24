@@ -1,0 +1,19 @@
+name: Titanium X Unified Installer
+on:
+  push:
+    branches: [titanium-x-development]
+    paths: ['tools/build_unified_repo.py', '.github/workflows/titanium-unified.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python tools/build_unified_repo.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: titanium-unified-repository
+          path: dist/
+          if-no-files-found: error
