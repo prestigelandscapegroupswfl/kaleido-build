@@ -1,0 +1,8 @@
+script.embuary.info 2.0.8
+script.module.arrow 0.15.5
+script.module.beautifulsoup4 4.9.3
+script.module.future 0.16.0.4
+script.module.musicbrainz 0.7.0
+script.module.simplecache 2.0.2
+script.module.simplejson 3.3.0
+script.module.thetvdb 1.0.34
