@@ -5,7 +5,7 @@ on:
     paths: ['work/nova-source/**', '.github/workflows/titanium-test-package.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   package:
     runs-on: ubuntu-latest
@@ -49,6 +49,18 @@ jobs:
               assert ET.fromstring(z.read(root+'addon.xml')).attrib['version'] == '21.11.9'
           print(target)
           PY
+      - name: Record verified package status
+        run: |
+          python - <<'PY'
+          import pathlib, hashlib, json
+          p = pathlib.Path('dist/skin.madnoxnova-21.11.9.zip')
+          pathlib.Path('titanium-test-status.json').write_text(json.dumps({'version':'21.11.9','source_commit':'${{ github.sha }}','zip_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size,'run_id':'${{ github.run_id }}','validation':'passed'},indent=2)+'\n')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add titanium-test-status.json
+          git diff --cached --quiet || git commit -m "Record Titanium X test package validation"
+          git push origin HEAD:titanium-x-development
       - uses: actions/upload-artifact@v4
         with:
           name: titanium-x-kodi21-test
