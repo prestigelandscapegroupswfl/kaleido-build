@@ -1,0 +1,25 @@
+name: Extract Nova source
+on:
+  push:
+    branches: [titanium-x-development]
+    paths: ['.github/workflows/extract-nova.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extract:
+    if: github.ref == 'refs/heads/titanium-x-development'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - run: python tools/extract_nova.py
+      - name: Commit reviewable source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f work/nova-source/skin.madnoxnova/addon.xml
+          git add -f work/nova-source/skin.madnoxnova/16x9
+          git diff --cached --quiet || git commit -m "Extract Nova XML for Titanium X source review"
+          git push origin HEAD:titanium-x-development
