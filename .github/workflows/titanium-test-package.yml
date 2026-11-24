@@ -1,0 +1,56 @@
+name: Titanium X test package
+on:
+  push:
+    branches: [titanium-x-development]
+    paths: ['work/nova-source/**', '.github/workflows/titanium-test-package.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Build and validate test package
+        run: |
+          python - <<'PY'
+          import zipfile, pathlib, xml.etree.ElementTree as ET
+          original = pathlib.Path('repo/skin.madnoxnova/skin.madnoxnova-21.11.8.zip')
+          overlay = pathlib.Path('work/nova-source/skin.madnoxnova')
+          root = 'skin.madnoxnova/'
+          out = pathlib.Path('dist')
+          out.mkdir(exist_ok=True)
+          target = out / 'skin.madnoxnova-21.11.9.zip'
+          with zipfile.ZipFile(original) as src, zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as dst:
+              assert src.testzip() is None
+              for item in src.infolist():
+                  name = item.filename
+                  assert not name.startswith('/') and '..' not in pathlib.PurePosixPath(name).parts
+                  data = src.read(item)
+                  if name.startswith(root) and not item.is_dir():
+                      replacement = overlay / name[len(root):]
+                      if replacement.is_file():
+                          data = replacement.read_bytes()
+                      if name == root+'addon.xml':
+                          manifest = ET.fromstring(data)
+                          assert manifest.attrib['id'] == 'skin.madnoxnova'
+                          assert manifest.attrib['name'] == 'Titanium X'
+                          manifest.set('version','21.11.9')
+                          data = ET.tostring(manifest,encoding='utf-8',xml_declaration=True)
+                      if name.endswith('.xml') and (name.startswith(root+'16x9/') or name == root+'addon.xml'):
+                          ET.fromstring(data)
+                  dst.writestr(item,data)
+          with zipfile.ZipFile(target) as z:
+              assert z.testzip() is None
+              settings = z.read(root+'16x9/SkinSettings.xml').decode()
+              assert settings.count('<label>Titanium X - ') == 12
+              assert ET.fromstring(z.read(root+'addon.xml')).attrib['version'] == '21.11.9'
+          print(target)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: titanium-x-kodi21-test
+          path: dist/*.zip
+          if-no-files-found: error
