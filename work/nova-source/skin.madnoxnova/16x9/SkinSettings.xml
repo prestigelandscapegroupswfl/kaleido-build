@@ -303,6 +303,70 @@
 							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
 							<include>SettingsButton</include>
 						</control>
+						<control type="button" id="9805">
+							<label>Titanium X - Cyberpunk</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFFF36D8)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FF00E5FF)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF21102F)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9806">
+							<label>Titanium X - Ice</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFB9EEFF)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FF719BFF)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF15263B)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9807">
+							<label>Titanium X - Obsidian</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFBFC9D9)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FF626D82)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF101216)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9808">
+							<label>Titanium X - Sunset</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFFFB04C)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FFEC478D)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF32182A)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9809">
+							<label>Titanium X - Ocean</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FF2DE2D0)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FF297BFF)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF082536)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9810">
+							<label>Titanium X - Amethyst</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFC68AFF)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FF7545FF)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF211238)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9811">
+							<label>Titanium X - Crimson</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFFF3958)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FFFF8844)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF310E19)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9812">
+							<label>Titanium X - Titanium</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFE0E6F0)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FF55B9FF)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF18212D)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
 						<!-- Vertical sidebar menu toggle (Estuary-style) -->
 						<control type="radiobutton" id="236">
 							<label>$LOCALIZE[31537] [LOWERCASE]$LOCALIZE[10822][/LOWERCASE]: $VAR[EnableDisableLabel-MainMenuVertical]</label>
