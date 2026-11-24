@@ -1,0 +1,20 @@
+name: Titanium X package preflight
+on:
+  push:
+    branches: [titanium-x-development]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate repository packages
+        run: python tools/audit_titanium.py
