@@ -5,13 +5,22 @@ on:
     paths: ['tools/build_unified_repo.py', '.github/workflows/titanium-unified.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: python tools/build_unified_repo.py
+      - name: Save dependency audit and installer to development branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p unified-test
+          cp dist/* unified-test/
+          git add -f unified-test/
+          git diff --cached --quiet || git commit -m "Record unified installer and dependency audit"
+          git push origin HEAD:titanium-x-development
       - uses: actions/upload-artifact@v4
         with:
           name: titanium-unified-repository
