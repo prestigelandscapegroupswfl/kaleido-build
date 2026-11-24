@@ -271,6 +271,38 @@
 							<label>$LOCALIZE[31041]</label>
 							<include>SettingsLabel</include>
 						</control>
+						<control type="button" id="9801">
+							<label>Titanium X - Electric Neon</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FF00D9FF)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FFAC38FF)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF14112B)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9802">
+							<label>Titanium X - Inferno</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFFF742A)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FFFF245D)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF29101B)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9803">
+							<label>Titanium X - Emerald</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FF19F5AC)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FF00A9C9)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF082923)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="9804">
+							<label>Titanium X - Royal Gold</label>
+							<onclick>Skin.SetString(PanelHighlight.color,FFFFD56A)</onclick>
+							<onclick>Skin.SetString(MainMenuGradient.color,FFB47BFF)</onclick>
+							<onclick>Skin.SetString(MainMenuStyle.color,FF24182E)</onclick>
+							<onclick>Skin.SetString(PanelFocusText.color,FFFFFFFF)</onclick>
+							<include>SettingsButton</include>
+						</control>
 						<!-- Vertical sidebar menu toggle (Estuary-style) -->
 						<control type="radiobutton" id="236">
 							<label>$LOCALIZE[31537] [LOWERCASE]$LOCALIZE[10822][/LOWERCASE]: $VAR[EnableDisableLabel-MainMenuVertical]</label>
