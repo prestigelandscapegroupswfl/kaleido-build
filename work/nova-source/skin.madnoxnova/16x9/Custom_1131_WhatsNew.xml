@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<window type="dialog" id="1131">
+	<defaultcontrol always="true">60</defaultcontrol>
+	<onunload>ClearProperty(TextViewer_Header,home)</onunload>
+	<onunload>ClearProperty(TextViewer_Text,home)</onunload>
+
+	<controls>
+		<!-- Background tint -->
+		<control type="image">
+			<texture colordiffuse="E6FFFFFF">colors/black50.png</texture>
+		</control>
+
+		<!-- Main Dialog Box -->
+		<control type="group">
+			<width>1500</width>
+			<height>800</height>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+
+			<include content="DialogBackground">
+				<param name="width" value="1500" />
+				<param name="height" value="800" />
+			</include>
+
+			<!-- Logo -->
+			<control type="image">
+				<right>40</right>
+				<top>30</top>
+				<width>120</width>
+				<height>60</height>
+				<aspectratio>keep</aspectratio>
+				<texture>icons/logo.png</texture>
+			</control>
+
+			<!-- Header label (single line, passive) -->
+			<control type="label" id="1">
+				<left>40</left>
+				<top>40</top>
+				<width>960</width>
+				<height>50</height>
+				<font>Font28_Bold</font>
+				<textcolor>$VAR[PanelHighlightColorVar]</textcolor>
+				<label>$LOCALIZE[24054] $LOCALIZE[1405] $INFO[ListItem.AddonName]$INFO[ListItem.AddonVersion, : v]</label>
+			</control>
+
+			<control type="textbox" id="2">
+				<left>40</left>
+				<top>100</top>
+				<width>1400</width>
+				<height>580</height>
+				<font>Font28_Reg</font>
+				<label>$INFO[Window(home).Property(TextViewer_Text)]</label>
+				<autoscroll>false</autoscroll>
+				<pagecontrol>60</pagecontrol>
+			</control>
+
+			<control type="scrollbar" id="60">
+				<right>20</right>
+				<top>100</top>
+				<width>30</width>
+				<height>580</height>
+				<orientation>vertical</orientation>
+				<showonepage>false</showonepage>
+				<ondown>10</ondown>
+				<onleft>10</onleft>
+				<onright>10</onright>
+			</control>
+
+			<control type="grouplist" id="9131">
+				<left>40</left>
+				<top>700</top>
+				<width>1420</width>
+				<height>80</height>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<onright>60</onright>
+				<control type="button" id="10">
+					<width>350</width>
+					<include>DialogButtonAlwaysFocused</include>
+					<label>$LOCALIZE[186]</label>
+					<align>center</align>
+					<onclick>Close</onclick>
+					<onup>10</onup>
+					<onleft>10</onleft>
+					<onright>60</onright>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,2331 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<window>
+	<defaultcontrol always="true">7000</defaultcontrol>
+	<menucontrol>9050</menucontrol>
+	<!-- <onload>RunScript(special://home/addons/resource.images.skin.madnox/resources/scripts/set_intro_label.py,$INFO[Skin.String(IntroVideoSelectStartupValue)])</onload> -->
+	<onload>RunScript(script.skin.madnox, action=set_intro_label, path="$INFO[Skin.String(IntroVideoSelectStartupValue)]")</onload>
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|shortcuts)</onunload>
+	<controls>
+		<!-- Background -->
+		<include content="BackgroundDefault">
+			<param name="imagepath">$VAR[SystemBackgroundVar]</param>
+			<param name="animatedfanart">Skin.HasSetting(SystemAnimatedFanart)</param>
+		</include>
+		<!-- Floor -->
+		<include content="Floor">
+			<param name="visible">Skin.HasSetting(SettingsHideFloor)</param>
+			<param name="animationopen">$EXP[SystemAnimationOpenCondition]</param>
+			<param name="animationclose">$EXP[SystemAnimationCloseCondition]</param>
+		</include>
+		<!-- Panel -->
+		<control type="group">
+			<include>AnimationZoomWindow</include>
+			<include content="PanelSide">
+				<param name="reflect">!Skin.HasSetting(SettingsHideReflect)</param>
+			</include>
+		</control>
+		<!-- Content -->
+		<control type="group">
+			<include>AnimationZoomWindow</include>
+			<!-- Left Menu -->
+			<control type="label">
+				<visible>!Window.IsActive(script-skinshortcuts.xml)</visible>
+				<label>$LOCALIZE[20077]</label>
+				<include>SettingsLeftLabel</include>
+				<textcolor>$VAR[PanelTextColorVar]</textcolor>
+			</control>
+			<control type="list" id="7000">
+				<visible>!Window.IsActive(script-skinshortcuts.xml)</visible>
+				<top>200</top>
+				<left>100</left>
+				<width>324</width>
+				<height>612</height>
+				<onleft>9050</onleft>
+				<onright>7010</onright>
+				<itemlayout height="67">
+					<control type="label">
+						<font>Font36_Reg</font>
+						<textoffsetx>25</textoffsetx>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[PanelSubTextColorVar]</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout height="67">
+					<control type="image">
+						<texture border="10" colordiffuse="$VAR[PanelHighlightColorVar]">buttons/list-select-focus.png</texture>
+						<animation effect="fade" start="100" end="40" time="40" condition="!Control.HasFocus(7000)">Conditional</animation>
+					</control>
+					<control type="label">
+						<font>Font36_Reg</font>
+						<textoffsetx>25</textoffsetx>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[PanelFocusTextColorVar]</textcolor>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<description>General</description>
+						<label>$LOCALIZE[128]</label>
+					</item>
+					<item id="2">
+						<description>Themes</description>
+						<label>$LOCALIZE[21895]</label>
+					</item>
+					<item id="3">
+						<description>Colors</description>
+						<label>$LOCALIZE[14078]</label>
+					</item>
+					<item id="4">
+						<description>Backgrounds</description>
+						<label>$LOCALIZE[33069]</label>
+					</item>
+					<item id="5">
+						<description>Furniture</description>
+						<label>$LOCALIZE[31078]</label>
+					</item>
+					<item id="6">
+						<description>Artwork</description>
+						<label>$LOCALIZE[39123]</label>
+					</item>
+					<item id="7">
+						<description>Addons</description>
+						<label>$LOCALIZE[24001]</label>
+					</item>
+					<item id="8">
+						<description>Addons</description>
+						<label>$LOCALIZE[10038]</label>
+					</item>
+				</content>
+			</control>
+			<control type="textbox">
+				<visible>![ControlGroup(7001).HasFocus | ControlGroup(7004).HasFocus | ControlGroup(7005).HasFocus | ControlGroup(7006).HasFocus | ControlGroup(7007).HasFocus | ControlGroup(7008).HasFocus]</visible>
+				<left>460</left>
+				<bottom>115</bottom>
+				<width>1325</width>
+				<height>80</height>
+				<font>Font28_Reg</font>
+				<label>$VAR[SettingsDescriptionVar]</label>
+				<textcolor>$VAR[PanelTextColorVar]</textcolor>
+			</control>
+			<!-- Right Menu -->
+			<control type="group">
+				<visible>!Window.IsActive(script-skinshortcuts.xml)</visible>
+				<control type="label">
+					<visible>!Container(7000).Position(8)</visible>
+					<label>$LOCALIZE[33063]</label>
+					<include>SettingsRightLabel</include>
+				</control>
+				<control type="group" id="7010">
+					<!-- General -->
+					<control type="grouplist" id="7001">
+						<visible>Container(7000).Hasfocus(1)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<onleft>7000</onleft>
+						<onright>607001</onright>
+						<pagecontrol>607001</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<control type="label" id="101">
+							<label>$LOCALIZE[31041]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="102">
+							<label>$LOCALIZE[21435]</label>
+							<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="103">
+							<label>$LOCALIZE[13007]</label>
+							<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="104">
+							<label>$LOCALIZE[31292]</label>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31292],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="105">
+							<label>$LOCALIZE[31294]</label>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31294],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="label" id="106">
+							<label>$LOCALIZE[31285]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="107">
+							<label>$LOCALIZE[13007]</label>
+							<include>ThemeDefault</include>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="108">
+							<label>$LOCALIZE[31298]</label>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[15111],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="label" id="109">
+							<label>$LOCALIZE[16000]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="110">
+							<label>$LOCALIZE[31098]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31098],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+					</control>
+					<!-- General Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(1)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[GeneralDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+					<!-- Themes -->
+					<control type="grouplist" id="7002">
+						<visible>Container(7000).Hasfocus(2)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<onleft>7000</onleft>
+						<onright>607002</onright>
+						<pagecontrol>607002</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<!-- Panels -->
+						<control type="label" id="201">
+							<label>$LOCALIZE[31281]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="202">
+							<label>$LOCALIZE[736]</label>
+							<label2>$VAR[PanelStyleLabelVar]</label2>
+							<onclick condition="String.IsEmpty(Panel.texture)">Skin.SetString(Panel.texture,nox4)</onclick>
+							<onclick condition="Skin.String(Panel.texture,nox4)">Skin.SetString(Panel.texture,auriga)</onclick>
+							<onclick condition="Skin.String(Panel.texture,auriga)">Skin.Reset(Panel.texture)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="203">
+							<label>$LOCALIZE[31051]</label>
+							<label2>$VAR[PanelTextureLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31357],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="radiobutton" id="204">
+							<!-- <label>$LOCALIZE[31130]</label> -->
+							<label>$LOCALIZE[31130]: $VAR[EnableDisableLabel-PanelSquare.texture]</label>
+							<onclick>Skin.ToggleSetting(PanelSquare.texture)</onclick>
+							<selected>Skin.HasSetting(PanelSquare.texture)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="205">
+							<!-- <label>$LOCALIZE[31131]</label> -->
+							<label>$LOCALIZE[31131]: $VAR[EnableDisableLabel-PanelEmboss.texture]</label>
+							<onclick>Skin.ToggleSetting(PanelEmboss.texture)</onclick>
+							<selected>Skin.HasSetting(PanelEmboss.texture)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Top Bar -->
+						<control type="label" id="210">
+							<label>$LOCALIZE[31042]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="211">
+							<label>$LOCALIZE[31051]</label>
+							<label2>$VAR[TopbarTextureLabelVar]</label2>
+							<onclick condition="String.IsEmpty(TopbarTexture.texture)">Skin.SetString(TopbarTexture.texture,shadow)</onclick>
+							<onclick condition="Skin.String(TopbarTexture.texture,shadow)">Skin.Reset(TopbarTexture.texture)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<!-- Background -->
+						<control type="label" id="220">
+							<label>$LOCALIZE[33069]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="221">
+							<label>$LOCALIZE[31051]</label>
+							<label2>$VAR[BackgroundTextureLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31358],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="radiobutton" id="222">
+							<!-- <label>$LOCALIZE[39166]</label> -->
+							<label>$LOCALIZE[39166]: $VAR[EnableDisableLabel-BackgroundShadow]</label>
+							<onclick>Skin.ToggleSetting(BackgroundShadow)</onclick>
+							<selected>Skin.HasSetting(BackgroundShadow)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Main Menu -->
+						<control type="label" id="230">
+							<label>$LOCALIZE[31041]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<!-- Vertical sidebar menu toggle (Estuary-style) -->
+						<control type="radiobutton" id="236">
+							<label>$LOCALIZE[31537] [LOWERCASE]$LOCALIZE[10822][/LOWERCASE]: $VAR[EnableDisableLabel-MainMenuVertical]</label>
+							<onclick>Skin.ToggleSetting(MainMenuVertical)</onclick>
+							<onclick>ClearProperty(VertSubOpen,Home)</onclick>
+							<selected>Skin.HasSetting(MainMenuVertical)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="231">
+							<label>$LOCALIZE[736]</label>
+							<label2>$VAR[MainMenuStyleLabelVar]</label2>
+							<onclick condition="String.IsEmpty(MainMenuStyle.texture)">Skin.SetString(MainMenuStyle.texture,panels/mainmenu/nox4.png)</onclick>
+							<onclick condition="Skin.String(MainMenuStyle.texture,panels/mainmenu/nox4.png)">Skin.SetString(MainMenuStyle.texture,panels/mainmenu/auriga.png)</onclick>
+							<onclick condition="Skin.String(MainMenuStyle.texture,panels/mainmenu/auriga.png)">Skin.Reset(MainMenuStyle.texture)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="232">
+							<label>$LOCALIZE[31051]</label>
+							<label2>$VAR[MainMenuTextureLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31359],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="233">
+							<label>$LOCALIZE[31141]</label>
+							<label2>$VAR[MainMenuSystemBarLabelVar]</label2>
+							<onclick condition="String.IsEmpty(MainMenuSystemBar.texture)">Skin.SetString(MainMenuSystemBar.texture,wide)</onclick>
+							<onclick condition="Skin.String(MainMenuSystemBar.texture,wide)">Skin.SetString(MainMenuSystemBar.texture,shadow)</onclick>
+							<onclick condition="Skin.String(MainMenuSystemBar.texture,shadow)">Skin.Reset(MainMenuSystemBar.texture)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="234">
+							<label>$LOCALIZE[31142]</label>
+							<label2>$VAR[MainMenuSubmenuBarLabelVar]</label2>
+							<onclick condition="String.IsEmpty(MainMenuSubmenuBar.texture)">Skin.SetString(MainMenuSubmenuBar.texture,wide)</onclick>
+							<onclick condition="Skin.String(MainMenuSubmenuBar.texture,wide)">Skin.SetString(MainMenuSubmenuBar.texture,shadow)</onclick>
+							<onclick condition="Skin.String(MainMenuSubmenuBar.texture,shadow)">Skin.Reset(MainMenuSubmenuBar.texture)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="235">
+							<label>$LOCALIZE[31143]</label>
+							<label2>$VAR[MainMenuRSSBarLabelVar]</label2>
+							<onclick condition="String.IsEmpty(MainMenuRSSBar.texture)">Skin.SetString(MainMenuRSSBar.texture,wide)</onclick>
+							<onclick condition="Skin.String(MainMenuRSSBar.texture,wide)">Skin.Reset(MainMenuRSSBar.texture)</onclick>
+							<include>SettingsButton</include>
+						</control>
+					</control>
+					<!-- General Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(2)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[ThemesDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+					<!--  Colors -->
+					<control type="grouplist" id="7003">
+						<visible>Container(7000).Hasfocus(3)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<onleft>7000</onleft>
+						<onright>607003</onright>
+						<pagecontrol>607003</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<!-- Panels -->
+						<control type="label" id="301">
+							<label>$LOCALIZE[31281]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="302">
+							<label>$LOCALIZE[736]</label>
+							<label2>[COLOR $VAR[PanelStyleColorVar]]$VAR[PanelStyleColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelStyle.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelStyle.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelStyle.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[736],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelStyleColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="303">
+							<label>$LOCALIZE[31051]</label>
+							<label2>[COLOR $VAR[PanelTextureColorVar]]$VAR[PanelTextureColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelTexture.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31051],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelTextureColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="304">
+							<label>$LOCALIZE[31131]</label>
+							<label2>[COLOR $VAR[PanelEmbossColorVar]]$VAR[PanelEmbossColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelEmboss.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelEmboss.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelEmboss.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31131],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelEmbossColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="305">
+							<label>$LOCALIZE[39166]</label>
+							<label2>[COLOR $VAR[PanelShadowColorVar]]$VAR[PanelShadowColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelShadow.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelShadow.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelShadow.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[39166],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelShadowColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="306">
+							<label>$LOCALIZE[31049]</label>
+							<label2>[COLOR $VAR[PanelHighlightColorVar]]$VAR[PanelHighlightColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelHighlight.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelHighlight.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelHighlight.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31049],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelHighlightColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="307">
+							<label>$LOCALIZE[31136]</label>
+							<label2>[COLOR $VAR[PanelTextColorVar]]$VAR[PanelTextColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelText.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31136],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelTextColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="308">
+							<label>$LOCALIZE[31137]</label>
+							<label2>[COLOR $VAR[PanelSubTextColorVar]]$VAR[PanelSubTextColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelSubText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelSubText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelSubText.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31137],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelSubTextColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="309">
+							<label>$LOCALIZE[31138]</label>
+							<label2>[COLOR $VAR[PanelFocusTextColorVar]]$VAR[PanelFocusTextColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelFocusText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelFocusText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelFocusText.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31138],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelFocusTextColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="310">
+							<label>$LOCALIZE[31174]</label>
+							<label2>[COLOR $VAR[PanelDisabledTextColorVar]]$VAR[PanelTextColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelDisabledText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelDisabledText.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelDisabledText.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31174],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelDisabledTextColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="311">
+							<label>$LOCALIZE[31139]</label>
+							<label2>[COLOR $VAR[PanelListSeparatorColorVar]]$VAR[PanelListSeparatorColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelListSeparator.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelListSeparator.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelListSeparator.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31139],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelListSeparatorColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<!-- Main Menu -->
+						<control type="label" id="321">
+							<label>$LOCALIZE[31041]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="322">
+							<label>$LOCALIZE[736]</label>
+							<label2>[COLOR $VAR[MainMenuStyleColorVar]]$VAR[MainMenuStyleColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,MainMenuStyle.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,MainMenuStyle.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(MainMenuStyle.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31041]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[736],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[MainMenuStyleColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="323">
+							<label>$LOCALIZE[31051]</label>
+							<label2>[COLOR $VAR[MainMenuTextureColorVar]]$VAR[MainMenuTextureColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,MainMenuTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,MainMenuTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(MainMenuTexture.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31041]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31051],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[MainMenuTextureColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="324">
+							<label>$LOCALIZE[31134]</label>
+							<label2>[COLOR $VAR[MainMenuGradientColorVar]]$VAR[MainMenuGradientColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,MainMenuGradient.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,MainMenuGradient.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(MainMenuGradient.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31041]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31134],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[MainMenuGradientColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="325">
+							<label>$LOCALIZE[31039]</label>
+							<label2>[COLOR $VAR[MainMenuWidgetColorVar]]$VAR[MainMenuWidgetColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,MainMenuWidget.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,MainMenuWidget.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(MainMenuWidget.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31041]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31039],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[MainMenuWidgetColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<!-- Background -->
+						<control type="label" id="331">
+							<label>$LOCALIZE[33068]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="332">
+							<label>$LOCALIZE[31051]</label>
+							<label2>[COLOR $VAR[BackgroundTextureColorVar]]$VAR[BackgroundTextureColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,BackgroundTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,BackgroundTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(BackgroundTexture.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[33068]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31051],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[BackgroundTextureColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="333">
+							<label>$LOCALIZE[39166]</label>
+							<label2>[COLOR $VAR[BackgroundShadowColorVar]]$VAR[BackgroundShadowColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,BackgroundShadow.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,BackgroundShadow.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(BackgroundShadow.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[33068]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[39166],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[BackgroundShadowColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<!-- Top Bar/Main Menu Info Bars -->
+						<control type="label" id="341">
+							<label>$LOCALIZE[31160]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="342">
+							<label>$LOCALIZE[31175]</label>
+							<label2>[COLOR $VAR[TopbarTextureColorVar]]$VAR[TopbarTextureColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,TopbarTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,TopbarTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(TopbarTexture.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31160]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31175],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[TopbarTextureColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="343">
+							<label>$LOCALIZE[31284]</label>
+							<label2>[COLOR $VAR[TopbarShadowTextureColorVar]]$VAR[TopbarShadowTextureColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,TopbarShadowTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,TopbarShadowTexture.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(TopbarShadowTexture.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31160]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31284],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[TopbarShadowTextureColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<!-- Floor -->
+						<control type="label" id="351">
+							<label>$LOCALIZE[31047]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="352">
+							<label>$LOCALIZE[736]</label>
+							<label2>[COLOR $VAR[FloorStyleColorVar]]$VAR[FloorStyleColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,FloorStyle.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,FloorStyle.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(FloorStyle.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31047]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[736],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[FloorStyleColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="353">
+							<label>$LOCALIZE[31049]</label>
+							<label2>[COLOR $VAR[FloorHighlightColorVar]]$VAR[FloorHighlightColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,FloorHighlight.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,FloorHighlight.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(FloorHighlight.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31047]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31049],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[FloorHighlightColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<!-- TV Shows Season/Episodes/Date Flag -->
+						<control type="label" id="354">
+							<label>$LOCALIZE[31191]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="355">
+							<label>$LOCALIZE[31279]</label>
+							<label2>[COLOR $VAR[PanelTextTVShowsColorVar]]$VAR[PanelTextTVShowsColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelTextTVShows.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelTextTVShows.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelTextTVShows.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31136],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelTextTVShowsColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="356">
+							<label>$LOCALIZE[31323]</label>
+							<label2>[COLOR $VAR[CountDownTimerColorVar]]$VAR[CountDownTimerColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,countdowntimer.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,countdowntimer.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(countdowntimer.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[31136],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[CountDownTimerColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+
+						<!-- Player Process Info Text Colors -->
+						<control type="label" id="357">
+							<label>$LOCALIZE[10116] $LOCALIZE[478] [LOWERCASE]$LOCALIZE[29915][/LOWERCASE] [LOWERCASE]$LOCALIZE[131][/LOWERCASE]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="358">
+							<label>$LOCALIZE[736]</label>
+							<label2>[COLOR $VAR[PanelTextPlayerOSDColorVar]]$VAR[PanelTextPlayerOSDColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,PanelTextPlayerOSD.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,PanelTextPlayerOSD.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(PanelTextPlayerOSD.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[736],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[PanelTextPlayerOSDColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<!-- Wikipedia Colors -->
+						<control type="label" id="359">
+							<label>$LOCALIZE[31439] [LOWERCASE]$LOCALIZE[131][/LOWERCASE]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="360">
+							<label>$LOCALIZE[33068]</label>
+							<label2>[COLOR $VAR[WikiSectionColorVar]]$VAR[WikiSectionColorLabelVar][/COLOR]$VAR[3BlankSpace]</label2>
+							<onclick>SetProperty(Reset.Color,WikiSection.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,WikiSection.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(WikiSection.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31056]$VAR[1BlankSpace][LOWERCASE]$LOCALIZE[5][/LOWERCASE]:$VAR[1BlankSpace]$LOCALIZE[736],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[WikiSectionColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<!-- Madnox Nova — Fonts & Bars -->
+						<!-- NOVA-FONT: fontsets are switched the Kodi-native way (Settings > Interface > Skin > Fonts); this button is only a shortcut to Kodi Settings. Available sets: Default, Nova Cinematic, Nova Condensed, Nova Heavy, Nova Clean. -->
+						<control type="label" id="361">
+							<label>Madnox Nova — Fonts &amp; Bars</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="362">
+							<label>Font set</label>
+							<label2>Switch in Settings &gt; Interface &gt; Skin &gt; Fonts</label2>
+							<onclick>ActivateWindow(settings)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<!-- NOVA-BARS: bar colors, MQ9 pattern — the colorpicker script writes an ARGB into each NovaBar* skin string; consumption vars live in Includes_Themes.xml; an empty string restores the exact pre-21.11.4 look. -->
+						<control type="button" id="363">
+							<label>Main menu focused text color</label>
+							<label2>[COLOR $VAR[NovaBarMenuColorVar]]$VAR[NovaBarMenuLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarMenu,header=Main menu focused text color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="364">
+							<label>Reset main menu color to default</label>
+							<onclick>Skin.Reset(NovaBarMenu)</onclick>
+							<onclick>Skin.Reset(NovaBarMenu.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="365">
+							<label>Video seek bar — played color</label>
+							<label2>[COLOR $VAR[NovaBarSeekColorVar]]$VAR[NovaBarSeekLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarSeek,header=Video seek bar played color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="366">
+							<label>Reset seek bar played color to default</label>
+							<onclick>Skin.Reset(NovaBarSeek)</onclick>
+							<onclick>Skin.Reset(NovaBarSeek.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="367">
+							<label>Video seek bar — track / buffer color</label>
+							<label2>[COLOR $VAR[NovaBarSeekBackColorVar]]$VAR[NovaBarSeekBackLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarSeekBack,header=Video seek bar track and buffer color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="368">
+							<label>Reset seek bar track / buffer color to default</label>
+							<onclick>Skin.Reset(NovaBarSeekBack)</onclick>
+							<onclick>Skin.Reset(NovaBarSeekBack.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="369">
+							<label>Music OSD progress bar color</label>
+							<label2>[COLOR $VAR[NovaBarMusicColorVar]]$VAR[NovaBarMusicLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarMusic,header=Music OSD progress bar color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="370">
+							<label>Reset music progress color to default</label>
+							<onclick>Skin.Reset(NovaBarMusic)</onclick>
+							<onclick>Skin.Reset(NovaBarMusic.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="371">
+							<label>Volume bar color</label>
+							<label2>[COLOR $VAR[NovaBarVolumeColorVar]]$VAR[NovaBarVolumeLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarVolume,header=Volume bar color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="372">
+							<label>Reset volume bar color to default</label>
+							<onclick>Skin.Reset(NovaBarVolume)</onclick>
+							<onclick>Skin.Reset(NovaBarVolume.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<!-- NOVA-BARS (21.11.5): progress bar STYLE selector — cycles NovaBarStyleProgress classic > slim > bold > rounded > glow > classic (multi-onclick cycle, the stock texture-picker idiom); empty string = classic. Applies to the video seek bar, seek buffer bar, PVR EPG progress and the music OSD progress. -->
+						<control type="button" id="373">
+							<label>Progress bar style</label>
+							<label2>$VAR[NovaBarStyleProgressLabelVar]</label2>
+							<onclick condition="String.IsEmpty(Skin.String(NovaBarStyleProgress)) | String.IsEqual(Skin.String(NovaBarStyleProgress),classic)">Skin.SetString(NovaBarStyleProgress,slim)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaBarStyleProgress),slim)">Skin.SetString(NovaBarStyleProgress,bold)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaBarStyleProgress),bold)">Skin.SetString(NovaBarStyleProgress,rounded)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaBarStyleProgress),rounded)">Skin.SetString(NovaBarStyleProgress,glow)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaBarStyleProgress),glow)">Skin.Reset(NovaBarStyleProgress)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="374">
+							<label>Reset progress bar style to default</label>
+							<onclick>Skin.Reset(NovaBarStyleProgress)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<!-- NOVA-BARS (21.11.5): added bar colors — scrollbar, top bar, loading bar (same colorpicker pattern as ids 363-372). -->
+						<control type="button" id="375">
+							<label>Scrollbar color</label>
+							<label2>[COLOR $VAR[NovaBarScrollbarColorVar]]$VAR[NovaBarScrollbarLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarScrollbar,header=Scrollbar color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="376">
+							<label>Reset scrollbar color to default</label>
+							<onclick>Skin.Reset(NovaBarScrollbar)</onclick>
+							<onclick>Skin.Reset(NovaBarScrollbar.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="377">
+							<label>Top bar color</label>
+							<label2>[COLOR $VAR[NovaBarTopColorVar]]$VAR[NovaBarTopLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarTop,header=Top bar color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="378">
+							<label>Reset top bar color to default</label>
+							<onclick>Skin.Reset(NovaBarTop)</onclick>
+							<onclick>Skin.Reset(NovaBarTop.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="379">
+							<label>Loading / scan progress bar color</label>
+							<label2>[COLOR $VAR[NovaBarLoadingColorVar]]$VAR[NovaBarLoadingLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaBarLoading,header=Loading and scan progress bar color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="380">
+							<label>Reset loading bar color to default</label>
+							<onclick>Skin.Reset(NovaBarLoading)</onclick>
+							<onclick>Skin.Reset(NovaBarLoading.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<!-- NOVA-BARS (21.11.6): Menu Bar subsection — Latts' MQ9 Mod menu bar selector + its options, ported.
+						     The style button cycles NovaMenuBarStyle through every bar in the local MQ9 copy (27 horizontal
+						     + 5 vertical, MQ9's own selector names); empty = Madnox default. Colour/font controls are
+						     enabled only while an MQ style is active — in the Madnox style the 21.11.4 controls rule. -->
+						<control type="label" id="381">
+							<label>Madnox Nova — Menu Bar (MQ styles)</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="382">
+							<label>Menu bar style</label>
+							<label2>$VAR[NovaMenuBarStyleLabelVar]</label2>
+							<onclick condition="String.IsEmpty(Skin.String(NovaMenuBarStyle))">Skin.SetString(NovaMenuBarStyle,1)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),1)">Skin.SetString(NovaMenuBarStyle,2)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),2)">Skin.SetString(NovaMenuBarStyle,3)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),3)">Skin.SetString(NovaMenuBarStyle,4)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),4)">Skin.SetString(NovaMenuBarStyle,5)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),5)">Skin.SetString(NovaMenuBarStyle,6)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),6)">Skin.SetString(NovaMenuBarStyle,7)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),7)">Skin.SetString(NovaMenuBarStyle,8)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),8)">Skin.SetString(NovaMenuBarStyle,9)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),9)">Skin.SetString(NovaMenuBarStyle,10)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),10)">Skin.SetString(NovaMenuBarStyle,11)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),11)">Skin.SetString(NovaMenuBarStyle,12)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),12)">Skin.SetString(NovaMenuBarStyle,13)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),13)">Skin.SetString(NovaMenuBarStyle,14)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),14)">Skin.SetString(NovaMenuBarStyle,15)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),15)">Skin.SetString(NovaMenuBarStyle,21)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),21)">Skin.SetString(NovaMenuBarStyle,22)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),22)">Skin.SetString(NovaMenuBarStyle,23)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),23)">Skin.SetString(NovaMenuBarStyle,24)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),24)">Skin.SetString(NovaMenuBarStyle,25)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),25)">Skin.SetString(NovaMenuBarStyle,26)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),26)">Skin.SetString(NovaMenuBarStyle,27)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),27)">Skin.SetString(NovaMenuBarStyle,28)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),28)">Skin.SetString(NovaMenuBarStyle,29)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),29)">Skin.SetString(NovaMenuBarStyle,30)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),30)">Skin.SetString(NovaMenuBarStyle,31)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),31)">Skin.SetString(NovaMenuBarStyle,32)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),32)">Skin.SetString(NovaMenuBarStyle,v32)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),v32)">Skin.SetString(NovaMenuBarStyle,v33)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),v33)">Skin.SetString(NovaMenuBarStyle,v34)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),v34)">Skin.SetString(NovaMenuBarStyle,v35)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),v35)">Skin.SetString(NovaMenuBarStyle,v36)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(NovaMenuBarStyle),v36)">Skin.Reset(NovaMenuBarStyle)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="383">
+							<label>Reset menu bar style to default</label>
+							<onclick>Skin.Reset(NovaMenuBarStyle)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="384">
+							<label>Menu bar colour</label>
+							<label2>[COLOR $VAR[NovaMenuBarColorVar]]$VAR[NovaMenuBarColorLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaMenuBarColor,header=Menu bar color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker) + !String.IsEmpty(Skin.String(NovaMenuBarStyle))</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="385">
+							<label>Reset menu bar colour to default</label>
+							<onclick>Skin.Reset(NovaMenuBarColor)</onclick>
+							<onclick>Skin.Reset(NovaMenuBarColor.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="386">
+							<label>Animated menu bar colour</label>
+							<label2>[COLOR $VAR[NovaMenuBarAnimColorVar]]$VAR[NovaMenuBarAnimColorLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaMenuBarAnimColor,header=Animated menu bar color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker) + String.IsEqual(Skin.String(NovaMenuBarStyle),7) | String.IsEqual(Skin.String(NovaMenuBarStyle),8) | String.IsEqual(Skin.String(NovaMenuBarStyle),9) | String.IsEqual(Skin.String(NovaMenuBarStyle),10) | String.IsEqual(Skin.String(NovaMenuBarStyle),22) | String.IsEqual(Skin.String(NovaMenuBarStyle),23) | String.IsEqual(Skin.String(NovaMenuBarStyle),24) | String.IsEqual(Skin.String(NovaMenuBarStyle),25) | String.IsEqual(Skin.String(NovaMenuBarStyle),26) | String.IsEqual(Skin.String(NovaMenuBarStyle),27) | String.IsEqual(Skin.String(NovaMenuBarStyle),28) | String.IsEqual(Skin.String(NovaMenuBarStyle),29) | String.IsEqual(Skin.String(NovaMenuBarStyle),30) | String.IsEqual(Skin.String(NovaMenuBarStyle),31)</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="387">
+							<label>Reset animated menu bar colour to default</label>
+							<onclick>Skin.Reset(NovaMenuBarAnimColor)</onclick>
+							<onclick>Skin.Reset(NovaMenuBarAnimColor.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="388">
+							<label>Menu font focus colour (MQ styles)</label>
+							<label2>[COLOR $VAR[NovaMenuFontFocusColorVar]]$VAR[NovaMenuFontFocusLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaMenuFontFocusColor,header=Menu font focus color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker) + !String.IsEmpty(Skin.String(NovaMenuBarStyle))</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="389">
+							<label>Reset menu font focus colour to default</label>
+							<onclick>Skin.Reset(NovaMenuFontFocusColor)</onclick>
+							<onclick>Skin.Reset(NovaMenuFontFocusColor.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="390">
+							<label>Menu font unfocus colour (MQ styles)</label>
+							<label2>[COLOR $VAR[NovaMenuFontUnfocusColorVar]]$VAR[NovaMenuFontUnfocusLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaMenuFontUnfocusColor,header=Menu font unfocus color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker) + !String.IsEmpty(Skin.String(NovaMenuBarStyle))</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="391">
+							<label>Reset menu font unfocus colour to default</label>
+							<onclick>Skin.Reset(NovaMenuFontUnfocusColor)</onclick>
+							<onclick>Skin.Reset(NovaMenuFontUnfocusColor.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="radiobutton" id="392">
+							<label>Menu font focus shadow (MQ styles)</label>
+							<onclick>Skin.ToggleSetting(NovaMenuFontShadow)</onclick>
+							<selected>Skin.HasSetting(NovaMenuFontShadow)</selected>
+							<enable>!String.IsEmpty(Skin.String(NovaMenuBarStyle))</enable>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="393">
+							<label>Menu font shadow colour</label>
+							<label2>[COLOR $VAR[NovaMenuFontShadowColorVar]]$VAR[NovaMenuFontShadowLabelVar][/COLOR]</label2>
+							<onclick>RunScript(script.skin.helper.colorpicker,skinstring=NovaMenuFontShadowColor,header=Menu font shadow color)</onclick>
+							<enable>System.HasAddon(script.skin.helper.colorpicker) + !String.IsEmpty(Skin.String(NovaMenuBarStyle))</enable>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="394">
+							<label>Reset menu font shadow colour to default</label>
+							<onclick>Skin.Reset(NovaMenuFontShadowColor)</onclick>
+							<onclick>Skin.Reset(NovaMenuFontShadowColor.name)</onclick>
+							<include>SettingsButton</include>
+						</control>
+					</control>
+					<!-- General Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(3)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[ColorsDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+					<!-- Backgrounds -->
+					<control type="grouplist" id="7004">
+						<visible>Container(7000).Hasfocus(4)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<onleft>7000</onleft>
+						<onright>607004</onright>
+						<pagecontrol>607004</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<control type="label" id="401">
+							<label>$LOCALIZE[128]</label>
+							<font>Font28_Bold</font>
+							<textcolor>$VAR[PanelHighlightColorVar]</textcolor>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="402">
+							<label>$LOCALIZE[31310]</label>
+							<label2>$VAR[FanartTimePerImageLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31310],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="403">
+							<label>$LOCALIZE[31423]</label>
+							<label2>$VAR[MusicFanartBackgroundGroupVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31423],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="404">
+							<label>$LOCALIZE[31145]</label>
+							<label2>$VAR[BackgroundEffectLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31145],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="label" id="410">
+							<label>$LOCALIZE[31002]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="411">
+							<label>$LOCALIZE[31315]</label>
+							<label2>$VAR[NowPlayingMusicBackgroundLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31030],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="413">
+							<visible>Skin.String(NowPlayingMusicBackground,artistsslideshow)</visible>
+							<label>$LOCALIZE[31354]</label>
+							<onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="radiobutton" id="414">
+							<!-- <label>$LOCALIZE[250]</label> -->
+							<label>$LOCALIZE[250]: $VAR[EnableDisableLabel-NowplayingVizBackground]</label>
+							<onclick>Skin.ToggleSetting(NowplayingVizBackground)</onclick>
+							<selected>Skin.HasSetting(NowplayingVizBackground)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="415">
+							<!-- <label>$LOCALIZE[31181]</label> -->
+							<label>$LOCALIZE[31181]: $VAR[EnableDisableLabel-NowplayingVideoBackground]</label>
+							<onclick>Skin.ToggleSetting(NowplayingVideoBackground)</onclick>
+							<selected>Skin.HasSetting(NowplayingVideoBackground)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="label" id="420">
+							<label>$LOCALIZE[31036] / $LOCALIZE[33071]</label>
+							<font>Font28_Bold</font>
+							<textcolor>$VAR[PanelHighlightColorVar]</textcolor>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="421">
+							<description>Videos</description>
+							<label>$LOCALIZE[3]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[3] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="422">
+							<description>Music</description>
+							<label>$LOCALIZE[14216]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[2] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="423">
+							<description>PVR</description>
+							<label>$LOCALIZE[14204]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[14204] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="424">
+							<description>Games</description>
+							<label>$LOCALIZE[15016]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[15016] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="425">
+							<description>Pictures</description>
+							<label>$LOCALIZE[14217]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[1] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="426">
+							<description>Addons</description>
+							<label>$LOCALIZE[24001]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[24001] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="429">
+							<description>Favourites</description>
+							<label>$LOCALIZE[1036]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[1036] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="427">
+							<description>Weather</description>
+							<label>$LOCALIZE[400]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[400] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="428">
+							<description>System</description>
+							<label>$LOCALIZE[24992]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[24992] $LOCALIZE[31107],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+					</control>
+					<!-- Background Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(4)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[BackgroundDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+					<!-- Furniture -->
+					<control type="grouplist" id="7005">
+						<visible>Container(7000).Hasfocus(5)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<onleft>7000</onleft>
+						<onright>607005</onright>
+						<pagecontrol>607005</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<control type="label" id="501">
+							<label>$LOCALIZE[14022]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="502">
+							<label>$LOCALIZE[31270]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31270],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="507">
+							<label>$LOCALIZE[31363]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31363],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="radiobutton" id="503">
+							<!-- <label>$LOCALIZE[31019]</label> -->
+							<label>$LOCALIZE[31019]: $VAR[EnableDisableLabel-DisableScrollLetter]</label>
+							<onclick>Skin.ToggleSetting(DisableScrollLetter)</onclick>
+							<selected>!Skin.HasSetting(DisableScrollLetter)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="504">
+							<!-- <label>$LOCALIZE[31313]</label> -->
+							<label>$LOCALIZE[31313]: $VAR[EnableDisableLabel-DisableJumptoLetter]</label>
+							<onclick>Skin.ToggleSetting(DisableJumptoLetter)</onclick>
+							<selected>!Skin.HasSetting(DisableJumptoLetter)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="505">
+							<!-- <label>$LOCALIZE[203]</label> -->
+							<label>$LOCALIZE[203]: $VAR[EnableDisableLabel-DisablePlotOutline]</label>
+							<onclick>Skin.ToggleSetting(DisablePlotOutline)</onclick>
+							<selected>!Skin.HasSetting(DisablePlotOutline)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="518">
+							<label>$LOCALIZE[10106] [LOWERCASE]$LOCALIZE[571][/LOWERCASE]: $VAR[EnableDisableLabel-force_context_996]</label>
+							<onclick>Skin.ToggleSetting(force_context_996)</onclick>
+							<selected>Skin.HasSetting(force_context_996)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="555">
+							<label>$LOCALIZE[31523]: $VAR[EnableDisableLabel-RatingsAsNumbers]</label>
+							<onclick>Skin.ToggleSetting(RatingsAsNumbers)</onclick>
+							<selected>Skin.HasSetting(RatingsAsNumbers)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="580">
+							<label>[CAPITALIZE]"$LOCALIZE[1405]-$LOCALIZE[31304]"[/CAPITALIZE] [LOWERCASE]$LOCALIZE[31440][/LOWERCASE]: $VAR[EnableDisableLabel-DisableProgressBarUserColorSelect]</label>
+							<onclick>Skin.ToggleSetting(DisableProgressBarUserColorSelect)</onclick>
+							<selected>!Skin.HasSetting(DisableProgressBarUserColorSelect)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="581">
+							<enable>!Skin.HasSetting(DisableProgressBarUserColorSelect)</enable>
+							<!-- <label>>> $LOCALIZE[31304] [LOWERCASE]$LOCALIZE[31440][/LOWERCASE]</label> -->
+							<label>>> [CAPITALIZE]"$LOCALIZE[1405]-$LOCALIZE[31304]"[/CAPITALIZE] [LOWERCASE]$LOCALIZE[31440][/LOWERCASE]</label>
+							<label2>[COLOR $VAR[InProgressBarColorVar]]$VAR[InProgressBarColorLabelVar][/COLOR]$VAR[InProgressBarPaddingVar]</label2>
+							<onclick>SetProperty(Reset.Color,DisableProgressBarUserColorSelectVar.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,DisableProgressBarUserColorSelectVar.color,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(DisableProgressBarUserColorSelectVar.color)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[31304] [LOWERCASE]$LOCALIZE[31440][/LOWERCASE],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButtonInProgressSettings">
+								<param name="ColorStringVar">$VAR[InProgressBarColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+						<control type="radiobutton" id="582">
+							<label>[CAPITALIZE]$LOCALIZE[31289][/CAPITALIZE] [LOWERCASE]$LOCALIZE[31128][/LOWERCASE] [CAPITALIZE]"$LOCALIZE[1405]-$LOCALIZE[31304]"[/CAPITALIZE]: $VAR[EnableDisableLabel-ShowWidgetInProgressBar]</label>
+							<onclick>Skin.ToggleSetting(WidgetShowProgress)</onclick>
+							<selected>Skin.HasSetting(WidgetShowProgress)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="598">
+							<!-- <label>$LOCALIZE[131] [LOWERCASE]$LOCALIZE[14241][/LOWERCASE] [LOWERCASE]$LOCALIZE[14302][/LOWERCASE] [LOWERCASE]$LOCALIZE[1405][/LOWERCASE] [LOWERCASE]$LOCALIZE[455][/LOWERCASE]</label> -->
+							<label>$LOCALIZE[131] [LOWERCASE]$LOCALIZE[14241][/LOWERCASE] [LOWERCASE]$LOCALIZE[14302][/LOWERCASE] [LOWERCASE]$LOCALIZE[1405][/LOWERCASE] [LOWERCASE]$LOCALIZE[455][/LOWERCASE]: $VAR[EnableDisableLabel-DisableShowIconsInMetadataSlider]</label>
+							<onclick>Skin.ToggleSetting(DisableShowIconsInMetadataSlider)</onclick>
+							<selected>!Skin.HasSetting(DisableShowIconsInMetadataSlider)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="506">
+							<!-- <label>$LOCALIZE[20189]</label> -->
+							<label>$LOCALIZE[20189]: $VAR[EnableDisableLabel-DisableAutoScroll]</label>
+							<onclick>Skin.ToggleSetting(DisableAutoScroll)</onclick>
+							<selected>!Skin.HasSetting(DisableAutoScroll)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="508">
+							<!-- <label>$LOCALIZE[31409]</label> -->
+							<label>$LOCALIZE[31409]: $VAR[EnableDisableLabel-disableautoscrollmoviemetadata]</label>
+							<onclick>Skin.ToggleSetting(disableautoscrollmoviemetadata)</onclick>
+							<selected>!Skin.HasSetting(disableautoscrollmoviemetadata)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="509">
+							<label>>> $LOCALIZE[31410]</label>
+							<label2>$VAR[MovieMetaScrollingDelayVarA] Seconds</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31410],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+							<enable>!Skin.HasSetting(disableautoscrollmoviemetadata)</enable>
+							<onclick>Skin.SetString(ItemsSliderMyTimerSetting1, $INFO[Skin.String(MovieMetaScrollingDelayValueVarA)])</onclick>
+						</control>
+						<control type="radiobutton" id="513">
+							<!-- <label>$LOCALIZE[31411]</label> -->
+							<label>$LOCALIZE[31411]: $VAR[EnableDisableLabel-disableautoscrollpersonmetadata]</label>
+							<onclick>Skin.ToggleSetting(disableautoscrollpersonmetadata)</onclick>
+							<selected>!Skin.HasSetting(disableautoscrollpersonmetadata)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="514">
+							<label>>> $LOCALIZE[31412]</label>
+							<label2>$VAR[PersonMetaScrollingDelayVarA] Seconds</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31412],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+							<enable>!Skin.HasSetting(disableautoscrollpersonmetadata)</enable>
+							<onclick>Skin.SetString(ItemsSliderMyTimerSetting2, $INFO[Skin.String(PersonMetaScrollingDelayValueVarA)])</onclick>
+						</control>
+						<control type="radiobutton" id="515">
+							<!-- <label>$LOCALIZE[31368]</label> -->
+							<label>$LOCALIZE[31368]: $VAR[EnableDisableLabel-enablemovietvshowslidercountdowntimer]</label>
+							<onclick>Skin.ToggleSetting(enablemovietvshowslidercountdowntimer)</onclick>
+							<selected>!Skin.HasSetting(enablemovietvshowslidercountdowntimer)</selected>
+							<include>SettingsRadioButton</include>
+							<enable>!Skin.HasSetting(disableautoscrollmoviemetadata) | !Skin.HasSetting(disableautoscrollpersonmetadata)</enable>
+							<disabledcolor>44FFFFFF</disabledcolor>
+						</control>
+						<control type="radiobutton" id="516">
+							<!-- <label>$LOCALIZE[31421]</label> -->
+							<label>$LOCALIZE[31421]: $VAR[EnableDisableLabel-disablecounterscriptloggingall]</label>
+							<onclick>Skin.ToggleSetting(disablecounterscriptloggingall)</onclick>
+							<selected>!Skin.HasSetting(disablecounterscriptloggingall)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="517">
+							<!-- <label>$LOCALIZE[31475]</label> -->
+							<label>$LOCALIZE[31475]: $VAR[EnableDisableLabel-trailer_rolling_debug]</label>
+							<onclick>Skin.ToggleSetting(trailer_rolling_debug)</onclick>
+							<selected>Skin.HasSetting(trailer_rolling_debug)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="label" id="510">
+							<label>$LOCALIZE[31287]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="511">
+							<!-- <label>$LOCALIZE[24022]</label> -->
+							<label>$LOCALIZE[24022]: $VAR[EnableDisableLabel-DisableShortcuts]</label>
+							<onclick>Skin.ToggleSetting(DisableShortcuts)</onclick>
+							<selected>!Skin.HasSetting(DisableShortcuts)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="512">
+							<label>$LOCALIZE[21435]</label>
+							<visible>!Skin.HasSetting(DisableShortcuts)</visible>
+							<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=shortcuts)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="label" id="530">
+							<label>$LOCALIZE[31081]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="531">
+							<!-- <label>$LOCALIZE[31086]</label> -->
+							<label>$LOCALIZE[31086]: $VAR[EnableDisableLabel-DisableVideoPlaylistButton]</label>
+							<onclick>Skin.ToggleSetting(DisableVideoPlaylistButton)</onclick>
+							<selected>!Skin.HasSetting(DisableVideoPlaylistButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="532">
+							<!-- <label>$LOCALIZE[10500]</label> -->
+							<label>$LOCALIZE[10500]: $VAR[EnableDisableLabel-DisableMusicPlaylistButton]</label>
+							<onclick>Skin.ToggleSetting(DisableMusicPlaylistButton)</onclick>
+							<selected>!Skin.HasSetting(DisableMusicPlaylistButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="533">
+							<!-- <label>$LOCALIZE[35232]</label> -->
+							<label>$LOCALIZE[35232]: $VAR[EnableDisableLabel-EnableFullscreenButton]</label>
+							<onclick>Skin.ToggleSetting(EnableFullscreenButton)</onclick>
+							<selected>Skin.HasSetting(EnableFullscreenButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="534">
+							<!-- <label>$LOCALIZE[13398]</label> -->
+							<label>$LOCALIZE[13398]: $VAR[EnableDisableLabel-DisableShortcutsButton]</label>
+							<onclick>Skin.ToggleSetting(DisableShortcutsButton)</onclick>
+							<selected>!Skin.HasSetting(DisableShortcutsButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="535">
+							<!-- <label>$LOCALIZE[10114]</label> -->
+							<label>$LOCALIZE[10114]: $VAR[EnableDisableLabel-DisablePlayerControlButton]</label>
+							<onclick>Skin.ToggleSetting(DisablePlayerControlButton)</onclick>
+							<selected>!Skin.HasSetting(DisablePlayerControlButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="label" id="543">
+							<label>$LOCALIZE[10111] [LOWERCASE]$LOCALIZE[33063] $LOCALIZE[24022] / $LOCALIZE[24021][/LOWERCASE]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<!-- Exit Button Toggle -->
+						<control type="radiobutton" id="545">
+							<label>$LOCALIZE[13012]: $VAR[EnableDisableLabel-DisableExitButton]</label>
+							<onclick>Skin.ToggleSetting(DisableExitButton)</onclick>
+							<selected>!Skin.HasSetting(DisableExitButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Settings Button Toggle -->
+						<control type="radiobutton" id="551">
+							<label>$LOCALIZE[1036]: $VAR[EnableDisableLabel-DisableFavoritesButton]</label>
+							<onclick>Skin.ToggleSetting(DisableFavoritesButton)</onclick>
+							<selected>!Skin.HasSetting(DisableFavoritesButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Settings Button Toggle -->
+						<control type="radiobutton" id="552">
+							<label>$LOCALIZE[166] [LOWERCASE]$LOCALIZE[5][/LOWERCASE]: $VAR[EnableDisableLabel-DisableSkinFavoritesButton]</label>
+							<onclick>Skin.ToggleSetting(DisableSkinFavoritesButton)</onclick>
+							<selected>!Skin.HasSetting(DisableSkinFavoritesButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Settings Button Toggle -->
+						<control type="radiobutton" id="544">
+							<label>$LOCALIZE[5]: $VAR[EnableDisableLabel-DisableSettingsButton]</label>
+							<onclick>Skin.ToggleSetting(DisableSettingsButton)</onclick>
+							<selected>!Skin.HasSetting(DisableSettingsButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Power Down Button Toggle -->
+						<control type="radiobutton" id="546">
+							<label>$LOCALIZE[13016]: $VAR[EnableDisableLabel-DisablePowerDownButton]</label>
+							<onclick>Skin.ToggleSetting(DisablePowerDownButton)</onclick>
+							<selected>!Skin.HasSetting(DisablePowerDownButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Custom Shutdown Timer Toggle (Controls both Set and Cancel) -->
+						<control type="radiobutton" id="547">
+							<label>$LOCALIZE[20150]: $VAR[EnableDisableLabel-DisableShutdownTimerButton]</label>
+							<onclick>Skin.ToggleSetting(DisableShutdownTimerButton)</onclick>
+							<selected>!Skin.HasSetting(DisableShutdownTimerButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Suspend Button Toggle -->
+						<control type="radiobutton" id="548">
+							<label>$LOCALIZE[13011]: $VAR[EnableDisableLabel-DisableSuspendButton]</label>
+							<onclick>Skin.ToggleSetting(DisableSuspendButton)</onclick>
+							<selected>!Skin.HasSetting(DisableSuspendButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Hibernate Button Toggle -->
+						<control type="radiobutton" id="549">
+							<label>$LOCALIZE[13010]: $VAR[EnableDisableLabel-DisableHibernateButton]</label>
+							<onclick>Skin.ToggleSetting(DisableHibernateButton)</onclick>
+							<selected>!Skin.HasSetting(DisableHibernateButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Reboot Button Toggle -->
+						<control type="radiobutton" id="550">
+							<label>$LOCALIZE[13013]: $VAR[EnableDisableLabel-DisableRebootButton]</label>
+							<onclick>Skin.ToggleSetting(DisableRebootButton)</onclick>
+							<selected>!Skin.HasSetting(DisableRebootButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Edit Main Menu Button Toggle -->
+						<control type="radiobutton" id="553">
+							<label>$LOCALIZE[31017]: $VAR[EnableDisableLabel-DisableEditMainMenuButton]</label>
+							<onclick>Skin.ToggleSetting(DisableEditMainMenuButton)</onclick>
+							<selected>!Skin.HasSetting(DisableEditMainMenuButton)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="label" id="536">
+							<label>$LOCALIZE[12999]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="537">
+							<!-- <label>$LOCALIZE[31184]</label> -->
+							<label>$LOCALIZE[31184]: $VAR[EnableDisableLabel-startuplogoshowonstart]</label>
+							<onclick>Skin.ToggleSetting(startuplogoshowonstart)</onclick>
+							<selected>Skin.HasSetting(startuplogoshowonstart)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="538">
+							<!-- <label>$LOCALIZE[31404]</label> -->
+							<label>$LOCALIZE[31404]: $VAR[EnableDisableLabel-startuplogolargesizeonstart]</label>
+							<onclick>Skin.ToggleSetting(startuplogolargesizeonstart)</onclick>
+							<selected>Skin.HasSetting(startuplogolargesizeonstart)</selected>
+							<include>SettingsRadioButton</include>
+							<enable>Skin.HasSetting(startuplogoshowonstart)</enable>
+						</control>
+						<!-- NOVA-BRAND: Madnox Nova lion splash toggle for the startup window (Custom_1103_Startup.xml). Disable-style setting, so the splash is ON by default; turning it off restores the stock startup logo (controls 537/538 above). -->
+						<control type="radiobutton" id="539">
+							<label>Madnox Nova startup splash (lion): $VAR[EnableDisableLabel-NovaDisableSplashStartup]</label>
+							<onclick>Skin.ToggleSetting(NovaDisableSplashStartup)</onclick>
+							<selected>!Skin.HasSetting(NovaDisableSplashStartup)</selected>
+							<include>SettingsRadioButton</include>
+							<enable>Skin.HasSetting(startuplogoshowonstart)</enable>
+						</control>
+						<control type="button" id="541">
+							<!-- <label>$LOCALIZE[31474]</label> -->
+							<label>$VAR[IntroVideoDisplayLabelVar]</label>
+							<label2>$VAR[IntroVideoDisplayLabel2Var]</label2>
+							<!-- <onfocus>RunScript(special://home/addons/resource.images.skin.madnox/resources/scripts/intro_preview.py)</onfocus> -->
+							<onfocus>RunScript(script.skin.madnox, action=intro_preview)</onfocus>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31474],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="label" id="520">
+							<label>$LOCALIZE[128]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="521">
+							<label>$LOCALIZE[31042]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31042],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="522">
+							<label>$LOCALIZE[12003]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31330],home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/madnox_cinema.py, mode=check)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=madnox_cinema, mode=check)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="523">
+							<label>$LOCALIZE[12001]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31350],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="524">
+							<label>$LOCALIZE[12005]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31338],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="525">
+							<label>$LOCALIZE[31312]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31337],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="radiobutton" id="526">
+							<!-- <label>$LOCALIZE[31016]</label> -->
+							<label>$LOCALIZE[31016]: $VAR[EnableDisableLabel-SmallerNotifications]</label>
+							<onclick>Notification($LOCALIZE[25000],$LOCALIZE[31016])</onclick>
+							<onclick>Skin.ToggleSetting(SmallerNotifications)</onclick>
+							<selected>Skin.HasSetting(SmallerNotifications)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="527">
+							<!-- <label>$LOCALIZE[31020]</label> -->
+							<label>$LOCALIZE[31020]: $VAR[EnableDisableLabel-DisableDialogBackground]</label>
+							<include>SettingsRadioButton</include>
+							<onclick>Skin.ToggleSetting(DisableDialogBackground)</onclick>
+							<selected>!Skin.HasSetting(DisableDialogBackground)</selected>
+						</control>
+						<control type="radiobutton" id="528">
+							<visible>System.AddonIsEnabled(plugin.video.themoviedb.helper)</visible>
+							<!-- <label>$LOCALIZE[12381]</label> -->
+							<label>$LOCALIZE[12381]: $VAR[EnableDisableLabel-DisableAutoOpenMusicVizVar]</label>
+							<include>SettingsRadioButton</include>
+							<onclick>Skin.ToggleSetting(DisableAutoOpenMusicVizVar)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/TMDb_Helper_SettingsWriter.py, mode=toggle, setting=musicfiles.selectaction)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=write_setting, mode=toggle, setting=musicfiles.selectaction)</onclick>
+							<selected>system.getbool(musicfiles.selectaction)</selected>
+						</control>
+
+						<!-- <control type="radiobutton" id="528">
+							<label>$LOCALIZE[31197]</label>
+							<include>SettingsRadioButton</include>
+							<onclick>Skin.ToggleSetting(DisableAutoOpenMusicViz)</onclick>
+							<selected>!Skin.HasSetting(DisableAutoOpenMusicViz)</selected>
+						</control> -->
+					</control>
+					<!-- Furniture Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(5)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[FurnitureDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+					<!-- Artwork -->
+					<control type="grouplist" id="7006">
+						<visible>Container(7000).Hasfocus(6)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<usecontrolcoords>true</usecontrolcoords>
+						<onleft>7000</onleft>
+						<onright>607006</onright>
+						<pagecontrol>607006</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<control type="label" id="601">
+							<label>$LOCALIZE[128]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="603">
+							<label>$LOCALIZE[31234] [LOWERCASE]$LOCALIZE[5][/LOWERCASE]</label>
+							<onclick>SetProperty(CustomSelectGroup,$LOCALIZE[31234],home)</onclick>
+							<onclick>ActivateWindow(1111)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="604">
+							<label>$LOCALIZE[31436]</label>
+							<label2>$VAR[MediaFlagDataStyleVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31436],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<!-- Artwork / Star Rating Style - Start -->
+						<!-- The button control is now a direct child of the grouplist to fix navigation -->
+						<control type="button" id="611">
+							<label>$LOCALIZE[33067] [LOWERCASE]$LOCALIZE[29902][/LOWERCASE]</label>
+							<label2>$VAR[StarStyleLabelVar]$VAR[StarCustomColorTextPaddingVar]</label2>
+							<include>SettingsButton</include>
+							<onclick condition="String.IsEqual(Skin.String(StarRating.Style),custom)">Skin.SetString(StarRating.Style,0)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(StarRating.Style),4)">Skin.SetString(StarRating.Style,custom)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(StarRating.Style),3)">Skin.SetString(StarRating.Style,4)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(StarRating.Style),2)">Skin.SetString(StarRating.Style,3)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(StarRating.Style),1)">Skin.SetString(StarRating.Style,2)</onclick>
+							<onclick condition="String.IsEmpty(Skin.String(StarRating.Style)) | String.IsEqual(Skin.String(StarRating.Style),0)">Skin.SetString(StarRating.Style,1)</onclick>
+						</control>
+						<!-- The image is placed in an overlapping group using a negative margin trick -->
+						<control type="group" id="612">
+							<top>-50</top>
+							<!-- <height>67</height> -->
+							<control type="image">
+								<description>Star Preview Image</description>
+								<right>24</right>
+								<centery>50%</centery>
+								<width>164</width>
+								<height>29</height>
+								<aspectratio>keep</aspectratio>
+								<texture>$VAR[MyStarVar]</texture>
+								<colordiffuse>$VAR[StarRatingColorDiffuseVar]</colordiffuse>
+								<visible>Container(7000).Hasfocus(6)</visible>
+							</control>
+						</control>
+						<!-- ARTWORK / STAR RATING STYLE - END -->
+						<control type="radiobutton" id="613">
+							<enable>String.IsEqual(Skin.String(StarRating.Style),custom)</enable>
+							<label>$LOCALIZE[33067] [LOWERCASE]$LOCALIZE[636] $LOCALIZE[31440][/LOWERCASE]</label>
+							<label2>[COLOR $VAR[StarsCustomColorColorVar]]$VAR[StarsCustomColorColorLabelVar][/COLOR]$VAR[StarCustomColorPaddingVar]</label2>
+							<onclick>SetProperty(Reset.Color,stars.custom.color.value,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelName,stars.custom.color.value,Home)</onclick>
+							<onclick>SetProperty(ActiveControlPanelNameValue,$INFO[Skin.String(stars.custom.color.value)],Home)</onclick>
+							<onclick>Skin.SetString(mycolorfile,"special://home/addons/resource.images.skin.madnox/resources/colors/madnox-(24-colors).xml")</onclick>
+							<onclick>SetProperty(DialogTitle,$LOCALIZE[33067]:$VAR[1BlankSpace]$LOCALIZE[29902],Home)</onclick>
+							<!-- <onclick>RunScript(special://home/addons/skin.kaleido/extras/scripts/color_loader.py)</onclick> -->
+							<onclick>RunScript(script.skin.madnox, action=show_color_loader)</onclick>
+							<include content="CustomColorRadioButton">
+								<param name="ColorStringVar">$VAR[StarsCustomColorColorVar]</param>
+							</include>
+							<include>SettingsButton</include>
+							<texturenofocus border="0" colordiffuse="3AFFFFFF">panels/floor/floor.png</texturenofocus>
+						</control>
+
+						<control type="button" id="605">
+							<label>$LOCALIZE[636] [LOWERCASE]$LOCALIZE[157] $LOCALIZE[31448] $LOCALIZE[31441][/LOWERCASE]</label>
+							<!-- Video codec flag custom select -->
+							<onclick>SetProperty(CustomSelectGroup,Video codec flag custom select,home)</onclick>
+							<onclick>ActivateWindow(1105)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="radiobutton" id="602">
+							<!-- <label>$LOCALIZE[31394]</label> -->
+							<label>$LOCALIZE[636] [LOWERCASE]$LOCALIZE[31394][/LOWERCASE]: $VAR[EnableDisableLabel-IconsColored]</label>
+							<onclick>Skin.ToggleSetting(IconsColored)</onclick>
+							<selected>Skin.HasSetting(IconsColored)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- Resolution Icon Color Entry Selection -->
+						<control type="button" id="606">
+							<label>$LOCALIZE[31395]</label>
+							<!-- <label2>$VAR[ResolutionMediaColorFlagUserLabelVar]$VAR[MediaColorFlagUserLabelForcedPadding]</label2> -->
+							<label2>$VAR[ResolutionMediaColorFlagUserLabel2Var]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31395],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+							<enable>Skin.HasSetting(iconscolored) + Skin.HasSetting(mediaflagscolored)</enable>
+						</control>
+						<control type="group" id="607">
+							<top>-67</top>
+							<height>67</height>
+							<right>-1288</right>
+							<control type="image">
+								<visible>Container(7000).Hasfocus(6)</visible>
+								<aspectratio>keep</aspectratio>
+								<texture>$VAR[ResolutionStyleColorVar]</texture>
+							</control>
+							<control type="image">
+								<visible>!Container(7000).Hasfocus(6)</visible>
+								<aspectratio>keep</aspectratio>
+								<texture>$VAR[ResolutionStyleColorVar]</texture>
+							</control>
+						</control>
+						<!-- Aspect Ratio Icon Color Entry Selection -->
+						<control type="button" id="608">
+							<label>$LOCALIZE[31401]</label>
+							<!-- <label2>$VAR[AspectRatioMediaColorFlagUserLabelVar]$VAR[MediaColorFlagUserLabelForcedPadding]</label2> -->
+							<label2>$VAR[AspectRatioMediaColorFlagUserLabel2Var]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31401],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+							<enable>Skin.HasSetting(iconscolored) + Skin.HasSetting(mediaflagscolored)</enable>
+						</control>
+						<control type="group" id="609">
+							<top>-67</top>
+							<height>67</height>
+							<right>-1288</right>
+							<control type="image">
+								<visible>Container(7000).Hasfocus(6)</visible>
+								<aspectratio>keep</aspectratio>
+								<texture>$VAR[AspectRatioStyleColorVar]</texture>
+							</control>
+							<control type="image">
+								<visible>!Container(7000).Hasfocus(6)</visible>
+								<aspectratio>keep</aspectratio>
+								<texture>$VAR[AspectRatioStyleColorVar]</texture>
+							</control>
+						</control>
+						<control type="button" id="618">
+							<label>$LOCALIZE[31009]</label>
+							<label2>$VAR[LibraryAudioDiscArtLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31009],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="619">
+							<label>$LOCALIZE[31299]</label>
+							<label2>$VAR[LibraryVideoDiscArtLabelVar]</label2>
+							<onclick>SetProperty(CustomSelect,$LOCALIZE[31299],home)</onclick>
+							<onclick>ActivateWindow(1110)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="label" id="620">
+							<label>$LOCALIZE[24035]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="621">
+							<label>$LOCALIZE[31034] ($LOCALIZE[31584])</label>
+							<label2>$VAR[AddonWeatherIconsVar]</label2>
+							<onclick>RunScript(script.image.resource.select,property=WeatherIcons&amp;type=resource.images.weathericons)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="622">
+							<label>$LOCALIZE[31004] ($LOCALIZE[31584])</label>
+							<label2>$VAR[AddonWeatherFanartVar]</label2>
+							<onclick>RunScript(script.image.resource.select,property=WeatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="623">
+							<label>$LOCALIZE[742] [LOWERCASE]$LOCALIZE[29909] $LOCALIZE[536][/LOWERCASE]</label>
+							<label2>$VAR[AddonWhiteStudiosVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.studios.white)">InstallAddon(resource.images.studios.white)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="624">
+							<label>Lynxstrike's [LOWERCASE]$LOCALIZE[31444] $LOCALIZE[29909] $LOCALIZE[536][/LOWERCASE]</label>
+							<label2>$VAR[AddonColouredStudiosVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="625">
+							<label>$LOCALIZE[742] [LOWERCASE]$LOCALIZE[264] $LOCALIZE[21899] $LOCALIZE[536][/LOWERCASE]</label>
+							<label2>$VAR[AddonRecordLabelsVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.recordlabels.white)">InstallAddon(resource.images.recordlabels.white)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="626">
+							<label>$LOCALIZE[31060]</label>
+							<label2>$VAR[AddonLanguageFlagsVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.languageflags.rounded)">InstallAddon(resource.images.languageflags.rounded)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="627">
+							<label>$LOCALIZE[2] [LOWERCASE]$LOCALIZE[515] $LOCALIZE[536][/LOWERCASE]</label>
+							<label2>$VAR[AdoonMusicGenreIconsVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.musicgenreicons.text)">InstallAddon(resource.images.musicgenreicons.text)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="628">
+							<label>$LOCALIZE[737] [LOWERCASE]$LOCALIZE[20338] $LOCALIZE[515] $LOCALIZE[536][/LOWERCASE]</label>
+							<label2>$VAR[AdoonMovieGenreIconsVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.moviegenreicons.filmstrip-hd.colour)">InstallAddon(resource.images.moviegenreicons.filmstrip-hd.colour)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="629">
+							<label>$LOCALIZE[353] &amp; $LOCALIZE[742] [LOWERCASE]$LOCALIZE[20338] $LOCALIZE[515] $LOCALIZE[536][/LOWERCASE]</label>
+							<label2>$VAR[AdoonMovieGenreIconsBWVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.moviegenreicons.filmstrip-hd.bw)">InstallAddon(resource.images.moviegenreicons.filmstrip-hd.bw)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="630">
+							<label>$LOCALIZE[20338] [LOWERCASE]$LOCALIZE[574] $LOCALIZE[536][/LOWERCASE]</label>
+							<label2>$VAR[AddonCountryIconsVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.moviecountryicons.flags)">InstallAddon(resource.images.moviecountryicons.flags)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- NOVA-ENGINE: Madnox Nova engine toggles (Disable-style settings, so the engine is ON by default like the other animated-art features) -->
+						<control type="label" id="631">
+							<label>Madnox Nova</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="632">
+							<label>Artwork Helper rotation (fanart / clearart / clearlogo): $VAR[EnableDisableLabel-NovaDisableArtworkHelper]</label>
+							<onclick>Skin.ToggleSetting(NovaDisableArtworkHelper)</onclick>
+							<selected>!Skin.HasSetting(NovaDisableArtworkHelper)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="633">
+							<label>Artwork Helper animated fanart rotation: $VAR[EnableDisableLabel-NovaDisableArtworkHelperAnimatedFanart]</label>
+							<onclick>Skin.ToggleSetting(NovaDisableArtworkHelperAnimatedFanart)</onclick>
+							<selected>!Skin.HasSetting(NovaDisableArtworkHelperAnimatedFanart)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="634">
+							<label>Animated keyart: $VAR[EnableDisableLabel-NovaDisableAnimatedKeyart]</label>
+							<onclick>Skin.ToggleSetting(NovaDisableAnimatedKeyart)</onclick>
+							<selected>!Skin.HasSetting(NovaDisableAnimatedKeyart)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="635">
+							<label>Skin Helper fanart (incl. movie set fanart): $VAR[EnableDisableLabel-NovaDisableSkinHelperFanart]</label>
+							<onclick>Skin.ToggleSetting(NovaDisableSkinHelperFanart)</onclick>
+							<selected>!Skin.HasSetting(NovaDisableSkinHelperFanart)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="636">
+							<label>Skin Helper Rotten Tomatoes in video info: $VAR[EnableDisableLabel-NovaDisableSkinHelperRT]</label>
+							<onclick>Skin.ToggleSetting(NovaDisableSkinHelperRT)</onclick>
+							<selected>!Skin.HasSetting(NovaDisableSkinHelperRT)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- NOVA-ART: fanart sources + Grab Fanart home backdrop - mirrors MQ9's fanart source strings (movie_fanart / tvshow_fanart) and its grabfanart / grabfanarttvshow / grabfanartmusic switches. The source selectors are string-cycle buttons in the Panel.texture house pattern; consumption lives in Includes_Backgrounds.xml (VideoBackgroundVar + HomeFanartVar). NOVA-SCHIMI (21.11.7): the cycle below gained a third state (schimi = schimi2k shelf-art library in extras/backgrounds-schimi/, wired in HomeFanartVar), and the credit note id 395 sits directly under this selector. -->
+						<control type="label" id="637">
+							<label>Fanart sources &amp; home backdrop</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="638">
+							<label>Home background source</label>
+							<label2>$VAR[NovaHomeBackgroundSourceVar]</label2>
+							<onclick condition="String.IsEmpty(NovaHomeBackgroundSource)">Skin.SetString(NovaHomeBackgroundSource,grabfanart)</onclick>
+							<onclick condition="Skin.String(NovaHomeBackgroundSource,grabfanart)">Skin.SetString(NovaHomeBackgroundSource,schimi)</onclick>
+							<onclick condition="Skin.String(NovaHomeBackgroundSource,schimi)">Skin.Reset(NovaHomeBackgroundSource)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- NOVA-SCHIMI: credit for the Schimi2k Shelves home background source (id 395, directly under the source selector id 638; labelled control in the file's SettingsLabel style, not an interactive control). -->
+						<control type="label" id="395">
+							<label>Schimi2k Shelves: original Aeon Madnox shelf art by schimi2k</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="radiobutton" id="639">
+							<visible>Skin.String(NovaHomeBackgroundSource,grabfanart)</visible>
+							<label>Grab Fanart backdrop - Movies menu</label>
+							<onclick>Skin.ToggleSetting(NovaGrabFanartMovies)</onclick>
+							<selected>Skin.HasSetting(NovaGrabFanartMovies)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="640">
+							<visible>Skin.String(NovaHomeBackgroundSource,grabfanart)</visible>
+							<label>Grab Fanart backdrop - TV Shows menu</label>
+							<onclick>Skin.ToggleSetting(NovaGrabFanartTVShows)</onclick>
+							<selected>Skin.HasSetting(NovaGrabFanartTVShows)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="radiobutton" id="641">
+							<visible>Skin.String(NovaHomeBackgroundSource,grabfanart)</visible>
+							<label>Grab Fanart backdrop - Music menu</label>
+							<onclick>Skin.ToggleSetting(NovaGrabFanartMusic)</onclick>
+							<selected>Skin.HasSetting(NovaGrabFanartMusic)</selected>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="642">
+							<label>Movie fanart source</label>
+							<label2>$VAR[NovaFanartSourceMoviesVar]</label2>
+							<onclick condition="String.IsEmpty(NovaFanartSourceMovies)">Skin.SetString(NovaFanartSourceMovies,fanart)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceMovies,fanart)">Skin.SetString(NovaFanartSourceMovies,artworkhelper)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceMovies,artworkhelper)">Skin.SetString(NovaFanartSourceMovies,skinhelper)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceMovies,skinhelper)">Skin.Reset(NovaFanartSourceMovies)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="643">
+							<label>TV show fanart source</label>
+							<label2>$VAR[NovaFanartSourceTVVar]</label2>
+							<onclick condition="String.IsEmpty(NovaFanartSourceTV)">Skin.SetString(NovaFanartSourceTV,fanart)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceTV,fanart)">Skin.SetString(NovaFanartSourceTV,artworkhelper)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceTV,artworkhelper)">Skin.SetString(NovaFanartSourceTV,skinhelper)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceTV,skinhelper)">Skin.Reset(NovaFanartSourceTV)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="644">
+							<label>Movie set fanart source</label>
+							<label2>$VAR[NovaFanartSourceSetsVar]</label2>
+							<onclick condition="String.IsEmpty(NovaFanartSourceSets)">Skin.SetString(NovaFanartSourceSets,fanart)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceSets,fanart)">Skin.SetString(NovaFanartSourceSets,artworkhelper)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceSets,artworkhelper)">Skin.SetString(NovaFanartSourceSets,skinhelper)</onclick>
+							<onclick condition="Skin.String(NovaFanartSourceSets,skinhelper)">Skin.Reset(NovaFanartSourceSets)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+					</control>
+					<!-- Artwork Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(6)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[ArtworkDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+					<!-- Addons -->
+					<control type="grouplist" id="7007">
+						<visible>Container(7000).Hasfocus(7)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<onleft>7000</onleft>
+						<onright>607007</onright>
+						<pagecontrol>607007</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<control type="label" id="701">
+							<label>$LOCALIZE[31124]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="702">
+							<label>$LOCALIZE[31083]</label>
+							<label2>$VAR[AddonFavouritesVar]</label2>
+							<onclick condition="!System.HasAddon(script.favourites)">InstallAddon(script.favourites)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.favourites)">EnableAddon(script.favourites)</onclick>
+							<onclick condition="System.HasAddon(script.favourites)">Addon.OpenSettings(script.favourites)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="703">
+							<label>$LOCALIZE[31434] [LOWERCASE]$LOCALIZE[31447] $LOCALIZE[424] $LOCALIZE[31445][/LOWERCASE]</label>
+							<label2>$VAR[AddonResourceSelectVar]</label2>
+							<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
+							<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="704">
+							<label>$LOCALIZE[31521]</label>
+							<label2>$VAR[AddonMadnoxSkinImagesServiceVar]</label2>
+							<onclick condition="!System.HasAddon(resource.images.skin.madnox)">InstallAddon(resource.images.skin.madnox)</onclick>
+							<onclick condition="!System.AddonIsEnabled(resource.images.skin.madnox)">EnableAddon(resource.images.skin.madnox)</onclick>
+							<onclick condition="System.HasAddon(resource.images.skin.madnox)">Addon.OpenSettings(resource.images.skin.madnox)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="705">
+							<label>$LOCALIZE[31481]</label>
+							<label2>$VAR[AddonMadnoxSkinServiceVar]</label2>
+							<onclick condition="!System.HasAddon(script.skin.madnox)">InstallAddon(script.skin.madnox)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.skin.madnox)">EnableAddon(script.skin.madnox)</onclick>
+							<onclick condition="System.HasAddon(script.skin.madnox)">Addon.OpenSettings(script.skin.madnox)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="706">
+							<label>$LOCALIZE[166] [LOWERCASE]$LOCALIZE[111][/LOWERCASE]</label>
+							<label2>$VAR[AddonSkinShortcutsVar]</label2>
+							<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.skinshortcuts)">EnableAddon(script.skinshortcuts)</onclick>
+							<onclick condition="System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="707">
+							<label>$LOCALIZE[166] variables</label>
+							<label2>$VAR[AddonSkinVariablesVar]</label2>
+							<onclick condition="!System.HasAddon(script.skinvariables)">InstallAddon(script.skinvariables)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.skinvariables)">EnableAddon(script.skinvariables)</onclick>
+							<onclick condition="System.HasAddon(script.skinvariables)">Addon.OpenSettings(script.skinvariables)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="708">
+							<label>TMDb helper</label>
+							<label2>$VAR[AddonTMDbHelperVar]</label2>
+							<onclick condition="!System.HasAddon(plugin.video.themoviedb.helper)">InstallAddon(plugin.video.themoviedb.helper)</onclick>
+							<onclick condition="!System.AddonIsEnabled(plugin.video.themoviedb.helper)">EnableAddon(plugin.video.themoviedb.helper)</onclick>
+							<onclick condition="System.HasAddon(plugin.video.themoviedb.helper)">Addon.OpenSettings(plugin.video.themoviedb.helper)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<!-- NOVA-ENGINE: Madnox Nova engine add-ons (status / install / settings, same pattern as the required add-ons above) -->
+						<control type="label" id="709">
+							<label>Madnox Nova</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="710">
+							<label>Artwork Helper</label>
+							<label2>$VAR[AddonArtworkHelperVar]</label2>
+							<onclick condition="!System.HasAddon(script.artwork.helper)">InstallAddon(script.artwork.helper)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.artwork.helper)">EnableAddon(script.artwork.helper)</onclick>
+							<onclick condition="System.HasAddon(script.artwork.helper)">Addon.OpenSettings(script.artwork.helper)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="711">
+							<label>Skin Helper Service</label>
+							<label2>$VAR[AddonSkinHelperServiceVar]</label2>
+							<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.skin.helper.service)">EnableAddon(script.skin.helper.service)</onclick>
+							<onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="712">
+							<label>Metadata and Artwork Utils</label>
+							<label2>$VAR[AddonMetadataUtilsVar]</label2>
+							<onclick condition="!System.HasAddon(script.module.metadatautils)">InstallAddon(script.module.metadatautils)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.module.metadatautils)">EnableAddon(script.module.metadatautils)</onclick>
+							<onclick condition="System.HasAddon(script.module.metadatautils)">Addon.OpenSettings(script.module.metadatautils)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="713">
+							<label>Embuary Helper</label>
+							<label2>$VAR[AddonEmbuaryHelperVar]</label2>
+							<onclick condition="!System.HasAddon(script.embuary.helper)">InstallAddon(script.embuary.helper)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.embuary.helper)">EnableAddon(script.embuary.helper)</onclick>
+							<onclick condition="System.HasAddon(script.embuary.helper)">Addon.OpenSettings(script.embuary.helper)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="714">
+							<label>Embuary Info</label>
+							<label2>$VAR[AddonEmbuaryInfoVar]</label2>
+							<onclick condition="!System.HasAddon(script.embuary.info)">InstallAddon(script.embuary.info)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.embuary.info)">EnableAddon(script.embuary.info)</onclick>
+							<onclick condition="System.HasAddon(script.embuary.info)">Addon.OpenSettings(script.embuary.info)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="715">
+							<label>Grab Fanart</label>
+							<label2>$VAR[AddonGrabFanartVar]</label2>
+							<onclick condition="!System.HasAddon(script.grab.fanart)">InstallAddon(script.grab.fanart)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.grab.fanart)">EnableAddon(script.grab.fanart)</onclick>
+							<onclick condition="System.HasAddon(script.grab.fanart)">Addon.OpenSettings(script.grab.fanart)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="716">
+							<label>Artwork Beef (optional)</label>
+							<label2>$VAR[AddonArtworkBeefVar]</label2>
+							<onclick condition="!System.HasAddon(script.artwork.beef)">InstallAddon(script.artwork.beef)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.artwork.beef)">EnableAddon(script.artwork.beef)</onclick>
+							<onclick condition="System.HasAddon(script.artwork.beef)">Addon.OpenSettings(script.artwork.beef)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="label" id="720">
+							<label>$LOCALIZE[31205]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="721">
+							<label>$LOCALIZE[31450]</label>
+							<label2>$VAR[AddonArtworkDumpVar]</label2>
+							<onclick condition="System.HasAddon(repository.rector.stuff) + !System.HasAddon(script.artwork.dump)">InstallAddon(script.artwork.dump)</onclick>
+							<onclick condition="System.HasAddon(repository.rector.stuff) + System.HasAddon(script.artwork.dump)">Addon.OpenSettings(script.artwork.dump)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="722">
+							<label>CU LRC $LOCALIZE[24013]</label>
+							<label2>$VAR[AddonLyricsVar]</label2>
+							<onclick condition="!System.HasAddon(script.cu.lrclyrics)">InstallAddon(script.cu.lrclyrics)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.cu.lrclyrics)">EnableAddon(script.cu.lrclyrics)</onclick>
+							<onclick condition="System.HasAddon(script.cu.lrclyrics)">Addon.OpenSettings(script.cu.lrclyrics)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="723">
+							<label>Kittmaster's [LOWERCASE]$LOCALIZE[24011][/LOWERCASE]</label>
+							<label2>$VAR[AddonKittmasterRepoVar]</label2>
+							<onclick condition="!System.HasAddon(repository.kittmaster)">InstallAddon(repository.kittmaster)</onclick>
+							<onclick condition="!System.AddonIsEnabled(repository.kittmaster)">EnableAddon(repository.kittmaster)</onclick>
+							<onclick condition="System.HasAddon(repository.kittmaster)">Addon.OpenSettings(repository.kittmaster)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="724">
+							<label>$LOCALIZE[20338] [LOWERCASE]$LOCALIZE[515] $LOCALIZE[536] $LOCALIZE[737][/LOWERCASE]</label>
+							<label2>$VAR[AddonMovieGenreIconsColor]</label2>
+							<onclick condition="!System.HasAddon(resource.images.moviegenreicons.filmstrip-hd.colour)">InstallAddon(resource.images.moviegenreicons.filmstrip-hd.colour)</onclick>
+							<onclick condition="!System.AddonIsEnabled(resource.images.moviegenreicons.filmstrip-hd.colour)">EnableAddon(resource.images.moviegenreicons.filmstrip-hd.colour)</onclick>
+							<onclick condition="System.HasAddon(resource.images.moviegenreicons.filmstrip-hd.colour)">Addon.OpenSettings(resource.images.moviegenreicons.filmstrip-hd.colour)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="725">
+							<label>Wikipedia</label>
+							<label2>$VAR[AddonWikipediaVar]</label2>
+							<onclick condition="!System.HasAddon(script.wikipedia)">InstallAddon(script.wikipedia)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.wikipedia)">EnableAddon(script.wikipedia)</onclick>
+							<onclick condition="System.HasAddon(script.wikipedia)">Addon.OpenSettings(script.wikipedia)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="label" id="730">
+							<label>$LOCALIZE[31126]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="731">
+							<label>$LOCALIZE[557] [LOWERCASE]$LOCALIZE[108][/LOWERCASE]</label>
+							<label2>$VAR[AddonArtistSlideshowVar]</label2>
+							<onclick condition="!System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.artistslideshow)">EnableAddon(script.artistslideshow)</onclick>
+							<onclick condition="System.HasAddon(script.artistslideshow)">Addon.OpenSettings(script.artistslideshow)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="732">
+							<label>$LOCALIZE[14022] [LOWERCASE]$LOCALIZE[31449] $LOCALIZE[33065][/LOWERCASE]</label>
+							<label2>$VAR[AddonNodeVar]</label2>
+							<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+							<onclick condition="!System.AddonIsEnabled(plugin.library.node.editor)">EnableAddon(plugin.library.node.editor)</onclick>
+							<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="733">
+							<label>$LOCALIZE[20338] [LOWERCASE]$LOCALIZE[515] $LOCALIZE[536] $LOCALIZE[19662][/LOWERCASE]</label>
+							<label2>$VAR[AddonMovieGenreIconsBW]</label2>
+							<onclick condition="!System.HasAddon(resource.images.moviegenreicons.filmstrip-hd.bw)">InstallAddon(resource.images.moviegenreicons.filmstrip-hd.bw)</onclick>
+							<onclick condition="!System.AddonIsEnabled(resource.images.moviegenreicons.filmstrip-hd.bw)">EnableAddon(resource.images.moviegenreicons.filmstrip-hd.bw)</onclick>
+							<onclick condition="System.HasAddon(resource.images.moviegenreicons.filmstrip-hd.bw)">Addon.OpenSettings(resource.images.moviegenreicons.filmstrip-hd.bw)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="734">
+							<label>$LOCALIZE[31451]</label>
+							<label2>$VAR[AddonPreShowExperienceVar]</label2>
+							<onclick condition="!System.HasAddon(script.preshowexperience)">InstallAddon(script.preshowexperience)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.preshowexperience)">EnableAddon(script.preshowexperience)</onclick>
+							<onclick condition="System.HasAddon(script.preshowexperience)">Addon.OpenSettings(script.preshowexperience)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="735">
+							<label>RSS [LOWERCASE]$LOCALIZE[33065][/LOWERCASE]</label>
+							<label2>$VAR[AddonRSSVar]</label2>
+							<onclick condition="!System.HasAddon(script.rss.editor)">InstallAddon(script.rss.editor)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.rss.editor)">EnableAddon(script.rss.editor)</onclick>
+							<onclick condition="System.HasAddon(script.rss.editor)">RunScript(script.rss.editor)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="736">
+							<label>$LOCALIZE[31088].$LOCALIZE[36037]</label>
+							<label2>$VAR[AddonTraktVar]</label2>
+							<onclick condition="!System.HasAddon(script.trakt)">InstallAddon(script.trakt)</onclick>
+							<onclick condition="!System.AddonIsEnabled(script.trakt)">EnableAddon(script.trakt)</onclick>
+							<onclick condition="System.HasAddon(script.trakt)">Addon.OpenSettings(script.trakt)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="737">
+							<label>TvTunes</label>
+							<label2>$VAR[AddonTVtunesVar]</label2>
+							<onclick condition="!System.HasAddon(service.tvtunes)">InstallAddon(service.tvtunes)</onclick>
+							<onclick condition="!System.AddonIsEnabled(service.tvtunes)">EnableAddon(service.tvtunes)</onclick>
+							<onclick condition="System.HasAddon(service.tvtunes)">Addon.OpenSettings(service.tvtunes)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+						<control type="button" id="738">
+							<label>$LOCALIZE[31452] [LOWERCASE]$LOCALIZE[209][/LOWERCASE]</label>
+							<label2>$VAR[AddonUpNextVar]</label2>
+							<onclick condition="!System.HasAddon(service.upnext)">InstallAddon(service.upnext)</onclick>
+							<onclick condition="!System.AddonIsEnabled(service.upnext)">EnableAddon(service.upnext)</onclick>
+							<onclick condition="System.HasAddon(service.upnext)">Addon.OpenSettings(service.upnext)</onclick>
+							<include>SettingsRadioButton</include>
+						</control>
+					</control>
+					<!-- Addon Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(7)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[AddonDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+					<!-- Advanced -->
+					<control type="grouplist" id="7008">
+						<visible>Container(7000).Hasfocus(8)</visible>
+						<top>200</top>
+						<left>425</left>
+						<width>1395</width>
+						<height>670</height>
+						<onleft>7000</onleft>
+						<onright>607008</onright>
+						<pagecontrol>607008</pagecontrol>
+						<include>ContainerScrollTime</include>
+						<control type="label" id="801">
+							<label>$LOCALIZE[31465]</label>
+							<include>SettingsLabel</include>
+						</control>
+						<control type="button" id="802">
+							<label>Madnox [LOWERCASE]$LOCALIZE[31974] $LOCALIZE[24069][/LOWERCASE]</label>
+							<label2>$LOCALIZE[166]: v$INFO[System.AddonVersion(skin.madnox)] | $LOCALIZE[24009]: v$INFO[System.AddonVersion(script.skin.madnox)] | $LOCALIZE[31522]: v$INFO[System.AddonVersion(resource.images.skin.madnox)]</label2>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="803">
+							<label>$LOCALIZE[31028] [LOWERCASE]$LOCALIZE[31549][/LOWERCASE]</label>
+							<onclick>RunScript(script.skin.madnox, action=manage_presets)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="807">
+							<label>$LOCALIZE[31518]</label>
+							<onclick>ActivateWindow(1109)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="808">
+							<label>$LOCALIZE[31525]</label>
+							<onclick>RunScript(script.skin.madnox, action=migrate_bgs)</onclick>
+							<include>SettingsButton</include>
+						</control>
+						<control type="button" id="809">
+							<label>$LOCALIZE[13007] [LOWERCASE]$LOCALIZE[593] $LOCALIZE[166] $LOCALIZE[5][/LOWERCASE]</label>
+							<onclick>ActivateWindow(1107)</onclick>
+							<include>SettingsButton</include>
+						</control>
+					</control>
+					<!-- Advanced Description -->
+					<control type="textbox">
+						<visible>Container(7000).Hasfocus(8)</visible>
+						<left>460</left>
+						<bottom>115</bottom>
+						<width>1325</width>
+						<height>80</height>
+						<font>Font28_Reg</font>
+						<label>$VAR[AdvancedDescriptionVar]</label>
+						<textcolor>$VAR[PanelTextColorVar]</textcolor>
+					</control>
+				</control>
+			</control>
+			<control type="scrollbar" id="607001">
+				<visible>Container(7000).Hasfocus(1)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7001</onleft>
+			</control>
+			<control type="scrollbar" id="607002">
+				<visible>Container(7000).Hasfocus(2)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7002</onleft>
+			</control>
+			<control type="scrollbar" id="607003">
+				<visible>Container(7000).Hasfocus(3)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7003</onleft>
+			</control>
+			<control type="scrollbar" id="607004">
+				<visible>Container(7000).Hasfocus(4)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7004</onleft>
+			</control>
+			<control type="scrollbar" id="607005">
+				<visible>Container(7000).Hasfocus(5)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7005</onleft>
+			</control>
+			<control type="scrollbar" id="607006">
+				<visible>Container(7000).Hasfocus(6)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7006</onleft>
+			</control>
+			<control type="scrollbar" id="607007">
+				<visible>Container(7000).Hasfocus(7)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7007</onleft>
+			</control>
+			<control type="scrollbar" id="607008">
+				<visible>Container(7000).Hasfocus(8)</visible>
+				<top>120</top>
+				<right>80</right>
+				<bottom>120</bottom>
+				<onleft>7008</onleft>
+			</control>
+		</control>
+
+		<!-- Startup Video Preview Player -->
+		<control type="group">
+			<visible>!String.IsEmpty(Window(10000).Property(ShowIntroPreview))</visible>
+			<animation type="Visible" reversible="true">
+				<effect type="fade" start="0" end="100" time="300" />
+				<effect type="slide" start="0,100" end="0,0" time="300" tween="cubic" easing="out" />
+			</animation>
+			<right>120</right>
+			<bottom>120</bottom>
+			<width>568</width>
+			<height>323</height>
+			<!-- Corrected Styling: Exact replica of View 503 Video Preview layers -->
+			<control type="image">
+				<texture>colors/black.png</texture>
+			</control>
+			<control type="videowindow" />
+			<!-- overlay2.png provides the frame/bezel look. bordersize="-10" extends it slightly outside the video area -->
+			<control type="image">
+				<bordersize>-10</bordersize>
+				<texture border="20">thumbs/overlay2.png</texture>
+			</control>
+		</control>
+
+		<!-- Topbar -->
+		<include content="TopBar">
+			<param name="visible">!Skin.HasSetting(SettingsHideTopBar)</param>
+			<param name="icon">settings.png</param>
+			<param name="label">$LOCALIZE[13000] / $LOCALIZE[20077]</param>
+			<param name="animationopen">$EXP[SystemAnimationOpenCondition]</param>
+			<param name="animationclose">$EXP[SystemAnimationCloseCondition]</param>
+		</include>
+		<!-- Media Menu -->
+		<include content="MediaMenu">
+			<param name="contentvisible">true</param>
+			<param name="commontopvisible">false</param>
+			<param name="content">MediaMenuSystem</param>
+			<param name="navigationid">7000</param>
+		</include>
+	</controls>
+</window>

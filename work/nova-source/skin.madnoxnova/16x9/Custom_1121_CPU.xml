@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<window type="dialog" id="1121">
+	<defaultcontrol always="true">9009</defaultcontrol>
+	<controls>
+		<control type="image">
+			<texture colordiffuse="A0000000">colors/black.png</texture>
+			<animation effect="fade" time="400">WindowOpen</animation>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="400" />
+				<effect type="slide" start="0,200" end="0,0" time="500" tween="cubic" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="300" />
+			</animation>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>1400</width>
+			<height>800</height>
+			<!-- SOLID BACKGROUND TO PREVENT TEXT BLEED-THROUGH -->
+			<control type="image">
+				<width>1400</width>
+				<height>800</height>
+				<!-- Use the skin's native dialog shape with an opaque color to block bleed-through perfectly -->
+				<texture colordiffuse="FF080808" border="40">$VAR[DialogStyleVar]</texture>
+				<animation effect="fade" time="400">WindowOpen</animation>
+			</control>
+			<include content="DialogBackground">
+				<param name="width" value="1400" />
+				<param name="height" value="800" />
+			</include>
+			<control type="image">
+				<right>40</right>
+				<top>30</top>
+				<width>120</width>
+				<height>60</height>
+				<aspectratio>keep</aspectratio>
+				<texture>icons/logo.png</texture>
+			</control>
+
+			<control type="label">
+				<top>40</top>
+				<left>40</left>
+				<right>40</right>
+				<height>50</height>
+				<textcolor>$VAR[PanelHighlightColorVar]</textcolor>
+				<label>$LOCALIZE[31486] $LOCALIZE[14116]...</label>
+				<align>left</align>
+				<include>SettingsLeftLabelWidgetsShortcut</include>
+			</control>
+
+			<control type="image">
+				<left>40</left>
+				<top>120</top>
+				<width>600</width>
+				<height>540</height>
+				<aspectratio>scale</aspectratio>
+				<texture border="5">icons/systeminfo/fanart/cpu.jpg</texture>
+				<bordertexture colordiffuse="22FFFFFF" border="5">colors/white.png</bordertexture>
+				<bordersize>5</bordersize>
+			</control>
+
+			<control type="grouplist" id="9001">
+				<left>680</left>
+				<top>120</top>
+				<width>680</width>
+				<!-- Increased Height To 680 To Fit The Extra Lines Of Text -->
+				<height>680</height>
+				<itemgap>15</itemgap>
+				<orientation>vertical</orientation>
+
+				<!-- Header -->
+				<control type="label">
+					<height>40</height>
+					<font>Font30_Reg</font>
+					<label>[COLOR $VAR[PanelHighlightColorVar]][B]$LOCALIZE[31486] [LOWERCASE]$LOCALIZE[126][/LOWERCASE]:[/B][/COLOR]</label>
+					<include>SettingsLabelNoOffset</include>
+				</control>
+
+				<!-- CPU Frequency -->
+				<control type="label">
+					<height>40</height>
+					<font>Font30_Reg</font>
+					<label>[COLOR $VAR[PanelSubTextColorVar]]$LOCALIZE[31486] [LOWERCASE]$LOCALIZE[31488][/LOWERCASE]:[/COLOR] [COLOR $VAR[PanelTextColorVar]][B]$INFO[System.CpuFrequency][/B][/COLOR]</label>
+					<visible>!String.IsEmpty(System.CpuFrequency)</visible>
+				</control>
+
+				<!-- CPU Usage -->
+				<control type="label">
+					<height>40</height>
+					<font>Font30_Reg</font>
+					<label>[COLOR $VAR[PanelSubTextColorVar]]$LOCALIZE[13271][/COLOR] [COLOR $VAR[PanelTextColorVar]][B]$INFO[System.CpuUsage][/B][/COLOR]</label>
+					<visible>System.SupportsCPUUsage</visible>
+				</control>
+				<control type="progress">
+					<info>System.CpuUsage</info>
+				</control>
+
+				<!-- CPU Temperature -->
+				<control type="label">
+					<height>40</height>
+					<font>Font30_Reg</font>
+					<label>[COLOR $VAR[PanelSubTextColorVar]]$LOCALIZE[1375]:[/COLOR] [COLOR $VAR[PanelTextColorVar]][B]$INFO[System.CpuTemperature][/B][/COLOR]</label>
+					<visible>Integer.IsGreater(System.CPUTemperature,1)</visible>
+				</control>
+
+				<!-- Fan Speed -->
+				<control type="label">
+					<height>40</height>
+					<font>Font30_Reg</font>
+					<label>[COLOR $VAR[PanelSubTextColorVar]]$LOCALIZE[13300]:[/COLOR] [COLOR $VAR[PanelTextColorVar]][B]$INFO[System.FanSpeed] RPM[/B][/COLOR]</label>
+					<visible>Integer.IsGreater(System.FanSpeed,1)</visible>
+				</control>
+
+				<!-- Cores (Dynamic Multi-Core list) -->
+				<control type="label">
+					<height>360</height>
+					<font>Font30_Reg</font>
+					<aligny>top</aligny>
+					<wrapmultiline>true</wrapmultiline>
+					<label>[COLOR $VAR[PanelSubTextColorVar]]$LOCALIZE[31486] [LOWERCASE]$LOCALIZE[31495][/LOWERCASE]: [COLOR $VAR[PanelTextColorVar]](0)[/COLOR] $INFO[System.CoreUsage(0),,%], [COLOR $VAR[PanelTextColorVar]](1)[/COLOR] $INFO[System.CoreUsage(1),,%], [COLOR $VAR[PanelTextColorVar]](2)[/COLOR] $INFO[System.CoreUsage(2),,%], [COLOR $VAR[PanelTextColorVar]](3)[/COLOR] $INFO[System.CoreUsage(3),,%], [COLOR $VAR[PanelTextColorVar]](4)[/COLOR] $INFO[System.CoreUsage(4),,%], [COLOR $VAR[PanelTextColorVar]](5)[/COLOR] $INFO[System.CoreUsage(5),,%], [COLOR $VAR[PanelTextColorVar]](6)[/COLOR] $INFO[System.CoreUsage(6),,%], [COLOR $VAR[PanelTextColorVar]](7)[/COLOR] $INFO[System.CoreUsage(7),,%], [COLOR $VAR[PanelTextColorVar]](8)[/COLOR] $INFO[System.CoreUsage(8),,%], [COLOR $VAR[PanelTextColorVar]](9)[/COLOR] $INFO[System.CoreUsage(9),,%], [COLOR $VAR[PanelTextColorVar]](10)[/COLOR] $INFO[System.CoreUsage(10),,%], [COLOR $VAR[PanelTextColorVar]](11)[/COLOR] $INFO[System.CoreUsage(11),,%], [COLOR $VAR[PanelTextColorVar]](12)[/COLOR] $INFO[System.CoreUsage(12),,%], [COLOR $VAR[PanelTextColorVar]](13)[/COLOR] $INFO[System.CoreUsage(13),,%], [COLOR $VAR[PanelTextColorVar]](14)[/COLOR] $INFO[System.CoreUsage(14),,%], [COLOR $VAR[PanelTextColorVar]](15)[/COLOR] $INFO[System.CoreUsage(15),,%], [COLOR $VAR[PanelTextColorVar]](16)[/COLOR] $INFO[System.CoreUsage(16),,%], [COLOR $VAR[PanelTextColorVar]](17)[/COLOR] $INFO[System.CoreUsage(17),,%], [COLOR $VAR[PanelTextColorVar]](18)[/COLOR] $INFO[System.CoreUsage(18),,%], [COLOR $VAR[PanelTextColorVar]](19)[/COLOR] $INFO[System.CoreUsage(19),,%], [COLOR $VAR[PanelTextColorVar]](20)[/COLOR] $INFO[System.CoreUsage(20),,%], [COLOR $VAR[PanelTextColorVar]](21)[/COLOR] $INFO[System.CoreUsage(21),,%], [COLOR $VAR[PanelTextColorVar]](22)[/COLOR] $INFO[System.CoreUsage(22),,%], [COLOR $VAR[PanelTextColorVar]](23)[/COLOR] $INFO[System.CoreUsage(23),,%]</label>
+				</control>
+			</control>
+
+			<control type="button" id="9009">
+				<width>200</width>
+				<height>60</height>
+				<centerleft>50%</centerleft>
+				<bottom>40</bottom>
+				<label>$LOCALIZE[186]</label>
+				<font>Font30_Bold</font>
+				<align>center</align>
+				<onclick>Action(Close)</onclick>
+				<include>DialogButtonAlwaysFocused</include>
+			</control>
+		</control>
+	</controls>
+</window>

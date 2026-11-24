@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<includes>
+	<!-- NOVA-BARS (21.11.5): styled progress bars for Skin.String(NovaBarStyleProgress).
+	     One parameterized definition renders one progress bar; the CALLER issues one include call per style,
+	     gated by an include condition on the style string, passing geometry/texture params per style:
+	       classic (string empty or "classic") : wraptop 0, wrapheight 20, progtop 0, progheight 20, stock textures, border 8
+	       slim                                : wraptop 0, wrapheight 20, progtop 5, progheight 10, stock textures, border 8
+	       bold                                : wraptop -8, wrapheight 36, progtop 0, progheight 36, stock textures, border 8
+	       rounded                             : classic geometry, nova_* rounded textures, border 10
+	       glow                                : wraptop -14, wrapheight 48, progtop 14, progheight 20, stock textures + glowvisible=true
+	     All styles keep the bar's centre on the classic band centre (y=10 in caller coordinates), and the 21.11.4
+	     color strings arrive as the midcolor/bgcolor/glowcolor params, so a picked color composes on top of the
+	     picked style. With the style classic and the color strings empty, the rendered bar is the pre-21.11.4 one:
+	     same rect the Defaults.xml progress default produced (top 0, height 20), same textures, same diffuses.
+	     The glow element is an UNDERLAY: a soft gradient strip behind the whole bar, tinted by glowcolor — it is
+	     not clipped to the progress fraction. -->
+	<include name="NovaBarProgress">
+		<param name="visible">true</param>
+		<param name="info">Player.Progress</param>
+		<param name="wraptop">0</param>
+		<param name="wrapheight">20</param>
+		<param name="progtop">0</param>
+		<param name="progheight">20</param>
+		<param name="midtexture">panels/progress-control/progress-mid.png</param>
+		<param name="midborder">8</param>
+		<param name="midcolor">$VAR[PanelHighlightColorVar]</param>
+		<param name="bgtexture">panels/progress-control/progress-back.png</param>
+		<param name="bgborder">8</param>
+		<param name="bgcolor">FFFFFFFF</param>
+		<param name="glowvisible">false</param>
+		<param name="glowcolor">$VAR[PanelHighlightColorVar]</param>
+		<param name="fade">false</param>
+		<definition>
+			<control type="group">
+				<visible>$PARAM[visible]</visible>
+				<top>$PARAM[wraptop]</top>
+				<height>$PARAM[wrapheight]</height>
+				<control type="image">
+					<visible>String.IsEqual($PARAM[glowvisible],true)</visible>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<bottom>0</bottom>
+					<texture colordiffuse="$PARAM[glowcolor]">panels/progress-control/nova_glow-strip.png</texture>
+				</control>
+				<control type="progress">
+					<include condition="String.IsEqual($PARAM[fade],true)" content="AnimationVisibleFade" />
+					<top>$PARAM[progtop]</top>
+					<height>$PARAM[progheight]</height>
+					<info>$PARAM[info]</info>
+					<texturebg border="$PARAM[bgborder]" colordiffuse="$PARAM[bgcolor]">$PARAM[bgtexture]</texturebg>
+					<midtexture border="$PARAM[midborder]" colordiffuse="$PARAM[midcolor]">$PARAM[midtexture]</midtexture>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- NOVA-BARS (21.11.5): styled progress bar WITHOUT an explicit track — the progress control keeps the
+	     Defaults.xml default texturebg (panels/progress-control/progress-back.png, border 8, no diffuse),
+	     exactly like the bare controls it replaces. Used for the seek buffer bar, the PVR EPG progress and the
+	     music OSD progress in every style EXCEPT "rounded": the rounded call uses NovaBarProgress with the
+	     rounded track texture, because a capsule fill over the stock track's small corner radius would overhang. -->
+	<include name="NovaBarProgressNoBg">
+		<param name="visible">true</param>
+		<param name="info">Player.Progress</param>
+		<param name="wraptop">0</param>
+		<param name="wrapheight">20</param>
+		<param name="progtop">0</param>
+		<param name="progheight">20</param>
+		<param name="midtexture">panels/progress-control/progress-mid.png</param>
+		<param name="midborder">8</param>
+		<param name="midcolor">$VAR[PanelHighlightColorVar]</param>
+		<param name="glowvisible">false</param>
+		<param name="glowcolor">$VAR[PanelHighlightColorVar]</param>
+		<param name="fade">false</param>
+		<definition>
+			<control type="group">
+				<visible>$PARAM[visible]</visible>
+				<top>$PARAM[wraptop]</top>
+				<height>$PARAM[wrapheight]</height>
+				<control type="image">
+					<visible>String.IsEqual($PARAM[glowvisible],true)</visible>
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<bottom>0</bottom>
+					<texture colordiffuse="$PARAM[glowcolor]">panels/progress-control/nova_glow-strip.png</texture>
+				</control>
+				<control type="progress">
+					<include condition="String.IsEqual($PARAM[fade],true)" content="AnimationVisibleFade" />
+					<top>$PARAM[progtop]</top>
+					<height>$PARAM[progheight]</height>
+					<info>$PARAM[info]</info>
+					<midtexture border="$PARAM[midborder]" colordiffuse="$PARAM[midcolor]">$PARAM[midtexture]</midtexture>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<!-- NOVA-BARS (21.11.6): MQ menu bar layers, ported from Latts' Aeon MQ9 Mod v1.8.7 (MainMenu.xml
+	     mainmenu_furniture). Called from Home.xml behind Nova's own menu lists when Skin.String(NovaMenuBarStyle)
+	     names an MQ style of the matching orientation. Rects are MQ9's 3840x2160 furniture geometry halved to
+	     Nova's 1920x1080 canvas (MQ9: bar top/height per style group). Nova's menu list keeps its own position;
+	     Nova's stock bar furniture is hidden while a style is active (Includes_Home.xml). -->
+	<include name="NovaMQMenuBarHorizontal">
+		<control type="group">
+			<!-- static back, MQ group A (styles 1,2): MQ top 1922 h 238 -->
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture colordiffuse="$VAR[NovaMenuBarColorVar]">mainmenu_styles/horizontal/$INFO[Skin.String(NovaMenuBarStyle)]_back.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),1) | String.IsEqual(Skin.String(NovaMenuBarStyle),2)</visible>
+			</control>
+			<!-- static back, MQ group B (styles 3,4,5,6,32): MQ top 1730 h 430 -->
+			<control type="image">
+				<top>865</top>
+				<width>1920</width>
+				<height>215</height>
+				<texture colordiffuse="$VAR[NovaMenuBarColorVar]">mainmenu_styles/horizontal/$INFO[Skin.String(NovaMenuBarStyle)]_back.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),3) | String.IsEqual(Skin.String(NovaMenuBarStyle),4) | String.IsEqual(Skin.String(NovaMenuBarStyle),5) | String.IsEqual(Skin.String(NovaMenuBarStyle),6) | String.IsEqual(Skin.String(NovaMenuBarStyle),32)</visible>
+			</control>
+			<!-- static back, MQ group C (styles 11-15, MQ8 bars): MQ bar top 1960 h 170 -->
+			<control type="image">
+				<top>980</top>
+				<width>1920</width>
+				<height>86</height>
+				<texture colordiffuse="$VAR[NovaMenuBarColorVar]">mainmenu_styles/horizontal/$INFO[Skin.String(NovaMenuBarStyle)]_back.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),11) | String.IsEqual(Skin.String(NovaMenuBarStyle),12) | String.IsEqual(Skin.String(NovaMenuBarStyle),13) | String.IsEqual(Skin.String(NovaMenuBarStyle),14) | String.IsEqual(Skin.String(NovaMenuBarStyle),15)</visible>
+			</control>
+			<!-- static back, MQ group D (style 21, MQ7 bar): MQ bar top 1940 h 140 -->
+			<control type="image">
+				<top>970</top>
+				<width>1920</width>
+				<height>70</height>
+				<texture colordiffuse="$VAR[NovaMenuBarColorVar]">mainmenu_styles/horizontal/$INFO[Skin.String(NovaMenuBarStyle)]_back.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),21)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar1.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),7)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar2.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),8)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar3.gif</texture>
+				<colordiffuse>$VAR[NovaMenuBarAnimColorVar]</colordiffuse>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),9)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar4.gif</texture>
+				<colordiffuse>$VAR[NovaMenuBarAnimColorVar]</colordiffuse>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),10)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar5.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),22)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar6.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),23)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar7.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),24)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar8.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),25)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar9.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),26)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar10.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),27)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar11.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),28)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar12.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),29)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar13.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),30)</visible>
+			</control>
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture diffuse="mainmenu_styles/horizontal/7_back.png">mainmenu_styles/horizontal/animated_menu_bar14.gif</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),31)</visible>
+			</control>
+			<!-- border frame, MQ group A styles only (MQ9 draws no border for groups B/C/D) -->
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture>mainmenu_styles/horizontal/$INFO[Skin.String(NovaMenuBarStyle)]_border.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),1) | String.IsEqual(Skin.String(NovaMenuBarStyle),2) | String.IsEqual(Skin.String(NovaMenuBarStyle),7) | String.IsEqual(Skin.String(NovaMenuBarStyle),8) | String.IsEqual(Skin.String(NovaMenuBarStyle),9) | String.IsEqual(Skin.String(NovaMenuBarStyle),10) | String.IsEqual(Skin.String(NovaMenuBarStyle),22) | String.IsEqual(Skin.String(NovaMenuBarStyle),23) | String.IsEqual(Skin.String(NovaMenuBarStyle),24) | String.IsEqual(Skin.String(NovaMenuBarStyle),25) | String.IsEqual(Skin.String(NovaMenuBarStyle),26) | String.IsEqual(Skin.String(NovaMenuBarStyle),27) | String.IsEqual(Skin.String(NovaMenuBarStyle),28) | String.IsEqual(Skin.String(NovaMenuBarStyle),29) | String.IsEqual(Skin.String(NovaMenuBarStyle),30) | String.IsEqual(Skin.String(NovaMenuBarStyle),31)</visible>
+			</control>
+			<!-- gradient overlay (MQ9: group A + styles 3,4,5,32) -->
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture>mainmenu_styles/gradient_mask.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),1) | String.IsEqual(Skin.String(NovaMenuBarStyle),2) | String.IsEqual(Skin.String(NovaMenuBarStyle),7) | String.IsEqual(Skin.String(NovaMenuBarStyle),8) | String.IsEqual(Skin.String(NovaMenuBarStyle),9) | String.IsEqual(Skin.String(NovaMenuBarStyle),10) | String.IsEqual(Skin.String(NovaMenuBarStyle),22) | String.IsEqual(Skin.String(NovaMenuBarStyle),23) | String.IsEqual(Skin.String(NovaMenuBarStyle),24) | String.IsEqual(Skin.String(NovaMenuBarStyle),25) | String.IsEqual(Skin.String(NovaMenuBarStyle),26) | String.IsEqual(Skin.String(NovaMenuBarStyle),27) | String.IsEqual(Skin.String(NovaMenuBarStyle),28) | String.IsEqual(Skin.String(NovaMenuBarStyle),29) | String.IsEqual(Skin.String(NovaMenuBarStyle),30) | String.IsEqual(Skin.String(NovaMenuBarStyle),31) | String.IsEqual(Skin.String(NovaMenuBarStyle),3) | String.IsEqual(Skin.String(NovaMenuBarStyle),4) | String.IsEqual(Skin.String(NovaMenuBarStyle),5) | String.IsEqual(Skin.String(NovaMenuBarStyle),32)</visible>
+			</control>
+			<!-- Batman gradient overlay (MQ9: style 6 only) -->
+			<control type="image">
+				<top>961</top>
+				<width>1920</width>
+				<height>119</height>
+				<texture>mainmenu_styles/gradient_mask_batman.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),6)</visible>
+			</control>
+		</control>
+	</include>
+
+	<include name="NovaMQMenuBarVertical">
+		<control type="group">
+			<!-- vertical panel composition (MQ9 draws its vertical backs at 538x2160; Nova fits them to its
+			     340-wide menu panel). Colour diffuse = the ported bar colour, as in MQ9. -->
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>340</width>
+				<height>1080</height>
+				<texture colordiffuse="$VAR[NovaMenuBarColorVar]">$VAR[NovaMenuBarVerticalBackVar]</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),v32) | String.IsEqual(Skin.String(NovaMenuBarStyle),v33) | String.IsEqual(Skin.String(NovaMenuBarStyle),v35) | String.IsEqual(Skin.String(NovaMenuBarStyle),v36)</visible>
+			</control>
+			<!-- vertical border overlay (MQ9 draws it for styles 32/33 only) -->
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>340</width>
+				<height>1080</height>
+				<texture>$VAR[NovaMenuBarVerticalBorderVar]</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),v32) | String.IsEqual(Skin.String(NovaMenuBarStyle),v33)</visible>
+			</control>
+			<!-- style v34 (AEON MQ 8 VERTICAL 3): MQ9 draws the MQ8 bar flipped as a band at MQ top 1200 h 170 -->
+			<control type="image">
+				<left>0</left>
+				<top>600</top>
+				<width>1920</width>
+				<height>85</height>
+				<texture flipy="true" colordiffuse="$VAR[NovaMenuBarColorVar]">mainmenu_styles/vertical/34_back.png</texture>
+				<visible>String.IsEqual(Skin.String(NovaMenuBarStyle),v34)</visible>
+			</control>
+		</control>
+	</include>
+</includes>
